@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@font-face {
+    font-family: 'Impact';
+    src: url('Impact.woff2') format('woff2'),
+        url('Impact.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Impacted';
+    src: url('Impacted.woff2') format('woff2'),
+        url('Impacted.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Impact';
+    src: url('Impact.woff2') format('woff2'),
+        url('Impact.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+.color-white {
+    color: white;
+}
+.poppins-font {
+    font-family: 'Poppins', sans-serif;
+}

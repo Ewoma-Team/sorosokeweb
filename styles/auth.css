@@ -1,0 +1,46 @@
+.auth-full {
+    min-height: 100vh;
+    background: url('../images/Loading\ Screen\ -\ Desktop.png');
+    background-size: cover;
+    background-position: center;
+}
+.auth-con {
+    border-radius: 6px;
+    min-height: 60vh;
+    margin-top: 20vh;
+    background-color: #404040;
+    border: 1px solid red;
+}
+.auth-con h3 {
+    font-size: 28px;
+    color: white;
+    font-family: 'impact';
+}
+.auth-con h3 span {
+    color: #d61545;
+}
+.auth-con p {
+    font-size: 12px;
+    color: white;
+    font-weight: 300;
+}
+.auth-con .btn{
+    height: 3em;
+    font-weight: 300;
+}
+.auth-con .btn span{
+    font-size: 12px;
+}
+.auth-con .facebook-login-btn {
+    background: #4267B2;
+}
+.auth-con .twitter-login-btn {
+    background: #1DA1F2;
+}
+.auth-con small {
+    font-size: 8px;
+}
+.auth-con small a {
+    color: white !important;
+    text-decoration: underline;
+}
