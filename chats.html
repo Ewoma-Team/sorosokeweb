@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/chats.css">
+    <title data-title>Home</title>
+</head>
+
+<body>
+    <div class="container-fluid poppins-font">
+        <div class="row">
+            <div class="col-12 row mx-0 page-full scroller px-0">
+                <div id="user-section-desktop" class="col-2 user-section-desktop px-0">
+                    <div class="user-image-desktop mt-5 mx-auto">
+                        <img src="images/sample-girl.png" alt="">
+                    </div>
+                    <h6 class="text-center color-white mt-3" style="font-weight: 300;">Hi! Esther</h6>
+                    <div class="page-nav-links pr-2" style="margin-top: 15vh;">
+                        <ul class="nav flex-column">
+                            <li class="nav-item my-2">
+                                <a class="nav-link ml-4 pt-3" href="feed.html"><i
+                                        class="fas fa-lg fa-newspaper mr-4"></i>Feed</a>
+                            </li>
+                            <li class="nav-item my-2 active">
+                                <a class="nav-link ml-4 pt-3" href="#"><i class="fas fa-lg fa-comment mr-4"></i>Chat
+                                    Rooms</a>
+                            </li>
+                            <li class="nav-item my-2" style="position: absolute; bottom: 0">
+                                <a class="nav-link ml-4 pt-3" href="#"><i class="fas fa-lg fa-sign-out-alt mr-4"></i>Log
+                                    Out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-10 main-section px-0">
+                    <div class="col-12 row mx-0 main-section-header mt-4">
+                        <h2 class="col-5 color-white impact-font">Chat Rooms</h2>
+                        <div id="user-section-mobile" class="col-7 d-none justify-content-end user-section-mobile">
+                            <span class="text-center color-white mt-3 mx-2"
+                                style="font-size: 12px; font-weight: 300;">Hi! Esther</span>
+                            <div class="user-image-mobile mt-1">
+                                <img src="images/sample-girl.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 row mx-0 main-section-header-text mt-2">
+                        <p class="col-12 col-md-5 color-white" style="font-size: 12px; font-weight: 200;">Connect with
+                            people in your city and beyond. Chat about the mobement and protests. Let’s #endsars.. </p>
+                        <!-- <div id="desktop-upload" class="col-7 text-right">
+                            <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                                data-target="#uploadModal"><i class="fas fa-lg fa-cloud-upload-alt mr-3"></i><span
+                                    class="font-12px">Upload</span></button>
+                        </div> -->
+                    </div>
+                    <div class="col-12 row content-showcase scroller mx-0">
+                        <div class="col-12 row mx-0 mt-2 chats-full">
+                            <div class="col-12 col-md-2 px-0 select-room-section">
+                                <div class="col-12 px-0 search-rooms mb-3">
+                                    <form>
+                                        <div class="form-group">
+                                            <i class="fas fa-search fa-xs input-icon" style="left: 2px; top: 30%;"></i>
+                                            <input placeholder="Search Rooms by States" type="text" class="form-control pl-4"
+                                                aria-describedby="emailHelp">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="chat-nav-links scroller pr-4 mt-2">
+                                    <span class="chat-group-title ml-3">Public Rooms</span><span
+                                        class="little-dash ml-2"></span>
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item mb-1 active">
+                                            <a class="nav-link" href="#"><i
+                                                    class="fas fa-lg mr-3 fa-globe-americas"></i>Global Room</a>
+                                        </li>
+                                        <li class="nav-item mb-1">
+                                            <a class="nav-link" href="#"><i class="fas fa-lg mr-3 fa-users"></i>General
+                                                Room</a>
+                                        </li>
+                                        <li class="nav-item mb-1">
+                                            <a class="nav-link" href="#"><i class="fas fa-lg mr-3 fa-flag"></i>National
+                                                Room</a>
+                                        </li>
+                                    </ul>
+                                    <span class="chat-group-title ml-3">State Rooms</span><span
+                                        class="little-dash ml-2"></span>
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item mb-1">
+                                            <a class="nav-link" href="#">Abia State Room</a>
+                                        </li>
+                                        <li class="nav-item mb-1">
+                                            <a class="nav-link" href="#">Abia State Room</a>
+                                        </li>
+                                        <li class="nav-item mb-1">
+                                            <a class="nav-link" href="#">Abia State Room</a>
+                                        </li>
+                                        <li class="nav-item mb-1">
+                                            <a class="nav-link" href="#">Abia State Room</a>
+                                        </li>
+                                        <li class="nav-item mb-1">
+                                            <a class="nav-link" href="#">Abia State Room</a>
+                                        </li>
+                                        <li class="nav-item mb-1">
+                                            <a class="nav-link" href="#">Abia State Room</a>
+                                        </li>
+                                        <li class="nav-item mb-1">
+                                            <a class="nav-link" href="#">Abia State Room</a>
+                                        </li>
+                                        <li class="nav-item mb-1">
+                                            <a class="nav-link" href="#">Abia State Room</a>
+                                        </li>
+                                        <li class="nav-item mb-1">
+                                            <a class="nav-link" href="#">Abia State Room</a>
+                                        </li>
+                                        <li class="nav-item mb-1">
+                                            <a class="nav-link" href="#">Abia State Room</a>
+                                        </li>
+                                        <li class="nav-item mb-1">
+                                            <a class="nav-link" href="#">Abia State Room</a>
+                                        </li>
+                                        <li class="nav-item mb-1">
+                                            <a class="nav-link" href="#">Abia State Room</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-10 chat-view px-0">
+                                <div class="col-12 room-title-information">
+                                    <p class="color-white ml-2 mt-3">Global Chat Room - <span>350 members</span></p>
+                                </div>
+                                <div class="col-12 chat-view-actual scroller pt-5 px-0">
+                                    <div class="floating-chat-day">
+                                        <span class="">Yesterday</span>
+                                    </div>
+                                    <div class="col-12 chat-message chat-message-right mb-3">
+                                        <div
+                                            class="ml-auto d-flex justify-content-start chat-author col-12 col-md-4 mt-2">
+                                            <div class="chat-author-image">
+                                                <img src="images/sample-girl.png" alt="">
+                                            </div>
+                                            <small class="color-white ml-1">Eniduro Shade
+                                                Thrower</small>
+                                            <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
+                                        </div>
+                                        <div class="ml-auto mt-1 chat-message-con col-12 col-md-4">
+                                            <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
+                                                dignissimos temporibus assumenda quae atque!</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 chat-message chat-message-left mb-3">
+                                        <div class="d-flex justify-content-start chat-author col-12 col-md-4 mt-2">
+                                            <div class="chat-author-image">
+                                                <img src="images/sample-girl.png" alt="">
+                                            </div>
+                                            <small class="color-white ml-1">Eniduro Shade
+                                                Thrower</small>
+                                            <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
+                                        </div>
+                                        <div class="mt-1 chat-message-con col-12 col-md-4">
+                                            <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
+                                                dignissimos temporibus assumenda quae atque!</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 chat-message chat-message-right mb-3">
+                                        <div
+                                            class="ml-auto d-flex justify-content-start chat-author col-12 col-md-4 mt-2">
+                                            <div class="chat-author-image">
+                                                <img src="images/sample-girl.png" alt="">
+                                            </div>
+                                            <small class="color-white ml-1">Eniduro Shade
+                                                Thrower</small>
+                                            <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
+                                        </div>
+                                        <div class="ml-auto mt-1 chat-message-con col-12 col-md-4">
+                                            <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
+                                                dignissimos temporibus assumenda quae atque!</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 chat-message chat-message-right mb-3">
+                                        <div
+                                            class="ml-auto d-flex justify-content-start chat-author col-12 col-md-4 mt-2">
+                                            <div class="chat-author-image">
+                                                <img src="images/sample-girl.png" alt="">
+                                            </div>
+                                            <small class="color-white ml-1">Eniduro Shade
+                                                Thrower</small>
+                                            <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
+                                        </div>
+                                        <div class="ml-auto mt-1 chat-message-con col-12 col-md-4">
+                                            <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
+                                                dignissimos temporibus assumenda quae atque!</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 chat-message chat-message-right mb-3">
+                                        <div
+                                            class="ml-auto d-flex justify-content-start chat-author col-12 col-md-4 mt-2">
+                                            <div class="chat-author-image">
+                                                <img src="images/sample-girl.png" alt="">
+                                            </div>
+                                            <small class="color-white ml-1">Eniduro Shade
+                                                Thrower</small>
+                                            <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
+                                        </div>
+                                        <div class="ml-auto mt-1 chat-message-con col-12 col-md-4">
+                                            <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
+                                                dignissimos temporibus assumenda quae atque!</span>
+                                        </div>
+                                    </div>
+                                    <div class="input-message-area col-12 px-0">
+                                        <form class="px-3 pt-1">
+                                            <div class="d-flex justify-content-start form-group dropup">
+                                                <i class="far fa-smile fa-lg input-icon" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false"></i>
+                                                <div class="dropdown-menu font-12px p-3 text-center"
+                                                    style="height: 20vh; width: 20vh;">
+                                                    Emojis here
+                                                </div>
+                                                <div class="col-12 px-0 row mx-0">
+                                                    <input placeholder="Type your message here" type="text"
+                                                        class="form-control pl-5 col-8 col-md-9" aria-describedby="">
+                                                    <div class="col-2 col-md-1 px-0 attachments-div text-center">
+                                                        <button type="button"
+                                                            class="btn btn-outline-light attachments-button"><i
+                                                                class="fas fa-paperclip fa-lg"></i></button>
+                                                    </div>
+                                                    <button type="submit"
+                                                        class="btn btn-brand send-chat-button col-2"
+                                                        ><i class="fas fa-paper-plane fa-lg"></i></button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div id="mobile-upload" class="mobile-upload d-none">
+        <button type="button" class="btn" data-toggle="modal" data-target="#uploadModal"><i
+                class="fas fa-lg fa-cloud-upload-alt color-white"></i></button>
+    </div> -->
+    <div id="mobile-nav" class="col-12 px-0 row mx-0 mobile-nav d-none">
+        <div class="col px-0 mobile-page-nav text-center">
+            <a class="nav-link" href="feed"><i class="fas fa-lg fa-newspaper"></i><br>Feed</a>
+        </div>
+        <div class="col px-0 mobile-page-nav active text-center">
+            <a class="nav-link" href="#"><i class="fas fa-lg fa-comment"></i><br>Chat Rooms</a>
+        </div>
+        <div class="col px-0 mobile-page-nav text-center">
+            <a class="nav-link" href="#"><i class="fas fa-lg fa-sign-out-alt"></i><br>Log Out</a>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal fade poppins-font" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel"
+        aria-hidden="true">
+        <div id="upload-modal-dialog" class="modal-dialog" role="document">
+            <div class="modal-content mx-0">
+                <!-- <div class="modal-header text-center">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div> -->
+                <div class="modal-body">
+                    <div class="col-12 text-center">
+                        <p class="font-12px my-5" style="font-weight: 300;">Upload images or videos towards<br>#endsars
+                        </p>
+                        <div class="col-7 mx-auto drag-click-box" style="padding-top: 65px;">
+                            <span class="text-center d-none" style="font-size: 10px; font-weight: 300;">Drag and drop a
+                                file or <br> click to upload media</span>
+                            <span class="text-center" style="font-size: 10px; font-weight: 300;">Click here to browse
+                                device for <br> media you wish to upload</span>
+                        </div>
+                        <button type="button" class="btn btn-danger mt-5" style="height: 7vh; width: 20vh;"><span
+                                class="font-12px">Upload</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!--Import third party cdn-->
+<script src="js/general/third_party_cdn.js"></script>
+<script>
+    let userSectionDesktop = document.getElementById('user-section-desktop')
+    let userSectionMobile = document.getElementById('user-section-mobile')
+    let desktopUpload = document.getElementById('desktop-upload')
+    let mobileUpload = document.getElementById('mobile-upload')
+    let mobileNav = document.getElementById('mobile-nav')
+    let uploadModalDialog = document.getElementById('upload-modal-dialog')
+    console.log(window.location.href)
+
+    adjustForScreenSize = () => {
+        if (window.screen.width <= 768) {
+            userSectionDesktop.classList.add('d-none')
+            userSectionMobile.classList.remove('d-none')
+            userSectionMobile.classList.add('d-flex')
+            mobileNav.classList.remove('d-none')
+        } else {
+            userSectionDesktop.classList.remove('d-none')
+            userSectionMobile.classList.add('d-none')
+            userSectionMobile.classList.remove('d-flex')
+            mobileNav.classList.add('d-none')
+        }
+    }
+    adjustForScreenSize();
+    window.onresize = adjustForScreenSize;
+</script>
+
+
+</html>
