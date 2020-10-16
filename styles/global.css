@@ -42,10 +42,19 @@
 .end-sars-loader {
     height: 100vh;
     position: absolute;
-    background: url('../images/Loading\ Screen\ -\ Desktop.png.png');
+    background: #151314;
     background-position: center;
     background-size: cover;
     z-index: 2;
+}
+.loader-logo {
+    height: 40vh;
+    width: 40vh;
+    
+}
+.loader-logo img {
+    height: 40vh;
+    width: 40vh;
 }
 
 .font-12px {
