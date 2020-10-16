@@ -1,6 +1,6 @@
 .auth-full {
     min-height: 100vh;
-    background: url('../images/Loading\ Screen\ -\ Desktop.png.png');
+    background: #151314;
     background-size: cover;
     background-position: center;
 }
@@ -46,4 +46,12 @@
 .auth-con small a {
     color: white !important;
     text-decoration: underline;
+}
+.sorosoke-image {
+    height: 8vh;
+    width: 8vh;
+}
+.sorosoke-image img{
+    height: 8vh;
+    width: 8vh;
 }
