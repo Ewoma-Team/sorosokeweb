@@ -4,10 +4,7 @@ const apiRoute = new Routes;
 const {apiOrigin, apiVersion, twitterLogin} = apiRoute;
 
 
-console.log(`${apiOrigin}${apiVersion}${twitterLogin}`)
-
 const twitterLoginBtn = document.querySelector('[data-twitter-login]');
-const twitterPreload = document.querySelector('[data-twitter-preload]')
 
 const loginErrorHandling = (status, result) => {
     console.log(status, result)
@@ -24,7 +21,10 @@ const twitterLoginApi = async (e) => {
 
     const status = null;
     
-    twitterPreload.innerHTML = ''
+    twitterLoginBtn.innerHTML = `
+        <div class="spinner-grow" style="color: #fff;" role="status"></div>
+        <span style="color: #fff; font-weight: bold;">Loading...</span>
+    `
 
     try {
         const response = await fetch(`${apiOrigin}${apiVersion}${twitterLogin}`, {

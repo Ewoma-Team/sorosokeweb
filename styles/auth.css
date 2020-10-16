@@ -36,6 +36,7 @@
 .auth-con .twitter-login-btn {
     background: #1DA1F2;
     cursor: pointer;
+    font-weight: bold;
 }
 .auth-con .google-login-btn {
     background: white;
