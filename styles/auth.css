@@ -1,6 +1,6 @@
 .auth-full {
     min-height: 100vh;
-    background: url('../images/Loading\ Screen\ -\ Desktop.png');
+    background: url('../images/Loading\ Screen\ -\ Desktop.png.png');
     background-size: cover;
     background-position: center;
 }
@@ -35,6 +35,7 @@
 }
 .auth-con .twitter-login-btn {
     background: #1DA1F2;
+    cursor: pointer;
 }
 .auth-con .google-login-btn {
     background: white;
