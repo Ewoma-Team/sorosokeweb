@@ -96,7 +96,127 @@
     height: 30vh;
     border: 1px dashed #d61545;
 }
+.user-section-desktop {
+    border-right: 2px solid #ec0b43;
+    border-top: 1px solid transparent;
+    height: 100%;
+    background: #404040;
+}
+.user-image-desktop {
+    height: 15vh;
+    width: 15vh;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+.user-image-desktop img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    
+}
 
+.user-image-mobile {
+    height: 6vh;
+    width: 6vh;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+.user-image-mobile img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    
+}
+.user-image-desktop:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.page-nav-links ul li  {
+    height: 50px;
+    border-radius: 0px 7px 7px 0px;
+    cursor: pointer;
+}
+.chat-nav-links ul li {
+    border-radius: 0px 7px 7px 0px;
+    cursor: pointer;
+}
+.chat-nav-links ul li a {
+    color: white !important;
+    font-size: 9px;
+    font-weight: 200;
+}
+.page-nav-links ul li a {
+    color: white !important;
+    font-size: 13px;
+    font-weight: 200;
+}
+.mobile-page-nav a {
+    color:#868686 !important;
+    font-size: 13px;
+    font-weight: 400;
+}
+.mobile-page-nav.active a {
+    color:#ec0b43 !important;
+}
+.page-nav-links ul li.active {
+    background: #ec0b43;
+}
+.chat-nav-links ul li.active {
+    background: #ec0b43;
+}
+.main-section {
+    height: 100vh;
+    overflow: hidden;
+    background: black;
+}
+.main-section-header-text button {
+    height: 8vh;
+    width: 23vh;
+}
+.content-showcase {
+    max-height: 90vh;
+    padding-bottom: 15vh;
+}
+.mobile-nav {
+    background: white;
+    position: fixed;
+    bottom: 0;
+    z-index: 5;
+}
+.mobile-upload button{
+    position: absolute;
+    height: 10vh;
+    width: 10vh;
+    border-radius: 50%;
+    right: 5%;
+    bottom: 10%;
+    z-index: 10;
+    background: #ec0b43;
+}
+.mobile-upload button:focus, .mobile-upload button:active{
+    outline: none;
+    box-shadow: none;
+}
+.little-dash {
+    display: inline-block;
+    width: 25px;
+    border-top: 2px solid #ec0b43;
+    margin-bottom: 1px;
+}
+.btn-brand {
+    background: #ec0b43;
+    color: white;
+    font-weight: 300;
+}
+.btn-brand:hover {
+    background: #6d051d;
+    color: white;
+    font-weight: 300;
+}
+.page-full {
+    max-height: 100vh;
+}
 @media(max-width: 768px) {
     .loader-logo {
         width: 30vh;
