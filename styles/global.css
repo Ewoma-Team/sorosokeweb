@@ -40,21 +40,19 @@
     font-family: 'impact';
 }
 
-.end-sars-loader {
+.sorosoke-loader {
     height: 100vh;
     position: absolute;
+    pointer-events: none;
     background: #151314;
     background-position: center;
     background-size: cover;
     z-index: 2;
 }
 .loader-logo {
-    height: 40vh;
     width: 40vh;
-    
 }
 .loader-logo img {
-    height: 40vh;
     width: 40vh;
 }
 
@@ -97,4 +95,13 @@
 .drag-click-box {
     height: 30vh;
     border: 1px dashed #d61545;
+}
+
+@media(max-width: 768px) {
+    .loader-logo {
+        width: 30vh;
+    }
+    .loader-logo img {
+        width: 30vh;
+    }
 }
