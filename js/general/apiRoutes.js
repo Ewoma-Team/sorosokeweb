@@ -24,8 +24,8 @@ class Routes {
         return "twitter/auth/url"
     }
     
-    get twitterLoginCallback() {
-        return "twitter/auth/callback"
+    twitterCallback(oauthToken, oauthVerifier) {
+        return `twitter/auth/callback?oauthToken=${oauthToken}&oauthVerifier=${oauthVerifier}`
     }
     
 }

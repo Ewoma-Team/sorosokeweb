@@ -11,7 +11,7 @@ const loginErrorHandling = (status, result) => {
 
     if (status !== null) {
         alertify.set('notifier','position', 'top-center');
-        alertify.error(`Authentication Failed : ${result.message}`);
+        alertify.error(`Authentication Failed : ${result.info}`);
         result.hint ? alertify.error(`Authentication Failed : ${result.hint}`) : null
         return false;   
     }
@@ -46,6 +46,7 @@ const twitterLoginApi = async (e) => {
         console.log(result)
         loginErrorHandling(status, result)
         if (result.success) {
+            twitterLoginBtn.disabled = false;
             twitterLoginBtn.innerHTML = `   <i class="fab fa-lg fa-twitter mr-2"></i>
             <span>Continue with Twitter</span>`;
             console.log(result.authUrl)
