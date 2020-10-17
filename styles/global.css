@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@font-face {
+    font-family: 'Impact';
+    src: url('Impact.woff2') format('woff2'),
+        url('Impact.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Impacted';
+    src: url('Impacted.woff2') format('woff2'),
+        url('Impacted.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Impact';
+    src: url('Impact.woff2') format('woff2'),
+        url('Impact.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+.color-white {
+    color: white;
+}
+
+.poppins-font {
+    font-family: 'Poppins', sans-serif;
+}
+
+.impact-font {
+    font-family: 'impact';
+}
+
+.sorosoke-loader {
+    height: 100vh;
+    position: absolute;
+    pointer-events: none;
+    background: #151314;
+    background-position: center;
+    background-size: cover;
+    z-index: 2;
+}
+.loader-logo {
+    width: 40vh;
+}
+.loader-logo img {
+    width: 40vh;
+}
+
+.font-12px {
+    font-size: 12px;
+}
+
+.scroller {
+    overflow-y: scroll;
+}
+
+.scroller::-webkit-scrollbar {
+    width: 4px;
+}
+
+.scroller::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: none;
+}
+
+.scroller::-webkit-scrollbar-thumb {
+    color: black;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px#d61545;
+}
+#uploadModal .modal-dialog{
+    margin: 0;
+    margin-left: auto;
+}
+#uploadModal .mobile-dialog {
+    top: 60%;
+}
+#uploadModal .mobile-dialog .modal-content{
+    border-radius: 4vh;
+}
+#uploadModal .modal-content{
+    height: 100vh;
+}
+.drag-click-box {
+    height: 30vh;
+    border: 1px dashed #d61545;
+}
+
+@media(max-width: 768px) {
+    .loader-logo {
+        width: 30vh;
+    }
+    .loader-logo img {
+        width: 30vh;
+    }
+}
