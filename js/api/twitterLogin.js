@@ -2,18 +2,16 @@
 const apiRoute = new Routes;
 
 const {apiOrigin, apiVersion, twitterLogin} = apiRoute;
-
-
-console.log(`${apiOrigin}${apiVersion}${twitterLogin}`)
+const status = null;
 
 const twitterLoginBtn = document.querySelector('[data-twitter-login]');
-const twitterPreload = document.querySelector('[data-twitter-preload]')
 
 const loginErrorHandling = (status, result) => {
     console.log(status, result)
-    if (status !== 200) {
+
+    if (status !== null) {
         alertify.set('notifier','position', 'top-center');
-        alertify.error(`Authentication Failed : ${result.message}`);
+        alertify.error(`Authentication Failed : ${result.info}`);
         result.hint ? alertify.error(`Authentication Failed : ${result.hint}`) : null
         return false;   
     }
@@ -21,10 +19,10 @@ const loginErrorHandling = (status, result) => {
 
 const twitterLoginApi = async (e) => {
     e.preventDefault()
-
-    const status = null;
     
-    twitterPreload.innerHTML = ''
+    twitterLoginBtn.innerHTML = `<div class="spinner-grow" style="color: #fff;" role="status"></div>
+        <span style="color: #fff; font-weight: bold;">Loading...</span>`;
+    twitterLoginBtn.disabled = true;
 
     try {
         const response = await fetch(`${apiOrigin}${apiVersion}${twitterLogin}`, {
@@ -37,18 +35,29 @@ const twitterLoginApi = async (e) => {
         });
 
         if (!response.ok) {
+            twitterLoginBtn.disabled = false;
+            twitterLoginBtn.innerHTML = `   <i class="fab fa-lg fa-twitter mr-2"></i>
+            <span>Continue with Twitter</span>`;
             console.log(response.status)
             status = response.status
         }
 
         const result = await response.json();
-        loginErrorHandling(status, result)
         console.log(result)
+        loginErrorHandling(status, result)
         if (result.success) {
-            console.log(result)
+            twitterLoginBtn.disabled = false;
+            twitterLoginBtn.innerHTML = `   <i class="fab fa-lg fa-twitter mr-2"></i>
+            <span>Continue with Twitter</span>`;
+            console.log(result.authUrl)
+            //Call an auth popup
+            window.open(result.authUrl, "Twitter Authentication", "height=650, width=600, resizable=yes");
         }
 
     } catch (error) {
+        twitterLoginBtn.disabled = false;
+        twitterLoginBtn.innerHTML = `   <i class="fab fa-lg fa-twitter mr-2"></i>
+        <span>Continue with Twitter</span>`;
         return false;  
     }
 

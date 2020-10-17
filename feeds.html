@@ -11,10 +11,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/feed.css">
-    <title data-title>Home</title>
+    <link rel="stylesheet" href="js/packages/alertifyjs-master/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="js/packages/alertifyjs-master/build/css/themes/default.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <title data-title>Feeds</title>
 </head>
 
 <body id="containerDOM">
+    <div class="col-12 sorosoke-loader animate__animated animate__fadeOut animate__delay-1s">
+        <div class="text-center h-100" style="position: relative;">
+            <div class="loader-logo mx-auto" style="padding-top: 150px;">
+                <img src="images/logo.png" alt="">
+                <div class="spinner-grow"
+                    style="color: #a33236; width: 3rem; height: 3rem;" role="status">
+                    <span class="sr-only">Loading...</span>
+                    <span style="font-weight: bold;">!</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid poppins-font">
         <div class="row">
             <div class="col-12 row mx-0 feed-full px-0">

@@ -27,6 +27,7 @@
     font-display: swap;
 }
 
+
 .color-white {
     color: white;
 }
@@ -39,13 +40,20 @@
     font-family: 'impact';
 }
 
-.end-sars-loader {
+.sorosoke-loader {
     height: 100vh;
     position: absolute;
-    background: url('../images/Loading\ Screen\ -\ Desktop.png.png');
+    pointer-events: none;
+    background: #151314;
     background-position: center;
     background-size: cover;
     z-index: 2;
+}
+.loader-logo {
+    width: 40vh;
+}
+.loader-logo img {
+    width: 40vh;
 }
 
 .font-12px {
@@ -87,4 +95,13 @@
 .drag-click-box {
     height: 30vh;
     border: 1px dashed #d61545;
+}
+
+@media(max-width: 768px) {
+    .loader-logo {
+        width: 30vh;
+    }
+    .loader-logo img {
+        width: 30vh;
+    }
 }
