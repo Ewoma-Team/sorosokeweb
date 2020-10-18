@@ -305,18 +305,15 @@
 
 <script>
     let userSectionDesktop = document.getElementById('user-section-desktop')
-    console.log(userSectionDesktop)
     let userSectionMobile = document.getElementById('user-section-mobile')
     let desktopUpload = document.getElementById('desktop-upload')
     let mobileUpload = document.getElementById('mobile-upload')
     let mobileNav = document.getElementById('mobile-nav')
     let uploadModalDialog = document.getElementById('upload-modal-dialog')
-    console.log(window.location.href)
 
     var appWindow = window.matchMedia("(max-width: 768px)");
 
     adjustForScreenSize = (appWindow) => {
-        console.log(window.screen.width, 'real')
         if (appWindow.matches) {
             console.log('feel')
             userSectionDesktop.classList.add('d-none')

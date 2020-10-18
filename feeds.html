@@ -283,29 +283,27 @@
     let mobileUpload = document.getElementById('mobile-upload')
     let mobileNav = document.getElementById('mobile-nav')
     let uploadModalDialog = document.getElementById('upload-modal-dialog')
-    console.log(window.screen.width)
 
-    adjustForScreenSize = () => {
-        if (window.screen.width <= 768) {
+    var appWindow = window.matchMedia("(max-width: 768px)");
+
+    adjustForScreenSize = (appWindow) => {
+        if (appWindow.matches) {
+            console.log('feel')
             userSectionDesktop.classList.add('d-none')
             userSectionMobile.classList.remove('d-none')
             userSectionMobile.classList.add('d-flex')
-            desktopUpload.classList.add('d-none')
-            mobileUpload.classList.remove('d-none')
             mobileNav.classList.remove('d-none')
-            uploadModalDialog.classList.add('mobile-dialog')
         } else {
+            console.log('be')
             userSectionDesktop.classList.remove('d-none')
             userSectionMobile.classList.add('d-none')
             userSectionMobile.classList.remove('d-flex')
-            desktopUpload.classList.remove('d-none')
-            mobileUpload.classList.add('d-none')
             mobileNav.classList.add('d-none')
-            uploadModalDialog.classList.remove('mobile-dialog')
         }
     }
-    adjustForScreenSize();
-    window.onresize = adjustForScreenSize;
+
+    adjustForScreenSize(appWindow)
+    appWindow.addEventListener("change", () => adjustForScreenSize(appWindow));
 </script>
 
 
