@@ -4,22 +4,22 @@
     border-radius: 5px;
 }
 .feeds-showcase-single {
-    height: 35vh;
+    height: 227.15px;
 }
 .feed-image {
-    height: 30vh;
+    height: 194.7px;
     border-radius: 5px;
     cursor: pointer;
 }
 .post-author-image {
-    height: 3vh;
-    width: 3vh;
+    height: 19.47px;
+    width: 19.47px;
     border-radius: 50%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
 }
 .post-author-image img{
-    height: 3vh;
-    width: 3vh;
+    height: 100%;
+    width: 100%;
     border-radius: 50%;
 }
