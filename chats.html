@@ -15,12 +15,13 @@
     <link rel="stylesheet" href="js/packages/alertifyjs-master/build/css/themes/default.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <title data-title>Chat</title>
-    <script src="js/general/apiRoutes.js"></script>
-    <script src="js/general/session.js"></script>
+    <!-- <script src="js/general/apiRoutes.js"></script>
+    <script src="js/general/session.js"></script> -->
 </head>
 
 <body>
-    <div class="container-fluid poppins-font">
+    <div class="container-fluid poppins-font" id="container-page">
+        <script src="js/general/larger-screen-resize.js"></script>
         <div class="row">
             <div class="col-12 row mx-0 page-full scroller px-0">
                 <div id="user-section-desktop" class="col-2 user-section-desktop px-0">
@@ -31,16 +32,14 @@
                     <div class="page-nav-links pr-2" style="margin-top: 15vh;">
                         <ul class="nav flex-column">
                             <li class="nav-item my-2">
-                                <a class="nav-link ml-4 pt-3" href="feeds.html"><i
-                                        class="fas fa-lg fa-newspaper mr-4"></i>Feed</a>
+                                <a class="nav-link ml-4 pt-3 d-flex" href="feeds.html"><i
+                                        class="fas fa-lg fa-newspaper mr-4 mt-1"></i><p>Feeds</p></a>
                             </li>
                             <li class="nav-item my-2 active">
-                                <a class="nav-link ml-4 pt-3" href="#"><i class="fas fa-lg fa-comment mr-4"></i>Chat
-                                    Rooms</a>
+                                <a class="nav-link ml-4 pt-3 d-flex" href="#"><i class="fas fa-lg fa-comment mr-4 mt-1"></i><div>Chat Rooms</div></a>
                             </li>
                             <li class="nav-item my-2" style="position: absolute; bottom: 0">
-                                <a class="nav-link ml-4 pt-3 log-out"><i class="fas fa-lg fa-sign-out-alt mr-4"></i>Log
-                                    Out</a>
+                                <a class="nav-link ml-4 pt-3 d-flex log-out"><i class="fas fa-lg fa-sign-out-alt mr-4 mt-1"></i><div>Log Out</div></a>
                             </li>
                         </ul>
                     </div>
@@ -82,16 +81,14 @@
                                         class="little-dash ml-2"></span>
                                     <ul class="nav flex-column">
                                         <li class="nav-item mb-1 active">
-                                            <a class="nav-link" href="#"><i
-                                                    class="fas fa-lg mr-3 fa-globe-americas"></i>Global Room</a>
+                                            <a class="nav-link d-flex" href="#"><i
+                                                    class="fas fa-lg mr-3 mt-1 fa-globe-americas"></i><div>Global Room</div></a>
                                         </li>
                                         <li class="nav-item mb-1">
-                                            <a class="nav-link" href="#"><i class="fas fa-lg mr-3 fa-users"></i>General
-                                                Room</a>
+                                            <a class="nav-link d-flex" href="#"><i class="fas fa-lg mr-3 mt-1 fa-users"></i><div>General Room</div></a>
                                         </li>
                                         <li class="nav-item mb-1">
-                                            <a class="nav-link" href="#"><i class="fas fa-lg mr-3 fa-flag"></i>National
-                                                Room</a>
+                                            <a class="nav-link d-flex" href="#"><i class="fas fa-lg mr-3 mt-1 fa-flag"></i><div>National Room</div></a>
                                         </li>
                                     </ul>
                                     <span class="chat-group-title ml-3">State Rooms</span><span
@@ -137,8 +134,11 @@
                                 </div>
                             </div>
                             <div class="col-12 col-md-10 chat-view px-0">
-                                <div class="col-12 room-title-information">
-                                    <p class="color-white ml-2 mt-3">Global Chat Room - <span>350 members</span></p>
+                                <div class="col-12 room-title-information d-flex">
+                                    <div class="back-to-select-room border text-center mt-2">
+                                        <i class="fas fa-arrow-left fa-lg mt-2"></i>
+                                    </div>
+                                    <p class="color-white ml-2 mt-3 float-right">Global Chat Room - <span>350 members</span></p>
                                 </div>
                                 <div class="col-12 chat-view-actual scroller pt-5 px-0">
                                     <div class="floating-chat-day">
@@ -146,7 +146,7 @@
                                     </div>
                                     <div class="col-12 chat-message chat-message-right mb-3">
                                         <div
-                                            class="ml-auto d-flex justify-content-start chat-author col-12 col-md-4 mt-2">
+                                            class="ml-auto d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
                                             <div class="chat-author-image">
                                                 <img src="images/sample-girl.png" alt="">
                                             </div>
@@ -154,14 +154,14 @@
                                                 Thrower</small>
                                             <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
                                         </div>
-                                        <div class="ml-auto mt-1 chat-message-con col-12 col-md-4">
+                                        <div class="ml-auto mt-1 chat-message-con col-12 col-md-5">
                                             <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                                 Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
                                                 dignissimos temporibus assumenda quae atque!</span>
                                         </div>
                                     </div>
                                     <div class="col-12 chat-message chat-message-left mb-3">
-                                        <div class="d-flex justify-content-start chat-author col-12 col-md-4 mt-2">
+                                        <div class="d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
                                             <div class="chat-author-image">
                                                 <img src="images/sample-girl.png" alt="">
                                             </div>
@@ -169,7 +169,7 @@
                                                 Thrower</small>
                                             <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
                                         </div>
-                                        <div class="mt-1 chat-message-con col-12 col-md-4">
+                                        <div class="mt-1 chat-message-con col-12 col-md-5">
                                             <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                                 Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
                                                 dignissimos temporibus assumenda quae atque!</span>
@@ -177,7 +177,7 @@
                                     </div>
                                     <div class="col-12 chat-message chat-message-right mb-3">
                                         <div
-                                            class="ml-auto d-flex justify-content-start chat-author col-12 col-md-4 mt-2">
+                                            class="ml-auto d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
                                             <div class="chat-author-image">
                                                 <img src="images/sample-girl.png" alt="">
                                             </div>
@@ -185,7 +185,7 @@
                                                 Thrower</small>
                                             <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
                                         </div>
-                                        <div class="ml-auto mt-1 chat-message-con col-12 col-md-4">
+                                        <div class="ml-auto mt-1 chat-message-con col-12 col-md-5">
                                             <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                                 Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
                                                 dignissimos temporibus assumenda quae atque!</span>
@@ -193,7 +193,7 @@
                                     </div>
                                     <div class="col-12 chat-message chat-message-right mb-3">
                                         <div
-                                            class="ml-auto d-flex justify-content-start chat-author col-12 col-md-4 mt-2">
+                                            class="ml-auto d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
                                             <div class="chat-author-image">
                                                 <img src="images/sample-girl.png" alt="">
                                             </div>
@@ -201,7 +201,7 @@
                                                 Thrower</small>
                                             <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
                                         </div>
-                                        <div class="ml-auto mt-1 chat-message-con col-12 col-md-4">
+                                        <div class="ml-auto mt-1 chat-message-con col-12 col-md-5">
                                             <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                                 Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
                                                 dignissimos temporibus assumenda quae atque!</span>
@@ -209,7 +209,7 @@
                                     </div>
                                     <div class="col-12 chat-message chat-message-right mb-3">
                                         <div
-                                            class="ml-auto d-flex justify-content-start chat-author col-12 col-md-4 mt-2">
+                                            class="ml-auto d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
                                             <div class="chat-author-image">
                                                 <img src="images/sample-girl.png" alt="">
                                             </div>
@@ -217,7 +217,7 @@
                                                 Thrower</small>
                                             <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
                                         </div>
-                                        <div class="ml-auto mt-1 chat-message-con col-12 col-md-4">
+                                        <div class="ml-auto mt-1 chat-message-con col-12 col-md-5">
                                             <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                                 Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
                                                 dignissimos temporibus assumenda quae atque!</span>
