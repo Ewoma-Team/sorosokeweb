@@ -11,7 +11,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/chats.css">
-    <title data-title>Home</title>
+    <link rel="stylesheet" href="js/packages/alertifyjs-master/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="js/packages/alertifyjs-master/build/css/themes/default.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <title data-title>Chat</title>
+    <script src="js/general/apiRoutes.js"></script>
+    <script src="js/general/session.js"></script>
 </head>
 
 <body>
@@ -34,7 +39,7 @@
                                     Rooms</a>
                             </li>
                             <li class="nav-item my-2" style="position: absolute; bottom: 0">
-                                <a class="nav-link ml-4 pt-3" href="#"><i class="fas fa-lg fa-sign-out-alt mr-4"></i>Log
+                                <a class="nav-link ml-4 pt-3 log-out"><i class="fas fa-lg fa-sign-out-alt mr-4"></i>Log
                                     Out</a>
                             </li>
                         </ul>
@@ -296,8 +301,11 @@
 </body>
 <!--Import third party cdn-->
 <script src="js/general/third_party_cdn.js"></script>
+<script src="js/general/logOut.js"></script>
+
 <script>
     let userSectionDesktop = document.getElementById('user-section-desktop')
+    console.log(userSectionDesktop)
     let userSectionMobile = document.getElementById('user-section-mobile')
     let desktopUpload = document.getElementById('desktop-upload')
     let mobileUpload = document.getElementById('mobile-upload')
@@ -305,21 +313,27 @@
     let uploadModalDialog = document.getElementById('upload-modal-dialog')
     console.log(window.location.href)
 
-    adjustForScreenSize = () => {
-        if (window.screen.width <= 768) {
+    var appWindow = window.matchMedia("(max-width: 768px)");
+
+    adjustForScreenSize = (appWindow) => {
+        console.log(window.screen.width, 'real')
+        if (appWindow.matches) {
+            console.log('feel')
             userSectionDesktop.classList.add('d-none')
             userSectionMobile.classList.remove('d-none')
             userSectionMobile.classList.add('d-flex')
             mobileNav.classList.remove('d-none')
         } else {
+            console.log('be')
             userSectionDesktop.classList.remove('d-none')
             userSectionMobile.classList.add('d-none')
             userSectionMobile.classList.remove('d-flex')
             mobileNav.classList.add('d-none')
         }
     }
-    adjustForScreenSize();
-    window.onresize = adjustForScreenSize;
+
+    adjustForScreenSize(appWindow)
+    appWindow.addEventListener("change", () => adjustForScreenSize(appWindow));
 </script>
 
 
