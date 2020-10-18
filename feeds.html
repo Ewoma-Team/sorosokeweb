@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="js/packages/alertifyjs-master/build/css/themes/default.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <title data-title>Feeds</title>
+    <script src="js/general/apiRoutes.js"></script>
+    <script src="js/general/session.js"></script>
 </head>
 
 <body id="containerDOM">
@@ -35,7 +37,7 @@
             <div class="col-12 row mx-0 feed-full px-0">
                 <div id="user-section-desktop" class="col-2 user-section-desktop px-0">
                     <div class="user-image-desktop mt-5 mx-auto">
-                        <img src="" alt="">
+                        <img src="images/sample-girl.png" alt="">
                     </div>
                     <h6 class="text-center color-white mt-3" style="font-weight: 300;">Hi! Esther</h6>
                     <div class="page-nav-links pr-2" style="margin-top: 15vh;">
@@ -45,11 +47,11 @@
                                         class="fas fa-lg fa-newspaper mr-4"></i>Feed</a>
                             </li>
                             <li class="nav-item my-2">
-                                <a class="nav-link ml-4 pt-3" href="#"><i class="fas fa-lg fa-comment mr-4"></i>Chat
+                                <a class="nav-link ml-4 pt-3" href="chats.html"><i class="fas fa-lg fa-comment mr-4"></i>Chat
                                     Rooms</a>
                             </li>
                             <li class="nav-item my-2" style="position: absolute; bottom: 0">
-                                <a class="nav-link ml-4 pt-3" href="#"><i class="fas fa-lg fa-sign-out-alt mr-4"></i>Log
+                                <a class="nav-link ml-4 pt-3 log-out"><i class="fas fa-lg fa-sign-out-alt mr-4"></i>Log
                                     Out</a>
                             </li>
                         </ul>
@@ -62,9 +64,9 @@
                             class="col-7 d-none justify-content-end user-section-mobile">
                             <span class="text-center color-white mt-3 mx-2"
                                 style="font-size: 12px; font-weight: 300;">Hi! Esther</span>
-                            <div class="user-image-mobile mt-1">
-                                <img src="" alt="">
-                            </div>
+                                <div class="user-image-mobile mt-1">
+                                    <img src="images/sample-girl.png" alt="">
+                                </div>
                         </div>
                     </div>
                     <div class="col-12 row mx-0 main-section-header-text mt-2">
@@ -77,148 +79,148 @@
                                     class="font-12px">Upload</span></button>
                         </div>
                     </div>
-                    <div class="col-12 row feeds-showcase scroller mx-0">
+                    <div class="col-12 row content-showcase scroller mx-0">
                         <div class="col-12 col-md-6 col-lg-3 feeds-showcase-single mb-4">
-                            <div class="col-12 feed-image border">
-                                <img src="" alt="">
+                            <div class="col-12 feed-image px-0">
+                                <img src="images/protest-sample.jfif" alt="">
                             </div>
                             <div class="col-12 d-flex justify-content-start post-author mt-2">
                                 <div class="post-author-image">
-                                    <img src="" alt="">
+                                    <img src="images/sample-girl.png" alt="">
                                 </div>
                                 <span class="color-white ml-3" style="font-size: 12px; font-weight: 300;">Eniduro Shade
                                     Thrower</span>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 col-lg-3 feeds-showcase-single mb-4">
-                            <div class="col-12 feed-image border">
-                                <img src="" alt="">
+                            <div class="col-12 feed-image px-0">
+                                <img src="images/protest-sample.jfif" alt="">
                             </div>
                             <div class="col-12 d-flex justify-content-start post-author mt-2">
                                 <div class="post-author-image">
-                                    <img src="" alt="">
+                                    <img src="images/sample-girl.png" alt="">
                                 </div>
                                 <span class="color-white ml-3" style="font-size: 12px; font-weight: 300;">Eniduro Shade
                                     Thrower</span>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 col-lg-3 feeds-showcase-single mb-4">
-                            <div class="col-12 feed-image border">
-                                <img src="" alt="">
+                            <div class="col-12 feed-image px-0">
+                                <img src="images/protest-sample.jfif" alt="">
                             </div>
                             <div class="col-12 d-flex justify-content-start post-author mt-2">
                                 <div class="post-author-image">
-                                    <img src="" alt="">
+                                    <img src="images/sample-girl.png" alt="">
                                 </div>
                                 <span class="color-white ml-3" style="font-size: 12px; font-weight: 300;">Eniduro Shade
                                     Thrower</span>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 col-lg-3 feeds-showcase-single mb-4">
-                            <div class="col-12 feed-image border">
-                                <img src="" alt="">
+                            <div class="col-12 feed-image px-0">
+                                <img src="images/protest-sample.jfif" alt="">
                             </div>
                             <div class="col-12 d-flex justify-content-start post-author mt-2">
                                 <div class="post-author-image">
-                                    <img src="" alt="">
+                                    <img src="images/sample-girl.png" alt="">
                                 </div>
                                 <span class="color-white ml-3" style="font-size: 12px; font-weight: 300;">Eniduro Shade
                                     Thrower</span>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 col-lg-3 feeds-showcase-single mb-4">
-                            <div class="col-12 feed-image border">
-                                <img src="" alt="">
+                            <div class="col-12 feed-image px-0">
+                                <img src="images/protest-sample.jfif" alt="">
                             </div>
                             <div class="col-12 d-flex justify-content-start post-author mt-2">
                                 <div class="post-author-image">
-                                    <img src="" alt="">
+                                    <img src="images/sample-girl.png" alt="">
                                 </div>
                                 <span class="color-white ml-3" style="font-size: 12px; font-weight: 300;">Eniduro Shade
                                     Thrower</span>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 col-lg-3 feeds-showcase-single mb-4">
-                            <div class="col-12 feed-image border">
-                                <img src="" alt="">
+                            <div class="col-12 feed-image px-0">
+                                <img src="images/protest-sample.jfif" alt="">
                             </div>
                             <div class="col-12 d-flex justify-content-start post-author mt-2">
                                 <div class="post-author-image">
-                                    <img src="" alt="">
+                                    <img src="images/sample-girl.png" alt="">
                                 </div>
                                 <span class="color-white ml-3" style="font-size: 12px; font-weight: 300;">Eniduro Shade
                                     Thrower</span>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 col-lg-3 feeds-showcase-single mb-4">
-                            <div class="col-12 feed-image border">
-                                <img src="" alt="">
+                            <div class="col-12 feed-image px-0">
+                                <img src="images/protest-sample.jfif" alt="">
                             </div>
                             <div class="col-12 d-flex justify-content-start post-author mt-2">
                                 <div class="post-author-image">
-                                    <img src="" alt="">
+                                    <img src="images/sample-girl.png" alt="">
                                 </div>
                                 <span class="color-white ml-3" style="font-size: 12px; font-weight: 300;">Eniduro Shade
                                     Thrower</span>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 col-lg-3 feeds-showcase-single mb-4">
-                            <div class="col-12 feed-image border">
-                                <img src="" alt="">
+                            <div class="col-12 feed-image px-0">
+                                <img src="images/protest-sample.jfif" alt="">
                             </div>
                             <div class="col-12 d-flex justify-content-start post-author mt-2">
                                 <div class="post-author-image">
-                                    <img src="" alt="">
+                                    <img src="images/sample-girl.png" alt="">
                                 </div>
                                 <span class="color-white ml-3" style="font-size: 12px; font-weight: 300;">Eniduro Shade
                                     Thrower</span>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 col-lg-3 feeds-showcase-single mb-4">
-                            <div class="col-12 feed-image border">
-                                <img src="" alt="">
+                            <div class="col-12 feed-image px-0">
+                                <img src="images/protest-sample.jfif" alt="">
                             </div>
                             <div class="col-12 d-flex justify-content-start post-author mt-2">
                                 <div class="post-author-image">
-                                    <img src="" alt="">
+                                    <img src="images/sample-girl.png" alt="">
                                 </div>
                                 <span class="color-white ml-3" style="font-size: 12px; font-weight: 300;">Eniduro Shade
                                     Thrower</span>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 col-lg-3 feeds-showcase-single mb-4">
-                            <div class="col-12 feed-image border">
-                                <img src="" alt="">
+                            <div class="col-12 feed-image px-0">
+                                <img src="images/protest-sample.jfif" alt="">
                             </div>
                             <div class="col-12 d-flex justify-content-start post-author mt-2">
                                 <div class="post-author-image">
-                                    <img src="" alt="">
+                                    <img src="images/sample-girl.png" alt="">
                                 </div>
                                 <span class="color-white ml-3" style="font-size: 12px; font-weight: 300;">Eniduro Shade
                                     Thrower</span>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 col-lg-3 feeds-showcase-single mb-4">
-                            <div class="col-12 feed-image border">
-                                <img src="" alt="">
+                            <div class="col-12 feed-image px-0">
+                                <img src="images/protest-sample.jfif" alt="">
                             </div>
                             <div class="col-12 d-flex justify-content-start post-author mt-2">
                                 <div class="post-author-image">
-                                    <img src="" alt="">
+                                    <img src="images/sample-girl.png" alt="">
                                 </div>
                                 <span class="color-white ml-3" style="font-size: 12px; font-weight: 300;">Eniduro Shade
                                     Thrower</span>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 col-lg-3 feeds-showcase-single mb-4">
-                            <div class="col-12 feed-image border">
-                                <img src="" alt="">
+                            <div class="col-12 feed-image px-0">
+                                <img src="images/protest-sample.jfif" alt="">
                             </div>
                             <div class="col-12 d-flex justify-content-start post-author mt-2">
                                 <div class="post-author-image">
-                                    <img src="" alt="">
+                                    <img src="images/sample-girl.png" alt="">
                                 </div>
-                                <span class="color-white ml-3" style="font-size: 12px; font-weight: 300;">Eniduro Shade
+                                <span  class="color-white ml-3" style="font-size: 12px; font-weight: 300;">Eniduro Shade
                                     Thrower</span>
                             </div>
                         </div>
@@ -236,10 +238,10 @@
             <a class="nav-link" href="#"><i class="fas fa-lg fa-newspaper"></i><br>Feed</a>
         </div>
         <div class="col px-0 mobile-page-nav text-center">
-            <a class="nav-link" href="#"><i class="fas fa-lg fa-comment"></i><br>Chat Rooms</a>
+            <a class="nav-link" href="chats.html"><i class="fas fa-lg fa-comment"></i><br>Chat Rooms</a>
         </div>
         <div class="col px-0 mobile-page-nav text-center">
-            <a class="nav-link" href="#"><i class="fas fa-lg fa-sign-out-alt"></i><br>Log Out</a>
+            <a class="nav-link log-out"><i class="fas fa-lg fa-sign-out-alt"></i><br>Log Out</a>
         </div>
     </div>
 
@@ -273,8 +275,7 @@
 </body>
 <!--Import third party cdn-->
 <script src="js/general/third_party_cdn.js"></script>
-<script src="js/general/apiRoutes.js"></script>
-<script src="js/general/large-screen-resize.js"></script>
+<script src="js/general/logOut.js"></script>
 <script>
     let userSectionDesktop = document.getElementById('user-section-desktop')
     let userSectionMobile = document.getElementById('user-section-mobile')
@@ -282,29 +283,27 @@
     let mobileUpload = document.getElementById('mobile-upload')
     let mobileNav = document.getElementById('mobile-nav')
     let uploadModalDialog = document.getElementById('upload-modal-dialog')
-    console.log(window.screen.width)
 
-    adjustForScreenSize = () => {
-        if (window.screen.width <= 768) {
+    var appWindow = window.matchMedia("(max-width: 768px)");
+
+    adjustForScreenSize = (appWindow) => {
+        if (appWindow.matches) {
+            console.log('feel')
             userSectionDesktop.classList.add('d-none')
             userSectionMobile.classList.remove('d-none')
             userSectionMobile.classList.add('d-flex')
-            desktopUpload.classList.add('d-none')
-            mobileUpload.classList.remove('d-none')
             mobileNav.classList.remove('d-none')
-            uploadModalDialog.classList.add('mobile-dialog')
         } else {
+            console.log('be')
             userSectionDesktop.classList.remove('d-none')
             userSectionMobile.classList.add('d-none')
             userSectionMobile.classList.remove('d-flex')
-            desktopUpload.classList.remove('d-none')
-            mobileUpload.classList.add('d-none')
             mobileNav.classList.add('d-none')
-            uploadModalDialog.classList.remove('mobile-dialog')
         }
     }
-    adjustForScreenSize();
-    window.onresize = adjustForScreenSize;
+
+    adjustForScreenSize(appWindow)
+    appWindow.addEventListener("change", () => adjustForScreenSize(appWindow));
 </script>
 
 
