@@ -175,8 +175,8 @@ body {
     background: #404040;
 }
 .user-image-desktop {
-    height: 15vh;
-    width: 15vh;
+    height: 97.35px;
+    width: 97.35px;
     border-radius: 50%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -189,8 +189,8 @@ body {
 }
 
 .user-image-mobile {
-    height: 6vh;
-    width: 6vh;
+    height: 38.94px;
+    width: 38.94px;
     border-radius: 50%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -205,11 +205,12 @@ body {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 .page-nav-links ul li  {
-    height: 50px;
+    min-height: 50px;
     border-radius: 0px 7px 7px 0px;
     cursor: pointer;
 }
 .chat-nav-links ul li {
+    min-height: 30px;
     border-radius: 0px 7px 7px 0px;
     cursor: pointer;
 }
@@ -243,8 +244,8 @@ body {
     background: black;
 }
 .main-section-header-text button {
-    height: 8vh;
-    width: 23vh;
+    height: 51.92px;
+    width: 149.27px;
 }
 .content-showcase {
     max-height: 90vh;
