@@ -32,6 +32,78 @@
     color: white;
 }
 
+body {
+    background: white;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box !important;
+  }
+  label {
+    font-size: 12px;
+  }
+  input, textarea, select {
+    background: #f3f2f2 !important;
+    border-radius: 2px !important;
+    resize: none;
+  }
+  form {
+    box-sizing: border-box;
+  }
+
+  textarea:focus,
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="datetime"]:focus,
+  input[type="datetime-local"]:focus,
+  input[type="date"]:focus,
+  input[type="month"]:focus,
+  input[type="time"]:focus,
+  input[type="week"]:focus,
+  input[type="number"]:focus,
+  input[type="email"]:focus,
+  input[type="url"]:focus,
+  input[type="search"]:focus,
+  input[type="tel"]:focus,
+  input[type="color"]:focus,
+  button:focus,
+  select:focus,
+  .uneditable-input:focus {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    outline: 0 none !important;
+  }
+  .input-class:focus {
+    border-color:#d61545 !important;
+  }
+
+  .scroller{
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(185, 184, 184);
+  }
+  .scroller::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  .scroller::-webkit-scrollbar-track {
+    background:  rgb(185, 184, 184);
+    border-radius: 10px;
+    display: none;
+  }
+  
+  .scroller::-webkit-scrollbar-thumb {
+    color: black;
+    border-radius: 10px;
+    background:  rgb(185, 184, 184);
+  }
+  .scroller::-webkit-scrollbar-thumb:hover {
+    background:  white;
+    border-color: #3f3d56;
+    border-radius: 10px;
+  }
+
 .poppins-font {
     font-family: 'Poppins', sans-serif;
 }
