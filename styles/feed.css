@@ -23,3 +23,8 @@
     width: 100%;
     border-radius: 50%;
 }
+.upload-input {
+    background: inherit !important;
+    border: none;
+    border-bottom: 1px solid #d61545;
+}
