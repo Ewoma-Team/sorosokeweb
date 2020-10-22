@@ -9,23 +9,25 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <link rel="stylesheet" href="styles/global.css">
-    <link rel="stylesheet" href="styles/feed.css">
     <link rel="stylesheet" href="js/packages/alertifyjs-master/build/css/alertify.min.css" />
     <link rel="stylesheet" href="js/packages/alertifyjs-master/build/css/themes/default.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/contentPreload.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/feed.css">
+    <script src="js/packages/alertifyjs-master/build/alertify.min.js"></script>
     <title data-title>Feeds</title>
     <!-- <script src="js/general/apiRoutes.js"></script>
     <script src="js/general/session.js"></script> -->
 </head>
 
 <body id="containerDOM">
-    <div class="col-12 sorosoke-loader animate__animated animate__fadeOut animate__delay-1s">
+    <div class="col-12 sorosoke-loader animate__animated animate__fadeOut animate__delay-0.6s">
         <div class="text-center h-100" style="position: relative;">
             <div class="loader-logo mx-auto" style="padding-top: 150px;">
                 <img src="images/logo.png" alt="">
-                <div class="spinner-grow"
-                    style="color: #a33236; width: 3rem; height: 3rem;" role="status">
+                <div class="spinner-grow" style="color: #a33236; width: 3rem; height: 3rem;" role="status">
                     <span class="sr-only">Loading...</span>
                     <span style="font-weight: bold;">!</span>
                 </div>
@@ -45,13 +47,21 @@
                         <ul class="nav flex-column">
                             <li class="nav-item my-2 active">
                                 <a class="nav-link ml-4 pt-3 d-flex" href="#"><i
-                                        class="fas fa-lg fa-newspaper mr-4 mt-1"></i><p>Feeds</p></a>
+                                        class="fas fa-lg fa-newspaper mr-4 mt-1"></i>
+                                    <p>Feeds</p>
+                                </a>
                             </li>
                             <li class="nav-item my-2">
-                                <a class="nav-link ml-4 pt-3 d-flex" href="chats.html"><i class="fas fa-lg fa-comment mr-4 mt-1"></i><div>Chat Rooms</div></a>
+                                <a class="nav-link ml-4 pt-3 d-flex" href="chats.html"><i
+                                        class="fas fa-lg fa-comment mr-4 mt-1"></i>
+                                    <div>Chat Rooms</div>
+                                </a>
                             </li>
                             <li class="nav-item my-2" style="position: absolute; bottom: 0">
-                                <a class="nav-link ml-4 pt-3 d-flex log-out"><i class="fas fa-lg fa-sign-out-alt mr-4 mt-1"></i><div>Log Out</div></a>
+                                <a class="nav-link ml-4 pt-3 d-flex log-out"><i
+                                        class="fas fa-lg fa-sign-out-alt mr-4 mt-1"></i>
+                                    <div>Log Out</div>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -59,18 +69,17 @@
                 <div class="col-12 col-md-10 main-section px-0">
                     <div class="col-12 row mx-0 main-section-header mt-4">
                         <h2 class="col-5 color-white impact-font">Feed</h2>
-                        <div id="user-section-mobile"
-                            class="col-7 d-none justify-content-end user-section-mobile">
+                        <div id="user-section-mobile" class="col-7 d-none justify-content-end user-section-mobile">
                             <span class="text-center color-white mt-3 mx-2"
                                 style="font-size: 12px; font-weight: 300;">Hi! Esther</span>
-                                <div class="user-image-mobile mt-1">
-                                    <img src="images/sample-girl.png" alt="">
-                                </div>
+                            <div class="user-image-mobile mt-1">
+                                <img src="images/sample-girl.png" alt="">
+                            </div>
                         </div>
                     </div>
                     <div class="col-12 row mx-0 main-section-header-text mt-2">
-                        <p class="col-12 col-sm-7 col-md-5 color-white" style="font-size: 12px; font-weight: 200;">Here is a
-                            curation of all the latest news and updates arount the #endsars movement. You can also
+                        <p class="col-12 col-sm-7 col-md-5 color-white" style="font-size: 12px; font-weight: 200;">Here
+                            is a curation of all the latest news and updates happening around you. You can also
                             contibute by uploading any information you have. </p>
                         <div id="desktop-upload" class="col-12 col-md-7 text-right">
                             <button type="button" class="btn btn-outline-danger" data-toggle="modal"
@@ -81,33 +90,8 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col-12 row content-showcase scroller mx-0">
-                        <div class="col-12 col-sm-6 col-lg-3 feeds-showcase-single mb-4">
-                            <div class="col-12 feed-image px-0">
-                                <img src="images/protest-sample.jfif" alt="">
-                            </div>
-                            <div class="col-12 d-flex justify-content-start post-author mt-2">
-                                <div class="post-author-image">
-                                    <img src="images/sample-girl.png" alt="">
-                                </div>
-                                <p  class="color-white ml-3 col-12" style="font-size: 12px; font-weight: 300;">
-                                    Eniduro Shade
-                                    Thrower
-                                </p>
-                            </div>
-                            <div class="col-12 d-flex p-0 m-0 ">
-                                <p class="color-white" style="font-size: 12px; font-weight: 300; text-align: justify;">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                </p>
-                            </div>
-                            <div class="col-12 d-flex p-0 m-0">
-                                <p  class="color-white" style="font-size: 12px; font-weight: 300; text-align: justify;">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus aperiam,
-                                    consectetur in culpa dicta adipisci est ipsum ipsam blanditiis?
-                                    Sapiente nisi dicta pariatur consequatur ab neque quis eveniet impedit magni!
-                                </p>
-                            </div>
-                        </div>
+                    <div class="col-12 row content-showcase scroller mx-0 mt-4" data-target-feed-preload>
+                        <!-- Load the feed Here -->
                     </div>
                 </div>
             </div>
@@ -141,23 +125,45 @@
         </div> -->
                 <div class="modal-body">
                     <div class="col-12 text-center">
-                        <p class="font-12px my-5" style="font-weight: 300;">Upload images or videos towards<br>#endsars
+                        <p class="font-12px my-3" style="font-weight: 300;">Upload images or videos towards<br>...What is happening around you?
                         </p>
-                        <div class="col-7 mx-auto drag-click-box" style="padding-top: 65px;">
-                            <span class="text-center d-none" style="font-size: 10px; font-weight: 300;">Drag and drop a
-                                file or <br> click to upload media</span>
+                        <div class="col-7 m-0 p-0 mx-auto drag-click-box" style="padding-top: 50px;">
+                            <span id="clear-file" class="preview-file" style="font-size: 10px; color: red; right: 20px; position: absolute; z-index: 99999; cursor: pointer;">
+                                <i class="fa fa-remove" style="font-size:24px;"></i>
+                                Close
+                            </span>
+                            <img id="image-tag" class="preview-file"
+                                style="width: 100%; height: 100%; object-fit: cover;" src="" alt="Upload">
+                            <video id="video-tag" class="preview-file" style="width: 100%; height: 100%;" controls poster="/images/playme.png">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div id="click-for-upload" style="padding-top: 70px;">
                                 <label title="Upload Photo" for="file-upload" style="cursor: pointer">
-                                    <span class="text-center" style="font-size: 10px; font-weight: 400;"><span style="color: #d61545;">Click here</span> to browse
+                                    <span id="click-for-write-up" class="text-center" style="font-size: 10px; font-weight: 400;">
+                                        <span style="color: #d61545;">Click here</span> to browse
                                         device for <br> media you wish to upload
                                     </span>
                                 </label>
-                              <input type="file" id="file-upload" data-target-file class="d-none" />
+                               <form id="upload-form">
+                                  <input type="file" id="file-upload" value="null" data-target-file class="d-none"/>
+                               </form>
+                            </div>
+                            <!-- <span class="text-center d-none" style="font-size: 10px; font-weight: 300;">Drag and drop a
+                                file or <br> click to upload media
+                            </span>  -->
                         </div>
-                        <input type="text" class="form-control upload-input col-7 mx-auto mt-3 input-class" placeholder="Enter title" required></input>
-                        <textarea class="form-control upload-input col-7 mx-auto mt-3 input-class" rows="3" placeholder="Enter title" required></textarea>
-                        <p class="mt-2" style="font-size: 12px;" data-target-file-info>Hello, file cannot exceed 30mb in size.</p>
-                        <button data-target-file-uploadbtn type="button" class="btn btn-danger mt-3" style="height: 7vh; width: 20vh; font-weight: 600;"><span
-                                class="font-12px">Upload</span></button>
+                      
+                        <form id="upload-feed-form">
+                            <textarea class="form-control upload-input col-7 mx-auto mt-3 input-class" rows="3"
+                                placeholder="Enter title" data-target-description required></textarea>
+                            <input type="text" class="form-control upload-input col-7 mx-auto mt-3 input-class"
+                                placeholder="Enter location" data-target-location required></input>
+                            <p class="mt-2" style="font-size: 12px;" data-target-file-info>Hello, file cannot exceed 30mb in
+                                size.</p>
+                            <button data-target-file-uploadbtn type="button" class="btn btn-danger mt-3"
+                                style="height: 7vh; width: 20vh; font-weight: 600;"><span
+                                    class="font-12px">Upload</span></button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -200,32 +206,15 @@
     adjustForScreenSize(appWindow)
     appWindow.addEventListener("change", () => adjustForScreenSize(appWindow));
 
-//     function above1700px(y) {
-//     const dashboardResize = document.querySelector("#containerDOM") || false;
-//     const after1700px = document.querySelector("#after1700px") || false;
- 
-//     if (y.matches) { // If media query matches
-//         if(dashboardResize) {
-//             dashboardResize.classList.add('container');   
-//         } 
-//         if(after1700px) {
-//             after1700px.classList.add('container');  
-//         }
-//     } else {
-//         if(dashboardResize) {
-//             dashboardResize.classList.remove('container');   
-//         } 
-//         if(after1700px) {
-//             after1700px.classList.remove('container');  
-//         }
-//     }
-// }
-// var y = window.matchMedia("(min-width: 1700px)");
-//         above1700px(y)
-//         y.addEventListener("change", () => above1700px(y));
 </script>
 
-<script src="js/realTime/evntTrigger.js"></script>
+<script src="js/general/contentPreload.js"></script>
+<script src="js/general/apiRoutes.js"></script>
 <script src="js/realTime/eventEmiter.js"></script>
+<script src="js/realTime/evntTrigger.js"></script>
+<script src="js/general/fileUploadPreview.js"></script>
+<script src="js/api/openRoute.js"></script>
+<script src="js/api/createFeed.js"></script>
+<script src="js/api/fetchFeeds.js"></script>
 
 </html>

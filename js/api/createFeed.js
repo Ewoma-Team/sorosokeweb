@@ -1,76 +1,101 @@
+const uploadFileBtn = document.querySelector('[data-target-file-uploadbtn]');
+const locationField = document.querySelector('[data-target-location]')
+const descriptionField = document.querySelector('[data-target-description]')
+const fileInfo = document.querySelector('[data-target-file-info]')
 
 
-const {apiOrigin, apiVersion, createFeed} = apiRoute;
-const status = null;
-
-const uploadFileBtn = document.querySelector('[data-target-uploadbtn]');
-
-
-
-
+console.log(uploadFileBtn)
 
 
 const uploadFileErrorHandling = (status, result) => {
     console.log(status, result)
-
-    if (status !== null) {
-        alertify.set('notifier','position', 'top-center');
-        alertify.error(`Authentication Failed : ${result.info}`);
-        result.hint ? alertify.error(`Authentication Failed : ${result.hint}`) : null
+    if (status !== 201) {
+        alertify.set('notifier','position', 'top-right');
+        alertify.error(`Upload Failed : ${result.info}`);
+        result.hint ? alertify.error(`Upload Failed : ${result.hint}`) : null
         return false;   
     }
 }
 
+const titleCase = (string) => {
+    return string
+      .split(' ')
+      .map(word => word.substr(0,1).toUpperCase() + word.substr(1,word.length))
+      .join(' ');
+};
+
+const validateFormInput = () => {
+
+    alertify.set('notifier','position', 'top-right');
+
+    if(!file) {
+        alertify.error(`Upload Failed : A File is need to create a feed.`) 
+        return false;
+    }
+
+    if(descriptionField.value === '') {
+        alertify.error(`Upload Failed : Please write a brief information about the feed.`)
+        return false;
+    }
+
+    return true;
+}
 
 
-const triggerOrderRequestApi = async (e) => {
+const triggerCreateFeedApi = async (e) => {
     e.preventDefault()
     
     const validation = validateFormInput();//Validation of the input
     if(!validation) {return false;}
 
-    uploadFileBtn.innerHTML = `<div class="spinner-grow" style="color: #fff;" role="status"></div>
-                                 <span style="color: #fff; font-weight: bold;">Loading...</span>`;
+
+    uploadFileBtn.innerHTML = `<div class="spinner-grow" style="color: #fff;" role="status"></div>`;
     uploadFileBtn.disabled = true;
 
-
     let data = new FormData();
+    data.append('location', titleCase(locationField.value));
+    data.append('description', titleCase(descriptionField.value));
+    data.append('file_url', file);
 
-    data.append('receiver_name',  titleCase(receiverNameRef.current.value));
-    data.append('receiver_phone', titleCase(`${countryCodeRef.current.value}${receiverPhoneRef.current.value}`));
-    data.append('receiver_photo', file);
-    data.append('pick_up_address', titleCase(pickUpAddressRef.current.value));
-    data.append('delivery_address', titleCase(deliveryAddressRef.current.value));
+    console.log(`${apiOrigin}${apiVersion}${createFeed}`)
 
     try {
-        const token = JSON.parse(localStorage.getItem("@-sorosoke-webapp-token"))
 
         const response = await fetch(`${apiOrigin}${apiVersion}${createFeed}`, {
             method: 'POST',
             headers: {
                 'Access-Control-Allow-Origin': '*',
+                'Accept': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
             body: data
         });
         if (!response.ok) {
-            twitterLoginBtn.disabled = false;
-            twitterLoginBtn.innerHTML = `Upload`;
+            uploadFileBtn.disabled = false;
+            uploadFileBtn.innerHTML = `Upload`;
             status = response.status
         }
 
             const result = await response.json(); 
 
         if (result.success) {
-            twitterLoginBtn.disabled = false;
-            twitterLoginBtn.innerHTML = `Upload`;
+            uploadFileBtn.disabled = false;
+            uploadFileBtn.innerHTML = `Upload`;
+            resetUpload()
+            fileInfo.innerHTML = `<span>Your file is uploaded successfully!<span>`
+            alertify.set('notifier','position', 'top-right');
+            alertify.success(`Upload Successfully : Upload done successfully.`);
             return true;
         }
         
         uploadFileErrorHandling(status, result)
     } catch (error) {
         console.log(error)
-        twitterLoginBtn.disabled = false;
-        twitterLoginBtn.innerHTML = `Upload`;
+        uploadFileBtn.disabled = false;
+        uploadFileBtn.innerHTML = `Upload`;
+        alertify.set('notifier','position', 'top-right');
+        alertify.error(`Upload Failed: An error occured while authenticating account.`);
     }
 }
+
+uploadFileBtn.addEventListener('click', (e) => triggerCreateFeedApi(e))

@@ -58,6 +58,8 @@ const twitterLoginApi = async (e) => {
         twitterLoginBtn.disabled = false;
         twitterLoginBtn.innerHTML = `   <i class="fab fa-lg fa-twitter mr-2"></i>
         <span>Continue with Twitter</span>`;
+        alertify.set('notifier','position', 'top-center');
+        alertify.error(`Authentication Failed : An error occured while authenticating account.`);
         return false;  
     }
 

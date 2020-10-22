@@ -49,10 +49,10 @@
     text-decoration: underline;
 }
 .sorosoke-image {
-    height: 8vh;
-    width: 8vh;
+    height: 75px;
+    width: 70px;
 }
 .sorosoke-image img{
-    height: 8vh;
-    width: 8vh;
+    height: 100%;
+    width: 100%;
 }

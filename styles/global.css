@@ -120,7 +120,7 @@ body {
     background: #151314;
     background-position: center;
     background-size: cover;
-    z-index: 2;
+    z-index: 9;
 }
 .loader-logo {
     width: 40vh;
