@@ -249,7 +249,7 @@ body {
     width: 149.27px;
 }
 .content-showcase {
-    max-height: 100vh;
+    max-height: 80vh;
     /* padding-bottom: 15vh; */
 }
 .mobile-nav {
@@ -291,6 +291,11 @@ body {
 .page-full {
     max-height: 100vh;
 }
+@media(max-width: 992px) {
+    .content-showcase {
+        max-height: 70vh;
+    }
+}
 @media(max-width: 768px) {
     .loader-logo {
         width: 30vh;
@@ -298,7 +303,9 @@ body {
     .loader-logo img {
         width: 30vh;
     }
+}
+@media(max-width: 335px) {
     .content-showcase {
-        max-height: 65vh;
+        max-height: 60vh;
     }
 }
