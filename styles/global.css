@@ -291,6 +291,9 @@ body {
 .page-full {
     max-height: 100vh;
 }
+.click-here-twitter {
+    display: none;
+}
 @media(max-width: 992px) {
     .content-showcase {
         max-height: 70vh;

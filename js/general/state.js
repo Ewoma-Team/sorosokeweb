@@ -31,4 +31,23 @@ const viewStateToDom = () => {
     })
 }
 
-viewStateToDom()
+viewStateToDom();
+
+//--------------------------------------------------Side Bar Toggle Manipulation
+const stateRoomBtn = document.querySelector('[data-target-state-room-toggle]')
+
+console.log(stateRoomBtn)
+
+const stateRoomToggle = (e) => {
+    e.preventDefault();
+
+    console.log(e)
+    // <span class="little-dash ml-2"></span>
+
+
+
+
+}
+
+stateRoomBtn.addEventListener('click', (e) => stateRoomToggle(e))
+
