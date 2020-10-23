@@ -18,9 +18,9 @@
     <script src="js/packages/alertifyjs-master/build/alertify.min.js"></script>
     <script src="js/packages/socket/socket.io.js"></script>
     <title data-title>Chat</title>
-    <script src="js/general/apiRoutes.js"></script>
+    <!-- <script src="js/general/apiRoutes.js"></script>
     <script src="js/api/openRoute.js"></script>
-    <script src="js/general/session.js"></script>
+    <script src="js/general/session.js"></script> -->
 </head>
 
 <body>
@@ -39,27 +39,27 @@
         <script src="js/general/larger-screen-resize.js"></script>
         <div class="row">
             <div class="col-12 row mx-0 page-full scroller px-0">
-                <div id="user-section-desktop" class="col-2 user-section-desktop px-0">
-                    <div class="user-image-desktop mt-5 mx-auto">
+                <div id="user-section-desktop" class="user-section-desktop px-0" style="width: 5%;">
+                    <div class="user-image-desktop-sm mt-5 mx-auto">
                         <img src="images/sample-girl.png" alt="">
                     </div>
-                    <h6 class="text-center color-white mt-3" style="font-weight: 300;">Hi! Esther</h6>
-                    <div class="page-nav-links pr-2" style="margin-top: 15vh;">
+                    <!-- <h6 class="text-center color-white mt-3" style="font-weight: 300;">Hi! Esther</h6> -->
+                    <div class="page-nav-links small-links pr-2" style="margin-top: 15vh;">
                         <ul class="nav flex-column">
                             <li class="nav-item my-2">
                                 <a class="nav-link ml-2 pt-3 d-flex" href="feeds.html"><i
-                                        class="fas fa-lg fa-newspaper mr-2 mt-1"></i><p>Feeds</p></a>
+                                        class="fas fa-lg fa-newspaper mr-2 mt-1"></i></a>
                             </li>
                             <li class="nav-item my-2 active">
-                                <a class="nav-link ml-2 pt-3 d-flex" href="#"><i class="fas fa-lg fa-comment mr-2 mt-1"></i><div>Chat Rooms</div></a>
+                                <a class="nav-link ml-2 pt-3 d-flex" href="#"><i class="fas fa-lg fa-comment mr-2 mt-1"></i></a>
                             </li>
                             <li class="nav-item my-2" style="position: absolute; bottom: 0">
-                                <a class="nav-link ml-2 pt-3 d-flex log-out"><i class="fas fa-lg fa-sign-out-alt mr-2 mt-1"></i><div>Log Out</div></a>
+                                <a class="nav-link ml-2 pt-3 d-flex log-out"><i class="fas fa-lg fa-sign-out-alt mr-2 mt-1"></i></a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-12 col-md-10 main-section px-0">
+                <div id="main-section" class="main-section px-0" style="width: 95%;">
                     <div class="col-12 row mx-0 main-section-header mt-2">
                         <h2 class="col-5 color-white impact-font">Chat Rooms</h2>
                         <div id="user-section-mobile" class="col-7 d-none justify-content-end user-section-mobile">
@@ -176,7 +176,7 @@
                                                         class="form-control pl-5 col-8 col-md-9" aria-describedby="">
                                                     <div class="col-2 col-md-1 px-0 attachments-div text-center">
                                                         <button type="button"
-                                                            class="btn btn-outline-light attachments-button"><i
+                                                            class="btn btn-light attachments-button"><i
                                                                 class="fas fa-paperclip fa-lg"></i></button>
                                                     </div>
                                                     <button type="submit"
@@ -200,13 +200,13 @@
     </div> -->
     <div id="mobile-nav" class="col-12 px-0 row mx-0 mobile-nav d-none">
         <div class="col px-0 mobile-page-nav text-center">
-            <a class="nav-link" href="feeds.html"><i class="fas fa-lg fa-newspaper"></i><br>Feed</a>
+            <a class="nav-link" href="feeds.html"><i class="fas fa-lg fa-newspaper"></i></a>
         </div>
         <div class="col px-0 mobile-page-nav active text-center">
-            <a class="nav-link" href="#"><i class="fas fa-lg fa-comment"></i><br>Chat Rooms</a>
+            <a class="nav-link" href="#"><i class="fas fa-lg fa-comment"></i></a>
         </div>
         <div class="col px-0 mobile-page-nav text-center">
-            <a class="nav-link" href="#"><i class="fas fa-lg fa-sign-out-alt"></i><br>Log Out</a>
+            <a class="nav-link" href="#"><i class="fas fa-lg fa-sign-out-alt"></i></a>
         </div>
     </div>
 
@@ -251,22 +251,25 @@
     let mobileUpload = document.getElementById('mobile-upload')
     let mobileNav = document.getElementById('mobile-nav')
     let uploadModalDialog = document.getElementById('upload-modal-dialog')
+    let mainSection = document.getElementById('main-section')
 
     var appWindow = window.matchMedia("(max-width: 768px)");
 
     adjustForScreenSize = (appWindow) => {
         if (appWindow.matches) {
-            console.log('feel')
+            console.log('small')
             userSectionDesktop.classList.add('d-none')
             userSectionMobile.classList.remove('d-none')
             userSectionMobile.classList.add('d-flex')
             mobileNav.classList.remove('d-none')
+            mainSection.classList.add('col-12')
         } else {
-            console.log('be')
+            console.log('big')
             userSectionDesktop.classList.remove('d-none')
             userSectionMobile.classList.add('d-none')
             userSectionMobile.classList.remove('d-flex')
             mobileNav.classList.add('d-none')
+            mainSection.classList.remove('col-12')
         }
     }
 
