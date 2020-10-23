@@ -1,10 +1,13 @@
+.chats-full {
+    height: 80vh;
+}
 .select-room-section {
-    height: 75vh;
+    height: 100%;
     border: 1px solid #ec0b43;
     background: #404040;
 }
 .chat-view {
-    height: 75vh;
+    height: 100%;
     border: 1px solid #ec0b43;
 }
 .search-rooms input {
@@ -24,22 +27,22 @@
     box-shadow: none;
 }
 .chat-group-title {
-    font-size: 7px;
+    font-size: 12px;
     color: white;
-    font-weight: 200;
+    font-weight: 400;
 }
 .chat-nav-links {
     max-height: 67.5vh;
 }
 .room-title-information {
-    height: 7vh;
-    font-size: 10px;
-    font-weight: 300;
+    min-height: 10%;
+    font-size: 12px;
+    font-weight: 400;
     background: #ec0b43;
     border: .1px solid transparent;
 }
 .chat-view-actual {
-    max-height: 67.7vh;
+    height: 90%;
     background: #676767;
 }
 .floating-chat-day {
@@ -55,12 +58,12 @@
 }
 .chat-message .chat-author {
     
-    font-size: 10px;
+    font-size: 12px;
     color: white;
 }
 .chat-message .chat-message-con {
     
-    font-size: 8px;
+    font-size: 12px;
     padding: 10px 20px;
 }
 .chat-message-right .chat-message-con{
@@ -96,22 +99,23 @@
     height: 7vh;
     border-radius: 20px;
     background: #404040;
-    color: white;
+    color: black;
     font-size: 12px;
+    border: none;
 }
 .input-message-area input:active, .input-message-area input:focus{
     outline: none;
     box-shadow: none;
     background: #404040;
-    color: white;
+    color: black;
 }
 .input-message-area input::placeholder {
-    color: white;
+    color: black;
     font-size: 10px;
     font-weight: 300;
 }
 .input-icon {
-    color: white;
+    color: black;
     position: absolute;
     top: 40%;
     left: 18px;
@@ -121,6 +125,24 @@
 .attachments-button {
     border-radius: 50%;
     height: 100%;
+}
+.back-to-select-room {
+    color: white;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+}
+.chat-dom {
+    height: 80vh;
+}
+.state-li {
+    transition: 1s all ease;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.state-li:hover{
+    background: #ec0b43;
+    transform: scale(0.9);
 }
 @media screen and (max-width: 768px) {
     .chat-view-actual {

@@ -32,6 +32,78 @@
     color: white;
 }
 
+body {
+    background: white;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box !important;
+  }
+  label {
+    font-size: 12px;
+  }
+  input, textarea, select {
+    background: #f3f2f2 !important;
+    border-radius: 2px !important;
+    resize: none;
+  }
+  form {
+    box-sizing: border-box;
+  }
+
+  textarea:focus,
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="datetime"]:focus,
+  input[type="datetime-local"]:focus,
+  input[type="date"]:focus,
+  input[type="month"]:focus,
+  input[type="time"]:focus,
+  input[type="week"]:focus,
+  input[type="number"]:focus,
+  input[type="email"]:focus,
+  input[type="url"]:focus,
+  input[type="search"]:focus,
+  input[type="tel"]:focus,
+  input[type="color"]:focus,
+  button:focus,
+  select:focus,
+  .uneditable-input:focus {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    outline: 0 none !important;
+  }
+  .input-class:focus {
+    border-color:#d61545 !important;
+  }
+
+  .scroller{
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(185, 184, 184);
+  }
+  .scroller::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  .scroller::-webkit-scrollbar-track {
+    background:  rgb(185, 184, 184);
+    border-radius: 10px;
+    display: none;
+  }
+  
+  .scroller::-webkit-scrollbar-thumb {
+    color: black;
+    border-radius: 10px;
+    background:  rgb(185, 184, 184);
+  }
+  .scroller::-webkit-scrollbar-thumb:hover {
+    background:  white;
+    border-color: #3f3d56;
+    border-radius: 10px;
+  }
+
 .poppins-font {
     font-family: 'Poppins', sans-serif;
 }
@@ -40,6 +112,7 @@
     font-family: 'impact';
 }
 
+
 .sorosoke-loader {
     height: 100vh;
     position: absolute;
@@ -47,7 +120,7 @@
     background: #151314;
     background-position: center;
     background-size: cover;
-    z-index: 2;
+    z-index: 9;
 }
 .loader-logo {
     width: 40vh;
@@ -103,8 +176,8 @@
     background: #404040;
 }
 .user-image-desktop {
-    height: 15vh;
-    width: 15vh;
+    height: 97.35px;
+    width: 97.35px;
     border-radius: 50%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -117,8 +190,8 @@
 }
 
 .user-image-mobile {
-    height: 6vh;
-    width: 6vh;
+    height: 38.94px;
+    width: 38.94px;
     border-radius: 50%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -133,12 +206,13 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 .page-nav-links ul li  {
-    height: 50px;
-    border-radius: 0px 7px 7px 0px;
+    min-height: 50px;
+    border-radius: 0px 25px 25px 0px;
     cursor: pointer;
 }
 .chat-nav-links ul li {
-    border-radius: 0px 7px 7px 0px;
+    min-height: 30px;
+    border-radius: 0px 15px 15px 0px;
     cursor: pointer;
 }
 .chat-nav-links ul li a {
@@ -149,7 +223,7 @@
 .page-nav-links ul li a {
     color: white !important;
     font-size: 13px;
-    font-weight: 200;
+    font-weight: 500;
 }
 .mobile-page-nav a {
     color:#868686 !important;
@@ -171,12 +245,12 @@
     background: black;
 }
 .main-section-header-text button {
-    height: 8vh;
-    width: 23vh;
+    height: 51.92px;
+    width: 149.27px;
 }
 .content-showcase {
-    max-height: 90vh;
-    padding-bottom: 15vh;
+    max-height: 80vh;
+    /* padding-bottom: 15vh; */
 }
 .mobile-nav {
     background: white;
@@ -217,11 +291,21 @@
 .page-full {
     max-height: 100vh;
 }
+@media(max-width: 992px) {
+    .content-showcase {
+        max-height: 70vh;
+    }
+}
 @media(max-width: 768px) {
     .loader-logo {
         width: 30vh;
     }
     .loader-logo img {
         width: 30vh;
+    }
+}
+@media(max-width: 335px) {
+    .content-showcase {
+        max-height: 60vh;
     }
 }
