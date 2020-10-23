@@ -1,5 +1,5 @@
 .chats-full {
-    height: 75vh;
+    height: 80vh;
 }
 .select-room-section {
     height: 100%;
@@ -27,17 +27,17 @@
     box-shadow: none;
 }
 .chat-group-title {
-    font-size: 7px;
+    font-size: 12px;
     color: white;
-    font-weight: 200;
+    font-weight: 400;
 }
 .chat-nav-links {
     max-height: 67.5vh;
 }
 .room-title-information {
     min-height: 10%;
-    font-size: 10px;
-    font-weight: 300;
+    font-size: 12px;
+    font-weight: 400;
     background: #ec0b43;
     border: .1px solid transparent;
 }
@@ -99,22 +99,23 @@
     height: 7vh;
     border-radius: 20px;
     background: #404040;
-    color: white;
+    color: black;
     font-size: 12px;
+    border: none;
 }
 .input-message-area input:active, .input-message-area input:focus{
     outline: none;
     box-shadow: none;
     background: #404040;
-    color: white;
+    color: black;
 }
 .input-message-area input::placeholder {
-    color: white;
+    color: black;
     font-size: 10px;
     font-weight: 300;
 }
 .input-icon {
-    color: white;
+    color: black;
     position: absolute;
     top: 40%;
     left: 18px;
@@ -130,6 +131,18 @@
     height: 25px;
     width: 25px;
     border-radius: 50%;
+}
+.chat-dom {
+    height: 80vh;
+}
+.state-li {
+    transition: 1s all ease;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.state-li:hover{
+    background: #ec0b43;
+    transform: scale(0.9);
 }
 @media screen and (max-width: 768px) {
     .chat-view-actual {

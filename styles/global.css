@@ -207,12 +207,12 @@ body {
 }
 .page-nav-links ul li  {
     min-height: 50px;
-    border-radius: 0px 7px 7px 0px;
+    border-radius: 0px 25px 25px 0px;
     cursor: pointer;
 }
 .chat-nav-links ul li {
     min-height: 30px;
-    border-radius: 0px 7px 7px 0px;
+    border-radius: 0px 15px 15px 0px;
     cursor: pointer;
 }
 .chat-nav-links ul li a {
@@ -223,7 +223,7 @@ body {
 .page-nav-links ul li a {
     color: white !important;
     font-size: 13px;
-    font-weight: 200;
+    font-weight: 500;
 }
 .mobile-page-nav a {
     color:#868686 !important;
@@ -249,8 +249,8 @@ body {
     width: 149.27px;
 }
 .content-showcase {
-    max-height: 90vh;
-    padding-bottom: 15vh;
+    max-height: 100vh;
+    /* padding-bottom: 15vh; */
 }
 .mobile-nav {
     background: white;
@@ -297,5 +297,8 @@ body {
     }
     .loader-logo img {
         width: 30vh;
+    }
+    .content-showcase {
+        max-height: 65vh;
     }
 }

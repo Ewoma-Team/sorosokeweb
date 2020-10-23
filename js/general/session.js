@@ -1,28 +1,29 @@
 
 const checkUser = (token) => {
+
+    
     //Redirect if not true
-    const routes = new Routes();
-    const url = `${routes.apiOrigin}${routes.checkSession}`;
+    const url = `${apiRoute.apiOrigin}${apiRoute.checkSession}`;
 
     fetch(url, {
         method: "GET",
         mode: "cors",
         headers: {
+            "Accept": 'application/json',
             "Authorization": `${token}`
         }
     })
     .then(res => {
+        console.log(res)
         if(res) {
-            if(res.status == 401){
-                localStorage.clear();
-                location.replace(`${window.location.origin}`);
+            if(res.status !== 200){ 
+                // localStorage.removeItem('@-sorosoke-webapp-token')
+                // localStorage.removeItem('@-sorosoke-webapp-userData')
+                // location.replace(`${window.location.origin}`);
             }
         }
     })
 }
-
-const token = localStorage.getItem('@-sorosoke-webapp-token') ? JSON.parse(localStorage.getItem('@-sorosoke-webapp-token'))
-              : null;
 
 token ? checkUser(token) : location.replace(`${window.location.origin}`);
 

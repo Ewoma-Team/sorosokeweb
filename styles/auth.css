@@ -7,7 +7,7 @@
 .auth-con {
     border-radius: 6px;
     min-height: 60vh;
-    margin-top: 20vh;
+    margin-top: 5vh;
     background-color: #404040;
     border: 1px solid red;
 }
@@ -49,8 +49,8 @@
     text-decoration: underline;
 }
 .sorosoke-image {
-    height: 75px;
-    width: 70px;
+    height: 110px;
+    width: 100px;
 }
 .sorosoke-image img{
     height: 100%;

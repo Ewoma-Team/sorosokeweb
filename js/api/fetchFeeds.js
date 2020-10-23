@@ -83,7 +83,7 @@ const loadFeedsToDom = (feeds, imageOrigin, videoOrigin) => {
         }
 
         feedsViewPreload.innerHTML += `
-        <div class="col-10 col-sm-5 col-md-4 col-lg-3 mx-auto mx-md-0 feeds-showcase-single mb-4" data-target-feed-id="${feed_id}">
+        <div class="col-10 col-sm-5 col-md-4 col-lg-3 mx-auto mx-md-0 feeds-showcase-single mb-4 p-0 p-sm-2" data-target-feed-id="${feed_id}">
             <div class="col-12 feed-image px-0">
                 ${
                     wallView
@@ -105,7 +105,7 @@ const loadFeedsToDom = (feeds, imageOrigin, videoOrigin) => {
             </div>
             <div class="col-12 d-flex p-0 m-0">
                 <p class="color-white" style="font-size: 10px; font-weight: 300; text-align: justify;">
-                    ${location}
+                    ${location ? location : ''}
                 </p>
             </div>
         </div>`;

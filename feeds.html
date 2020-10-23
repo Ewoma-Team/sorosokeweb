@@ -18,8 +18,9 @@
     <link rel="stylesheet" href="styles/feed.css">
     <script src="js/packages/alertifyjs-master/build/alertify.min.js"></script>
     <title data-title>Feeds</title>
-    <!-- <script src="js/general/apiRoutes.js"></script>
-    <script src="js/general/session.js"></script> -->
+    <script src="js/general/apiRoutes.js"></script>
+    <script src="js/api/openRoute.js"></script>
+    <script src="js/general/session.js"></script>
 </head>
 
 <body id="containerDOM">
@@ -46,20 +47,17 @@
                     <div class="page-nav-links pr-2" style="margin-top: 15vh;">
                         <ul class="nav flex-column">
                             <li class="nav-item my-2 active">
-                                <a class="nav-link ml-4 pt-3 d-flex" href="#"><i
-                                        class="fas fa-lg fa-newspaper mr-4 mt-1"></i>
-                                    <p>Feeds</p>
-                                </a>
+                                <a class="nav-link ml-2 pt-3 d-flex" href="#"><i class="fas fa-lg fa-comment mr-2 mt-1"></i><div>Feeds</div></a>
                             </li>
                             <li class="nav-item my-2">
-                                <a class="nav-link ml-4 pt-3 d-flex" href="chats.html"><i
-                                        class="fas fa-lg fa-comment mr-4 mt-1"></i>
+                                <a class="nav-link ml-2 pt-3 d-flex" href="chats.html"><i
+                                        class="fas fa-lg fa-comment mr-2 mt-1"></i>
                                     <div>Chat Rooms</div>
                                 </a>
                             </li>
                             <li class="nav-item my-2" style="position: absolute; bottom: 0">
-                                <a class="nav-link ml-4 pt-3 d-flex log-out"><i
-                                        class="fas fa-lg fa-sign-out-alt mr-4 mt-1"></i>
+                                <a class="nav-link ml-2 pt-3 d-flex log-out"><i
+                                        class="fas fa-lg fa-sign-out-alt mr-2 mt-1"></i>
                                     <div>Log Out</div>
                                 </a>
                             </li>
@@ -90,8 +88,9 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col-12 row content-showcase scroller mx-0 mt-4" data-target-feed-preload>
+                    <div class="col-12 row content-showcase scroller mx-0 mt-4 p-0" data-target-feed-preload>
                         <!-- Load the feed Here -->
+                        <script src="js/general/contentPreload.js"></script>
                     </div>
                 </div>
             </div>
@@ -208,12 +207,9 @@
 
 </script>
 
-<script src="js/general/contentPreload.js"></script>
-<script src="js/general/apiRoutes.js"></script>
 <script src="js/realTime/eventEmiter.js"></script>
 <script src="js/realTime/evntTrigger.js"></script>
 <script src="js/general/fileUploadPreview.js"></script>
-<script src="js/api/openRoute.js"></script>
 <script src="js/api/createFeed.js"></script>
 <script src="js/api/fetchFeeds.js"></script>
 
