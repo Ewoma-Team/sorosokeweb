@@ -27,7 +27,14 @@ class Routes {
     twitterCallback(oauthToken, oauthVerifier) {
         return `twitter/auth/callback?oauthToken=${oauthToken}&oauthVerifier=${oauthVerifier}`
     }
+
+    get createFeed() {
+        return "create/feed"
+    }
     
+    fetchFeeds(page) {
+        return `feeds/${page}`
+    }
 }
   
   

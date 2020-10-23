@@ -1,48 +1,31 @@
-/*
-Import Note: This script file should be use to hold data of the current user that is login 
-*/
-//Getting the user information form the browser localStorage
-const onsessionUser = JSON.parse(localStorage.getItem('DevelopND-user'));
-//Check if this user is real or else redirect to login
-let validSession;
-let certified = [];
 
-let action = localStorage.getItem('action');
+const checkUser = (token) => {
 
-const checkUser = (token, user) => {
+    
     //Redirect if not true
-    const routes = new Routes();
-    const url = `${routes.apiOrigin}${routes.checkSession}`;
+    const url = `${apiRoute.apiOrigin}${apiRoute.checkSession}`;
 
     fetch(url, {
         method: "GET",
         mode: "cors",
         headers: {
+            "Accept": 'application/json',
             "Authorization": `${token}`
         }
     })
     .then(res => {
+        console.log(res)
         if(res) {
-            if(res.status == 401 && action == 0){
-                localStorage.clear();
-                location.replace('../login.html');
-            }else if (res.status == 401 && action == 1) {
-                localStorage.clear();
-                location.replace('../login.html');
-            }else {
-                certified.push(token);
-                certified.push(user)
-
+            if(res.status !== 200){ 
+                // localStorage.removeItem('@-sorosoke-webapp-token')
+                // localStorage.removeItem('@-sorosoke-webapp-userData')
+                // location.replace(`${window.location.origin}`);
             }
         }
     })
-
 }
 
-if(onsessionUser){    
-    let {token, user} = onsessionUser;
-    checkUser(token, user);
-}
+token ? checkUser(token) : location.replace(`${window.location.origin}`);
 
 //Get the user info through object destructuring
 

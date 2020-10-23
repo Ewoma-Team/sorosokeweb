@@ -11,11 +11,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/chats.css">
-    <title data-title>Home</title>
+    <link rel="stylesheet" href="js/packages/alertifyjs-master/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="js/packages/alertifyjs-master/build/css/themes/default.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/packages/alertifyjs-master/build/alertify.min.js"></script>
+    <script src="js/packages/socket/socket.io.js"></script>
+    <title data-title>Chat</title>
+    <script src="js/general/apiRoutes.js"></script>
+    <script src="js/api/openRoute.js"></script>
+    <script src="js/general/session.js"></script>
 </head>
 
 <body>
-    <div class="container-fluid poppins-font">
+    <div class="col-12 sorosoke-loader animate__animated animate__fadeOut animate__delay-0.6s">
+        <div class="text-center h-100" style="position: relative;">
+            <div class="loader-logo mx-auto" style="padding-top: 150px;">
+                <img src="images/logo.png" alt="">
+                <div class="spinner-grow" style="color: #a33236; width: 3rem; height: 3rem;" role="status">
+                    <span class="sr-only">Loading...</span>
+                    <span style="font-weight: bold;">!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid poppins-font" id="container-page">
+        <script src="js/general/larger-screen-resize.js"></script>
         <div class="row">
             <div class="col-12 row mx-0 page-full scroller px-0">
                 <div id="user-section-desktop" class="col-2 user-section-desktop px-0">
@@ -26,32 +47,30 @@
                     <div class="page-nav-links pr-2" style="margin-top: 15vh;">
                         <ul class="nav flex-column">
                             <li class="nav-item my-2">
-                                <a class="nav-link ml-4 pt-3" href="feeds.html"><i
-                                        class="fas fa-lg fa-newspaper mr-4"></i>Feed</a>
+                                <a class="nav-link ml-2 pt-3 d-flex" href="feeds.html"><i
+                                        class="fas fa-lg fa-newspaper mr-2 mt-1"></i><p>Feeds</p></a>
                             </li>
                             <li class="nav-item my-2 active">
-                                <a class="nav-link ml-4 pt-3" href="#"><i class="fas fa-lg fa-comment mr-4"></i>Chat
-                                    Rooms</a>
+                                <a class="nav-link ml-2 pt-3 d-flex" href="#"><i class="fas fa-lg fa-comment mr-2 mt-1"></i><div>Chat Rooms</div></a>
                             </li>
                             <li class="nav-item my-2" style="position: absolute; bottom: 0">
-                                <a class="nav-link ml-4 pt-3" href="#"><i class="fas fa-lg fa-sign-out-alt mr-4"></i>Log
-                                    Out</a>
+                                <a class="nav-link ml-2 pt-3 d-flex log-out"><i class="fas fa-lg fa-sign-out-alt mr-2 mt-1"></i><div>Log Out</div></a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-12 col-md-10 main-section px-0">
-                    <div class="col-12 row mx-0 main-section-header mt-4">
+                    <div class="col-12 row mx-0 main-section-header mt-2">
                         <h2 class="col-5 color-white impact-font">Chat Rooms</h2>
                         <div id="user-section-mobile" class="col-7 d-none justify-content-end user-section-mobile">
-                            <span class="text-center color-white mt-3 mx-2"
+                            <span class="text-center color-white mt-1 mx-2"
                                 style="font-size: 12px; font-weight: 300;">Hi! Esther</span>
                             <div class="user-image-mobile mt-1">
                                 <img src="images/sample-girl.png" alt="">
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 row mx-0 main-section-header-text mt-2">
+                    <div class="col-12 row mx-0 main-section-header-text">
                         <p class="col-12 col-md-5 color-white" style="font-size: 12px; font-weight: 200;">Connect with
                             people in your city and beyond. Chat about the mobement and protests. Let’s #endsars.. </p>
                         <!-- <div id="desktop-upload" class="col-7 text-right">
@@ -61,87 +80,59 @@
                         </div> -->
                     </div>
                     <div class="col-12 row content-showcase scroller mx-0">
-                        <div class="col-12 row mx-0 mt-2 chats-full">
+                        <div class="col-12 row mx-0  chats-full">
                             <div class="col-12 col-md-2 px-0 select-room-section">
                                 <div class="col-12 px-0 search-rooms mb-3">
                                     <form>
                                         <div class="form-group">
-                                            <i class="fas fa-search fa-xs input-icon" style="left: 2px; top: 30%;"></i>
-                                            <input placeholder="Search Rooms by States" type="text" class="form-control pl-4"
+                                            <i class="fas fa-search fa-xs input-icon" style="left: 4px; top: 30%;"></i>
+                                            <input data-target-search-state-room placeholder="Search Rooms by States" type="text" class="form-control pl-4"
                                                 aria-describedby="emailHelp">
                                         </div>
                                     </form>
                                 </div>
                                 <div class="chat-nav-links scroller pr-4 mt-2">
-                                    <span class="chat-group-title ml-3">Public Rooms</span><span
-                                        class="little-dash ml-2"></span>
+                                    <span style="cursor: pointer;" class="chat-group-title ml-3" data-target-state-room-toggle>Public Rooms</span><span 
+                                            class="little-dash ml-2"></span>
+                                    
                                     <ul class="nav flex-column">
-                                        <li class="nav-item mb-1 active">
-                                            <a class="nav-link" href="#"><i
-                                                    class="fas fa-lg mr-3 fa-globe-americas"></i>Global Room</a>
+                                        <li class="nav-item mb-1 active" data-target-global-room-btn>
+                                            <a class="nav-link d-flex" href="#"><i class="fas fa-lg mr-3 mt-1 fa-globe-americas" style="font-size: 12px;"></i>
+                                                <div style="font-weight: 500;">Global Room</div>
+                                            </a>
                                         </li>
-                                        <li class="nav-item mb-1">
-                                            <a class="nav-link" href="#"><i class="fas fa-lg mr-3 fa-users"></i>General
-                                                Room</a>
-                                        </li>
-                                        <li class="nav-item mb-1">
-                                            <a class="nav-link" href="#"><i class="fas fa-lg mr-3 fa-flag"></i>National
-                                                Room</a>
+                                        <!-- <li class="nav-item mb-1" data-target-general-room>
+                                            <a class="nav-link d-flex" href="#"><i class="fas fa-lg mr-3 mt-1 fa-users"></i><div>General Room</div></a>
+                                        </li> -->
+                                        <li class="nav-item mb-1" data-target-national-room>
+                                            <a class="nav-link d-flex" href="#">
+                                                <i class="fas fa-lg mr-3 mt-1 fa-flag"></i>
+                                                <div style="font-weight: 500;">National Room</div>
+                                            </a>
                                         </li>
                                     </ul>
-                                    <span class="chat-group-title ml-3">State Rooms</span><span
-                                        class="little-dash ml-2"></span>
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item mb-1">
-                                            <a class="nav-link" href="#">Abia State Room</a>
-                                        </li>
-                                        <li class="nav-item mb-1">
-                                            <a class="nav-link" href="#">Abia State Room</a>
-                                        </li>
-                                        <li class="nav-item mb-1">
-                                            <a class="nav-link" href="#">Abia State Room</a>
-                                        </li>
-                                        <li class="nav-item mb-1">
-                                            <a class="nav-link" href="#">Abia State Room</a>
-                                        </li>
-                                        <li class="nav-item mb-1">
-                                            <a class="nav-link" href="#">Abia State Room</a>
-                                        </li>
-                                        <li class="nav-item mb-1">
-                                            <a class="nav-link" href="#">Abia State Room</a>
-                                        </li>
-                                        <li class="nav-item mb-1">
-                                            <a class="nav-link" href="#">Abia State Room</a>
-                                        </li>
-                                        <li class="nav-item mb-1">
-                                            <a class="nav-link" href="#">Abia State Room</a>
-                                        </li>
-                                        <li class="nav-item mb-1">
-                                            <a class="nav-link" href="#">Abia State Room</a>
-                                        </li>
-                                        <li class="nav-item mb-1">
-                                            <a class="nav-link" href="#">Abia State Room</a>
-                                        </li>
-                                        <li class="nav-item mb-1">
-                                            <a class="nav-link" href="#">Abia State Room</a>
-                                        </li>
-                                        <li class="nav-item mb-1">
-                                            <a class="nav-link" href="#">Abia State Room</a>
-                                        </li>
+                                    <span style="cursor: pointer;" class="chat-group-title ml-3" data-target-state-room-toggle>State Rooms</span><span
+                                            class="little-dash ml-2"></span>
+                                    <ul class="nav flex-column" data-target-state-room-dom>
+                                        <!-- Show States  -->
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-12 col-md-10 chat-view px-0">
-                                <div class="col-12 room-title-information">
-                                    <p class="color-white ml-2 mt-3">Global Chat Room - <span>350 members</span></p>
+                                <div class="col-12 room-title-information d-flex">
+                                    <div class="back-to-select-room border text-center mt-2">
+                                        <i class="fas fa-arrow-left fa-lg mt-2"></i>
+                                    </div>
+                                    <p class="color-white ml-2 mt-3 float-right">Global Chat Room - <span>350 members</span></p>
                                 </div>
                                 <div class="col-12 chat-view-actual scroller pt-5 px-0">
-                                    <div class="floating-chat-day">
+                                   <div class="chat-dom" data-target-chat-dom>
+                                         <!-- <div class="floating-chat-day">
                                         <span class="">Yesterday</span>
-                                    </div>
-                                    <div class="col-12 chat-message chat-message-right mb-3">
+                                    </div> -->
+                                    <!-- <div class="col-12 chat-message chat-message-right mb-3">
                                         <div
-                                            class="ml-auto d-flex justify-content-start chat-author col-12 col-md-4 mt-2">
+                                            class="ml-auto d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
                                             <div class="chat-author-image">
                                                 <img src="images/sample-girl.png" alt="">
                                             </div>
@@ -149,14 +140,14 @@
                                                 Thrower</small>
                                             <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
                                         </div>
-                                        <div class="ml-auto mt-1 chat-message-con col-12 col-md-4">
+                                        <div class="ml-auto mt-1 chat-message-con col-12 col-md-5">
                                             <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                                 Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
                                                 dignissimos temporibus assumenda quae atque!</span>
                                         </div>
                                     </div>
                                     <div class="col-12 chat-message chat-message-left mb-3">
-                                        <div class="d-flex justify-content-start chat-author col-12 col-md-4 mt-2">
+                                        <div class="d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
                                             <div class="chat-author-image">
                                                 <img src="images/sample-girl.png" alt="">
                                             </div>
@@ -164,60 +155,13 @@
                                                 Thrower</small>
                                             <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
                                         </div>
-                                        <div class="mt-1 chat-message-con col-12 col-md-4">
+                                        <div class="mt-1 chat-message-con col-12 col-md-5">
                                             <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                                 Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
                                                 dignissimos temporibus assumenda quae atque!</span>
                                         </div>
-                                    </div>
-                                    <div class="col-12 chat-message chat-message-right mb-3">
-                                        <div
-                                            class="ml-auto d-flex justify-content-start chat-author col-12 col-md-4 mt-2">
-                                            <div class="chat-author-image">
-                                                <img src="images/sample-girl.png" alt="">
-                                            </div>
-                                            <small class="color-white ml-1">Eniduro Shade
-                                                Thrower</small>
-                                            <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
-                                        </div>
-                                        <div class="ml-auto mt-1 chat-message-con col-12 col-md-4">
-                                            <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
-                                                dignissimos temporibus assumenda quae atque!</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 chat-message chat-message-right mb-3">
-                                        <div
-                                            class="ml-auto d-flex justify-content-start chat-author col-12 col-md-4 mt-2">
-                                            <div class="chat-author-image">
-                                                <img src="images/sample-girl.png" alt="">
-                                            </div>
-                                            <small class="color-white ml-1">Eniduro Shade
-                                                Thrower</small>
-                                            <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
-                                        </div>
-                                        <div class="ml-auto mt-1 chat-message-con col-12 col-md-4">
-                                            <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
-                                                dignissimos temporibus assumenda quae atque!</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 chat-message chat-message-right mb-3">
-                                        <div
-                                            class="ml-auto d-flex justify-content-start chat-author col-12 col-md-4 mt-2">
-                                            <div class="chat-author-image">
-                                                <img src="images/sample-girl.png" alt="">
-                                            </div>
-                                            <small class="color-white ml-1">Eniduro Shade
-                                                Thrower</small>
-                                            <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
-                                        </div>
-                                        <div class="ml-auto mt-1 chat-message-con col-12 col-md-4">
-                                            <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
-                                                dignissimos temporibus assumenda quae atque!</span>
-                                        </div>
-                                    </div>
+                                    </div> -->
+                                   </div>
                                     <div class="input-message-area col-12 px-0">
                                         <form class="px-3 pt-1">
                                             <div class="d-flex justify-content-start form-group dropup">
@@ -296,6 +240,10 @@
 </body>
 <!--Import third party cdn-->
 <script src="js/general/third_party_cdn.js"></script>
+<script src="js/general/logOut.js"></script>
+<script src="js/api/fetchRoomChat.js"></script>
+<script src="js/general/state.js"></script>
+
 <script>
     let userSectionDesktop = document.getElementById('user-section-desktop')
     let userSectionMobile = document.getElementById('user-section-mobile')
@@ -303,23 +251,27 @@
     let mobileUpload = document.getElementById('mobile-upload')
     let mobileNav = document.getElementById('mobile-nav')
     let uploadModalDialog = document.getElementById('upload-modal-dialog')
-    console.log(window.location.href)
 
-    adjustForScreenSize = () => {
-        if (window.screen.width <= 768) {
+    var appWindow = window.matchMedia("(max-width: 768px)");
+
+    adjustForScreenSize = (appWindow) => {
+        if (appWindow.matches) {
+            console.log('feel')
             userSectionDesktop.classList.add('d-none')
             userSectionMobile.classList.remove('d-none')
             userSectionMobile.classList.add('d-flex')
             mobileNav.classList.remove('d-none')
         } else {
+            console.log('be')
             userSectionDesktop.classList.remove('d-none')
             userSectionMobile.classList.add('d-none')
             userSectionMobile.classList.remove('d-flex')
             mobileNav.classList.add('d-none')
         }
     }
-    adjustForScreenSize();
-    window.onresize = adjustForScreenSize;
+
+    adjustForScreenSize(appWindow)
+    appWindow.addEventListener("change", () => adjustForScreenSize(appWindow));
 </script>
 
 
