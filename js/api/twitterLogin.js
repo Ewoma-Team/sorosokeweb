@@ -24,6 +24,7 @@ const twitterLoginApi = async (e) => {
         <span style="color: #fff; font-weight: bold;">Loading...</span>`;
     twitterLoginBtn.disabled = true;
 
+
     try {
         const response = await fetch(`${apiOrigin}${apiVersion}${twitterLogin}`, {
             method: 'GET',
@@ -49,9 +50,9 @@ const twitterLoginApi = async (e) => {
             twitterLoginBtn.disabled = false;
             twitterLoginBtn.innerHTML = `   <i class="fab fa-lg fa-twitter mr-2"></i>
             <span>Continue with Twitter</span>`;
-            console.log(result.authUrl)
+
             //Call an auth popup
-            window.open(result.authUrl, "Twitter Authentication", "height=650, width=600, resizable=yes");
+           windowPopUp(result.authUrl, "Twitter Authentication", "height=650, left=0, top=0, width=600, scrollbars, resizable=yes")
         }
 
     } catch (error) {

@@ -22,7 +22,7 @@ const viewStateToDom = () => {
 
         stateDom.innerHTML += `
             <li class="nav-item mb-1 state-room-class" id="state-room-${state}" data-target-state="${state[0]}">
-                <a style="text-align:  left; font-weight: 500;" class="nav-link state-li" href="#">${x}</a>
+                <span style="text-align: left; font-weight: 500;" class="nav-link state-li" href="#">${x}</span>
             </li>`;
     })
 
@@ -31,4 +31,25 @@ const viewStateToDom = () => {
     })
 }
 
-viewStateToDom()
+viewStateToDom();
+
+//--------------------------------------------------Side Bar Toggle Manipulation
+const stateRoomBtn = document.querySelector('#state-room-toggle')
+let stateRoomToogleSwitch = false; 
+
+const stateRoomToggle = (e) => {
+    e.preventDefault();
+
+    if(stateRoomToogleSwitch) {
+        stateDom.style.display ='none';//hide the drop down
+        return stateRoomToogleSwitch = false;
+    }
+    if(!stateRoomToogleSwitch) {
+        stateDom.style.display ='block';
+        return stateRoomToogleSwitch = true;
+    }
+
+}
+
+stateRoomBtn.addEventListener('click', (e) => stateRoomToggle(e))
+

@@ -20,11 +20,11 @@
     <title data-title>Feeds</title>
     <script src="js/general/apiRoutes.js"></script>
     <script src="js/api/openRoute.js"></script>
-    <script src="js/general/session.js"></script>
+    <!-- <script src="js/general/session.js"></script> -->
 </head>
 
 <body id="containerDOM">
-    <div class="col-12 sorosoke-loader animate__animated animate__fadeOut animate__delay-0.6s">
+    <div class="col-12 sorosoke-loader animate__animated animate__fadeOut animate__delay-2s">
         <div class="text-center h-100" style="position: relative;">
             <div class="loader-logo mx-auto" style="padding-top: 150px;">
                 <img src="images/logo.png" alt="">
@@ -39,33 +39,33 @@
         <script src="js/general/larger-screen-resize.js"></script>
         <div class="row">
             <div class="col-12 row mx-0 feed-full px-0">
-                <div id="user-section-desktop" class="col-2 user-section-desktop px-0">
-                    <div class="user-image-desktop mt-5 mx-auto">
+                <div id="user-section-desktop" class="user-section-desktop px-0"  style="width: 5%;">
+                    <div class="user-image-desktop-sm mt-5 mx-auto">
                         <img src="images/sample-girl.png" alt="">
                     </div>
-                    <h6 class="text-center color-white mt-3" style="font-weight: 300;">Hi! Esther</h6>
-                    <div class="page-nav-links pr-2" style="margin-top: 15vh;">
+                    <h6 class="text-center color-white mt-3" style="font-weight: 300;"></h6>
+                    <div class="page-nav-links small-links pr-2" style="margin-top: 15vh;">
                         <ul class="nav flex-column">
                             <li class="nav-item my-2 active">
                                 <a class="nav-link ml-2 pt-3 d-flex" href="#"><i
-                                    class="fas fa-lg fa-newspaper mr-2 mt-1"></i><div>Feeds</div></a>
+                                    class="fas fa-lg fa-newspaper mr-2 mt-1"></i></a>
                             </li>
                             <li class="nav-item my-2">
                                 <a class="nav-link ml-2 pt-3 d-flex" href="chats.html"><i
                                         class="fas fa-lg fa-comment mr-2 mt-1"></i>
-                                    <div>Chat Rooms</div>
+                                    
                                 </a>
                             </li>
                             <li class="nav-item my-2" style="position: absolute; bottom: 0">
                                 <a class="nav-link ml-2 pt-3 d-flex log-out"><i
                                         class="fas fa-lg fa-sign-out-alt mr-2 mt-1"></i>
-                                    <div>Log Out</div>
+                                    
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-12 col-md-10 main-section px-0">
+                <div id="main-section" class="main-section px-0" style="width: 95%;">
                     <div class="col-12 row mx-0 main-section-header mt-4">
                         <h2 class="col-5 color-white impact-font">Feed</h2>
                         <div id="user-section-mobile" class="col-7 d-none justify-content-end user-section-mobile">
@@ -103,13 +103,13 @@
     </div>
     <div id="mobile-nav" class="col-12 px-0 row mx-0 mobile-nav d-none">
         <div class="col px-0 mobile-page-nav active text-center">
-            <a class="nav-link" href="#"><i class="fas fa-lg fa-newspaper"></i><br>Feed</a>
+            <a class="nav-link" href="#"><i class="fas fa-lg fa-newspaper"></i></a>
         </div>
         <div class="col px-0 mobile-page-nav text-center">
-            <a class="nav-link" href="chats.html"><i class="fas fa-lg fa-comment"></i><br>Chat Rooms</a>
+            <a class="nav-link" href="chats.html"><i class="fas fa-lg fa-comment"></i></a>
         </div>
         <div class="col px-0 mobile-page-nav text-center">
-            <a class="nav-link log-out"><i class="fas fa-lg fa-sign-out-alt"></i><br>Log Out</a>
+            <a class="nav-link log-out"><i class="fas fa-lg fa-sign-out-alt"></i></a>
         </div>
     </div>
 
@@ -128,7 +128,7 @@
                         <p class="font-12px my-3" style="font-weight: 300;">Upload images or videos towards<br>...What is happening around you?
                         </p>
                         <div class="col-7 m-0 p-0 mx-auto drag-click-box" style="padding-top: 50px;">
-                            <span id="clear-file" class="preview-file" style="font-size: 10px; color: red; right: 20px; position: absolute; z-index: 99999; cursor: pointer;">
+                            <span id="clear-file" class="preview-file" style="font-size: 10px; color: #d61545; right: 20px; position: absolute; z-index: 99999; cursor: pointer;">
                                 <i class="fa fa-remove" style="font-size:24px;"></i>
                                 Close
                             </span>
@@ -155,7 +155,7 @@
                       
                         <form id="upload-feed-form">
                             <textarea class="form-control upload-input col-7 mx-auto mt-3 input-class" rows="3"
-                                placeholder="Enter title" data-target-description required></textarea>
+                                placeholder="Write something here.." data-target-description required></textarea>
                             <input type="text" class="form-control upload-input col-7 mx-auto mt-3 input-class"
                                 placeholder="Enter location" data-target-location required></input>
                             <p class="mt-2" style="font-size: 12px;" data-target-file-info>Hello, file cannot exceed 30mb in
@@ -180,6 +180,7 @@
     let mobileUpload = document.getElementById('mobile-upload')
     let mobileNav = document.getElementById('mobile-nav')
     let uploadModalDialog = document.getElementById('upload-modal-dialog')
+    let mainSection = document.getElementById('main-section')
 
     var appWindow = window.matchMedia("(max-width: 768px)");
 
@@ -192,6 +193,7 @@
             mobileUpload.classList.remove('d-none')
             mobileNav.classList.remove('d-none')
             uploadModalDialog.classList.add('mobile-dialog')
+            mainSection.classList.add('col-12')
         } else {
             userSectionDesktop.classList.remove('d-none')
             userSectionMobile.classList.add('d-none')
@@ -200,6 +202,7 @@
             mobileUpload.classList.add('d-none')
             mobileNav.classList.add('d-none')
             uploadModalDialog.classList.remove('mobile-dialog')
+            mainSection.classList.remove('col-12')
         }
     }
 
