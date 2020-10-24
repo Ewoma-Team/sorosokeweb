@@ -1,5 +1,5 @@
 .chats-full {
-    height: 80vh;
+    height: 575px;
 }
 .select-room-section {
     height: 100%;
@@ -35,11 +35,11 @@
     max-height: 67.5vh;
 }
 .room-title-information {
-    min-height: 10%;
+    height: 10%;
     font-size: 12px;
     font-weight: 400;
-    background: #ec0b43;
-    border: .1px solid transparent;
+    background: #676767;
+    border-bottom: .1px solid grey;
 }
 .chat-view-actual {
     height: 90%;
@@ -126,14 +126,48 @@
     border-radius: 50%;
     height: 100%;
 }
-.back-to-select-room {
+.back-to-select-room-icon {
+    color: white;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.back-to-select-room-icon:hover {
+    background: #ec0b43;
+    border-color: #ec0b43 !important;
+}
+.back-to-select-room span{
+    font-size: 10px;
+}
+.add-to-favourite-btn {
+    float: right;
+}
+.add-to-favourite-btn  span{
+    font-size: 10px;
+}
+
+.add-to-favourite-btn span {
+    border: 1px solid white;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: 1s all ease;
+}
+.add-to-favourite-btn span:hover {
+    color: #e6e6e6;
+    background: #ec0b43;
+    border: 1px solid #e6e6e6;
+    transform: scale(1.003);
+}
+
+.add-to-favourite-btn .icon{
     color: white;
     height: 25px;
     width: 25px;
-    border-radius: 50%;
 }
 .chat-dom {
-    height: 80vh;
+    height: 90%;
 }
 .state-li {
     transition: 1s all ease;
@@ -144,13 +178,25 @@
     background: #ec0b43;
     transform: scale(0.9);
 }
+.dropdown-div {
+    display: none;
+}
+
+
 @media screen and (max-width: 768px) {
     .chat-view-actual {
-      margin-bottom: 30vh;
+      margin-bottom: 10px;
     }
     .input-message-area form {
         padding: 2px !important;
     }
+    .back-to-select-room span{
+        font-size: 8px;
+    }
+    .add-to-favourite-btn  span{
+        font-size: 8px;
+    }
+    
     /* .attachments-div {
         margin-top: 3px;
     }
@@ -162,3 +208,7 @@
         margin-top: 3px;
     } */
   }
+@media screen and (max-width: 400px) {
+    
+    
+}

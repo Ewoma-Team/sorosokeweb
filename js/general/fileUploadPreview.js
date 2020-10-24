@@ -8,7 +8,7 @@ const previewFile = (e) => {
     
     console.log(e)
     document.querySelector('#click-for-write-up').innerHTML =
-     `<div class="spinner-grow" style="color: red; width: 50px; height: 50px;" role="status"></div>`;
+     `<div class="spinner-grow" style="color: #d61545; width: 50px; height: 50px;" role="status"></div>`;
 
     var reader = new FileReader();
     file = e.currentTarget.files[0];
