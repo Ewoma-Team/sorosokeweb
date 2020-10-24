@@ -39,7 +39,7 @@
         <script src="js/general/larger-screen-resize.js"></script>
         <div class="row">
             <div class="col-12 row mx-0 page-full scroller px-0">
-                <div id="user-section-desktop" class="user-section-desktop px-0" >
+                <div id="user-section-desktop" class="user-section-desktop px-0">
                     <div class="user-image-desktop-sm mt-5 mx-auto">
                         <img src="images/sample-girl.png" alt="">
                     </div>
@@ -51,18 +51,20 @@
                                         class="fas fa-lg fa-newspaper mr-2 mt-1"></i></a>
                             </li>
                             <li class="nav-item my-2 active">
-                                <a class="nav-link ml-2 pt-3 d-flex" href="#"><i class="fas fa-lg fa-comment mr-2 mt-1"></i></a>
+                                <a class="nav-link ml-2 pt-3 d-flex" href="#"><i
+                                        class="fas fa-lg fa-comment mr-2 mt-1"></i></a>
                             </li>
                             <li class="nav-item my-2" style="position: absolute; bottom: 0">
-                                <a class="nav-link ml-2 pt-3 d-flex log-out"><i class="fas fa-lg fa-sign-out-alt mr-2 mt-1"></i></a>
+                                <a class="nav-link ml-2 pt-3 d-flex log-out"><i
+                                        class="fas fa-lg fa-sign-out-alt mr-2 mt-1"></i></a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div id="main-section" class="main-section px-0">
-                    <div class="col-12 row mx-0 main-section-header mt-2">
-                        <h2 class="col-5 color-white impact-font">Chat Rooms</h2>
-                        <div id="user-section-mobile" class="col-7 d-none justify-content-end user-section-mobile">
+                    <div class="col-12 row mx-0 main-section-header mt-2" style="height: 6%;">
+                        <h2 class="col-6 color-white impact-font">Chat Rooms</h2>
+                        <div id="user-section-mobile" class="col-6 justify-content-end user-section-mobile">
                             <span class="text-center color-white mt-1 mx-2"
                                 style="font-size: 12px; font-weight: 300;">Hi! Esther</span>
                             <div class="user-image-mobile mt-1">
@@ -70,74 +72,87 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 row mx-0 main-section-header-text">
-                        <p class="col-12 col-md-8 col-lg-6 color-white" style="font-size: 12px; font-weight: 200;">Connect with
-                            people in your city and beyond. Chat and monitor the level of growth in you economy. Let’s be one and ensure peace.. </p>
+                    <div id="main-section-header-text" class="col-12 row mx-0 main-section-header-text" style="height: 6%;">
+                        <p class="col-12 col-md-8 col-lg-6 color-white" style="font-size: 12px; font-weight: 200;">
+                            Connect with
+                            people in your city and beyond. Chat and monitor the level of growth in you economy. Let’s
+                            be one and ensure peace.. </p>
                         <!-- <div id="desktop-upload" class="col-7 text-right">
                             <button type="button" class="btn btn-outline-danger" data-toggle="modal"
                                 data-target="#uploadModal"><i class="fas fa-lg fa-cloud-upload-alt mr-3"></i><span
                                     class="font-12px">Upload</span></button>
                         </div> -->
                     </div>
-                    <div class="col-12 row content-showcase scroller mx-0">
+                    <div class="col-12 row content-showcase scroller mx-0" style="height: 86%;">
                         <div class="col-12 row mx-0 chats-full p-0">
                             <div class="col-12 col-md-3 px-0 select-room-section">
                                 <div class="col-12 px-0 search-rooms mb-3">
                                     <form>
                                         <div class="form-group col-12 mx-auto">
-                                            <i class="fas fa-search fa-xs input-icon" style="left: 15px; top: 30%; color: white;"></i>
-                                            <input data-target-search-state-room placeholder="Search..." type="text" class="form-control pl-4"
-                                                aria-describedby="emailHelp" style="border-bottom: 1px solid grey; border-radius: 0;">
+                                            <i class="fas fa-search fa-xs input-icon"
+                                                style="left: 15px; top: 30%; color: white;"></i>
+                                            <input data-target-search-state-room placeholder="Search..." type="text"
+                                                class="form-control pl-4" aria-describedby="emailHelp"
+                                                style="border-bottom: 1px solid grey; border-radius: 0;">
                                         </div>
                                     </form>
                                 </div>
                                 <div class="chat-nav-links scroller pr-4 mt-2">
-                                    <div style="cursor: pointer;" id="public-room-toggle" class="chat-group-title ml-3 mb-2">
+                                    <div style="cursor: pointer;" id="public-room-toggle"
+                                        class="chat-group-title ml-3 mb-2">
                                         Public Rooms<span class="little-dash ml-2"></span></div>
-                                    
-                                        <ul class="nav flex-column ml-2" data-target-public-room-dom>
-                                            <li class="nav-item mb-1 active" data-target-global-room-btn>
-                                                <a class="nav-link d-flex" >
-                                                    <i class="fas fa-lg mr-3 mt-1 fa-globe-americas" style="font-size: 12px;"></i>
-                                                    <div style="font-weight: 500;">Global Room</div>
-                                                </a>
-                                            </li>
-                                            <!-- <li class="nav-item mb-1" data-target-general-room>
+
+                                    <ul class="nav flex-column ml-2" data-target-public-room-dom>
+                                        <li class="nav-item mb-1 active" data-target-global-room-btn>
+                                            <a class="nav-link d-flex">
+                                                <i class="fas fa-lg mr-3 mt-1 fa-globe-americas"
+                                                    style="font-size: 12px;"></i>
+                                                <div style="font-weight: 500;">Global Room</div>
+                                            </a>
+                                        </li>
+                                        <!-- <li class="nav-item mb-1" data-target-general-room>
                                                 <a class="nav-link d-flex" href="#"><i class="fas fa-lg mr-3 mt-1 fa-users"></i><div>General Room</div></a>
                                             </li> -->
-                                            <li class="nav-item mb-1" data-target-national-room>
-                                                <a class="nav-link d-flex" href="#">
-                                                    <i class="fas fa-lg mr-3 mt-1 fa-flag"></i>
-                                                    <div style="font-weight: 500;">National Room</div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    <div style="cursor: pointer;" id="favourite-room-toggle" class="chat-group-title ml-3 my-2">
+                                        <li class="nav-item mb-1" data-target-national-room>
+                                            <a class="nav-link d-flex" href="#">
+                                                <i class="fas fa-lg mr-3 mt-1 fa-flag"></i>
+                                                <div style="font-weight: 500;">National Room</div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div style="cursor: pointer;" id="favourite-room-toggle"
+                                        class="chat-group-title ml-3 my-2">
                                         Favourites<span class="little-dash ml-2"></span></div>
-                                        <ul class="nav flex-column ml-2" data-target-favourite-room-dom>
-                                            <!-- Show States  -->
-                                            <li class="nav-item mb-1 favourite-room-class" id="state-room-${state}" data-target-state="${state}">
-                                                <span style="text-align: left; font-weight: 500;" class="nav-link state-li" href="#">
-                                                    Daniel Benard&nbsp;<span style="font-size: 7px;">@friends</span>
-                                                </span>
-                                            </li>
-                                        </ul>
-                                  
-                                    <div style="cursor: pointer;" id="state-room-toggle" class="chat-group-title ml-3 my-2">
+                                    <ul class="nav flex-column ml-2" data-target-favourite-room-dom>
+                                        <!-- Show States  -->
+                                        <li class="nav-item mb-1 favourite-room-class" id="state-room-${state}"
+                                            data-target-state="${state}">
+                                            <span style="text-align: left; font-weight: 500;" class="nav-link state-li"
+                                                href="#">
+                                                Daniel Benard&nbsp;<span style="font-size: 7px;">@friends</span>
+                                            </span>
+                                        </li>
+                                    </ul>
+
+                                    <div style="cursor: pointer;" id="state-room-toggle"
+                                        class="chat-group-title ml-3 my-2">
                                         State Rooms<span class="little-dash ml-2"></span></div>
-                                        <ul class="nav flex-column dropdown-div ml-2" data-target-state-room-dom>
-                                            <!-- Show States  -->
-                                        </ul>
-                                    <div style="cursor: pointer;" id="friend-room-toggle" class="chat-group-title ml-3 my-2">
+                                    <ul class="nav flex-column dropdown-div ml-2" data-target-state-room-dom>
+                                        <!-- Show States  -->
+                                    </ul>
+                                    <div style="cursor: pointer;" id="friend-room-toggle"
+                                        class="chat-group-title ml-3 my-2">
                                         Friends<span class="little-dash ml-2"></span></div>
-                                        <ul class="nav flex-column dropdown-div ml-2" data-target-friend-room-dom>
-                                            <!-- Show States  -->
-                                            <li class="nav-item mb-1 state-room-class" id="state-room-${state}" data-target-state="${state[0]}">
-                                                <span style="text-align: left; font-weight: 500;" class="nav-link state-li" href="#">
-                                                    Daniel Benard&nbsp;<span style="font-size: 7px;">@friends</span>
-                                                </span>
-                                            </li>
-                                        </ul>
+                                    <ul class="nav flex-column dropdown-div ml-2" data-target-friend-room-dom>
+                                        <!-- Show States  -->
+                                        <li class="nav-item mb-1 state-room-class" id="state-room-${state}"
+                                            data-target-state="${state[0]}">
+                                            <span style="text-align: left; font-weight: 500;" class="nav-link state-li"
+                                                href="#">
+                                                Daniel Benard&nbsp;<span style="font-size: 7px;">@friends</span>
+                                            </span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="col-12 col-md-9 chat-view px-0">
@@ -154,71 +169,82 @@
                                     <div class="add-to-favourite-btn mt-3 col-6 col-md-4 p-0 pr-2">
                                         <p class="color-white ml-2 float-right">
                                             <span><i class="fas fa-heart icon fa-lg"></i> Add To Favourite</span>
-                                        </p>  
+                                        </p>
                                     </div>
 
                                 </div>
                                 <div class="col-12 chat-view-actual scroller px-0">
-                                   <div class="chat-dom" data-target-chat-dom>
-                                         <!-- <div class="floating-chat-day">
-                                        <span class="">Yesterday</span>
-                                    </div> -->
-                                    <!-- <div class="col-12 chat-message chat-message-right mb-3">
-                                        <div
-                                            class="ml-auto d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
-                                            <div class="chat-author-image">
-                                                <img src="images/sample-girl.png" alt="">
-                                            </div>
-                                            <small class="color-white ml-1">Eniduro Shade
-                                                Thrower</small>
-                                            <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
-                                        </div>
-                                        <div class="ml-auto mt-1 chat-message-con col-12 col-md-5">
-                                            <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
-                                                dignissimos temporibus assumenda quae atque!</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 chat-message chat-message-left mb-3">
-                                        <div class="d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
-                                            <div class="chat-author-image">
-                                                <img src="images/sample-girl.png" alt="">
-                                            </div>
-                                            <small class="color-white ml-1">Eniduro Shade
-                                                Thrower</small>
-                                            <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
-                                        </div>
-                                        <div class="mt-1 chat-message-con col-12 col-md-5">
-                                            <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
-                                                dignissimos temporibus assumenda quae atque!</span>
-                                        </div>
-                                    </div> -->
-                                   </div>
-                                    <div class="input-message-area col-12 px-0">
-                                        <form class="px-3 pt-1">
-                                            <div class="d-flex justify-content-start form-group dropup">
-                                                <i class="far fa-smile fa-lg input-icon" data-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false"></i>
-                                                <div class="dropdown-menu font-12px p-3 text-center"
-                                                    style="height: 20vh; width: 20vh;">
-                                                    Emojis here
+                                    <div class="h-100">
+                                        <div class="chat-dom scroller" data-target-chat-dom>
+                                            <!-- <div class="floating-chat-day">
+                                            <span class="">Yesterday</span>
+                                        </div> -->
+                                            <!-- <div class="col-12 chat-message chat-message-right mb-3">
+                                            <div
+                                                class="ml-auto d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
+                                                <div class="chat-author-image">
+                                                    <img src="images/sample-girl.png" alt="">
                                                 </div>
-                                                <div class="col-12 px-0 row mx-0">
-                                                    <input placeholder="Type your message here" type="text"
-                                                        class="form-control pl-3 col-8 col-md-9" aria-describedby="">
-                                                    <div class="col-2 col-md-1 px-0 attachments-div text-center">
-                                                        <button type="button"
-                                                            class="btn btn-light attachments-button"><i
-                                                            class="fas fa-paperclip fa-lg"></i>
-                                                        </button>
+                                                <small class="color-white ml-1">Eniduro Shade
+                                                    Thrower</small>
+                                                <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
+                                            </div>
+                                            <div class="ml-auto mt-1 chat-message-con col-12 col-md-5">
+                                                <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                    Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
+                                                    dignissimos temporibus assumenda quae atque!</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 chat-message chat-message-left mb-3">
+                                            <div class="d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
+                                                <div class="chat-author-image">
+                                                    <img src="images/sample-girl.png" alt="">
+                                                </div>
+                                                <small class="color-white ml-1">Eniduro Shade
+                                                    Thrower</small>
+                                                <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
+                                            </div>
+                                            <div class="mt-1 chat-message-con col-12 col-md-5">
+                                                <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                    Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
+                                                    dignissimos temporibus assumenda quae atque!</span>
+                                            </div>
+                                        </div> -->
+                                        </div>
+                                        <div class="input-message-area col-12 pt-1 px-0">
+                                            <form class="px-3 pt-1">
+                                                <div class="d-flex form-group dropup">
+                                                    <div class="col pt-3 px-0 text-center" style="cursor: pointer;">
+                                                        <img src="images/smile.svg" alt="" data-toggle="dropdown"
+                                                            aria-haspopup="true" aria-expanded="false"
+                                                            style="height: 20px; width: 20px;">
+                                                        <!-- <i class="far fa-smile fa-lg color-white" data-toggle="dropdown"
+                                                            aria-haspopup="true" aria-expanded="false"></i> -->
+                                                        <div class="dropdown-menu font-12px p-3 text-center"
+                                                            style="height: 20vh; width: 20vh;">
+                                                            Emojis here
+                                                        </div>
                                                     </div>
+                                                    <div class="col pt-3 px-0 text-center" style="cursor: pointer;">
+                                                        <img src="images/paperclip.svg" alt=""
+                                                            style="height: 20px; width: 20px;">
+                                                    </div>
+
+                                                    <input placeholder="Type your message here" type="text"
+                                                        class="form-control pl-3 col-6 col-sm-9 mx-2"
+                                                        aria-describedby="">
+                                                    <!-- <div class="col-2 col-md-1 px-0 attachments-div text-center">
+                                                            <button type="button"
+                                                                class="btn btn-light attachments-button">
+                                                            </button>
+                                                            
+                                                        </div> -->
                                                     <button type="submit"
-                                                        class="btn btn-brand send-chat-button col-2"
-                                                        ><i class="fas fa-paper-plane fa-lg"></i></button>
+                                                        class="btn btn-brand send-chat-button col-2 col-sm-1"><i
+                                                            class="fas fa-paper-plane fa-lg"></i></button>
                                                 </div>
-                                            </div>
-                                        </form>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -290,6 +316,7 @@
     let mobileNav = document.getElementById('mobile-nav')
     let uploadModalDialog = document.getElementById('upload-modal-dialog')
     let mainSection = document.getElementById('main-section')
+    let mainSectionHeaderText = document.getElementById('main-section-header-text')
 
     var appWindow = window.matchMedia("(max-width: 768px)");
 
@@ -301,6 +328,7 @@
             userSectionMobile.classList.add('d-flex')
             mobileNav.classList.remove('d-none')
             mainSection.classList.add('col-12')
+            mainSectionHeaderText.classList.add('d-none')
         } else {
             console.log('big')
             userSectionDesktop.classList.remove('d-none')
@@ -308,6 +336,7 @@
             userSectionMobile.classList.remove('d-flex')
             mobileNav.classList.add('d-none')
             mainSection.classList.remove('col-12')
+            mainSectionHeaderText.classList.remove('d-none')
         }
     }
 

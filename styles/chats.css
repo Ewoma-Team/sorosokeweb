@@ -1,14 +1,14 @@
 .chats-full {
-    height: 575px;
+    height: 100%;
 }
 .select-room-section {
     height: 100%;
-    border: 1px solid #ec0b43;
+    /* border: 1px solid #ec0b43; */
     background: #404040;
 }
 .chat-view {
     height: 100%;
-    border: 1px solid #ec0b43;
+    /* border: 1px solid #ec0b43; */
 }
 .search-rooms input {
     background-color: inherit !important;
@@ -44,6 +44,7 @@
 .chat-view-actual {
     height: 90%;
     background: #676767;
+    overflow: hidden;
 }
 .floating-chat-day {
     border-radius: 6px;
@@ -87,10 +88,10 @@
     border-radius: 50%;
 }
 .input-message-area {
-    height: 10vh;
+    height: 13%;
     position: sticky;
     bottom: 0px;
-    background: #676767;
+    background: #404040;
 }
 
 .input-message-area .form-group {
@@ -98,8 +99,8 @@
 .input-message-area input {
     height: 7vh;
     border-radius: 20px;
-    background: #404040;
-    color: black;
+    background: #676767 !important;
+    color: white;
     font-size: 12px;
     border: none;
 }
@@ -107,10 +108,10 @@
     outline: none;
     box-shadow: none;
     background: #404040;
-    color: black;
+    color:white;
 }
 .input-message-area input::placeholder {
-    color: black;
+    color:white;
     font-size: 10px;
     font-weight: 300;
 }
@@ -167,7 +168,7 @@
     width: 25px;
 }
 .chat-dom {
-    height: 90%;
+    height: 87%;
 }
 .state-li {
     transition: 1s all ease;
@@ -196,6 +197,9 @@
     .add-to-favourite-btn  span{
         font-size: 8px;
     }
+    /* .chat-view-actual {
+        margin-bottom: 2px;
+    } */
     
     /* .attachments-div {
         margin-top: 3px;
