@@ -13,14 +13,14 @@
 .search-rooms input {
     background-color: inherit !important;
     border: none;
-    font-size: 10px;
+    font-size: 15px;
     font-weight: 300;
     color: white !important;
 }
 .search-rooms input::placeholder {
     color: white;
     font-weight: 300;
-    font-size: 9px;
+    font-size: 15px;
 }
 .search-rooms input:active,  .search-rooms input:focus{
     outline: none;

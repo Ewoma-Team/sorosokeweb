@@ -1,6 +1,7 @@
 
 
 
+const groups = ["Smileys & Emotion", "People & Body", ];
 
 const loadEmojiFunc = async () => {
     
