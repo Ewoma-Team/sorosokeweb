@@ -232,9 +232,9 @@ body {
     border-radius: 0px 15px 15px 0px;
     cursor: pointer;
 }
-.chat-nav-links ul li a {
+.chat-nav-links ul li a, .chat-nav-links ul li span {
     color: white !important;
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 200;
 }
 .page-nav-links ul li a {
@@ -266,7 +266,7 @@ body {
     width: 149.27px;
 }
 .content-showcase {
-    max-height: 80vh;
+    max-height: 100vh;
     /* padding-bottom: 15vh; */
 }
 .mobile-nav {

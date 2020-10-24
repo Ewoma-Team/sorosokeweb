@@ -18,13 +18,13 @@
     <script src="js/packages/alertifyjs-master/build/alertify.min.js"></script>
     <script src="js/packages/socket/socket.io.js"></script>
     <title data-title>Chat</title>
-    <!-- <script src="js/general/apiRoutes.js"></script>
+    <script src="js/general/apiRoutes.js"></script>
     <script src="js/api/openRoute.js"></script>
-    <script src="js/general/session.js"></script> -->
+    <!-- <script src="js/general/session.js"></script> -->
 </head>
 
 <body>
-    <div class="col-12 sorosoke-loader animate__animated animate__fadeOut animate__delay-2s">
+    <!-- <div class="col-12 sorosoke-loader animate__animated animate__fadeOut animate__delay-2s">
         <div class="text-center h-100" style="position: relative;">
             <div class="loader-logo mx-auto" style="padding-top: 150px;">
                 <img src="images/logo.png" alt="">
@@ -34,7 +34,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="container-fluid poppins-font" id="container-page">
         <script src="js/general/larger-screen-resize.js"></script>
         <div class="row">
@@ -72,7 +72,7 @@
                     </div>
                     <div class="col-12 row mx-0 main-section-header-text">
                         <p class="col-12 col-md-5 color-white" style="font-size: 12px; font-weight: 200;">Connect with
-                            people in your city and beyond. Chat about the mobement and protests. Let’s #endsars.. </p>
+                            people in your city and beyond. Chat and monitor the level of growth in you economy. Let’s be one and ensure peace.. </p>
                         <!-- <div id="desktop-upload" class="col-7 text-right">
                             <button type="button" class="btn btn-outline-danger" data-toggle="modal"
                                 data-target="#uploadModal"><i class="fas fa-lg fa-cloud-upload-alt mr-3"></i><span
@@ -84,46 +84,80 @@
                             <div class="col-12 col-md-2 px-0 select-room-section">
                                 <div class="col-12 px-0 search-rooms mb-3">
                                     <form>
-                                        <div class="form-group">
-                                            <i class="fas fa-search fa-xs input-icon" style="left: 4px; top: 30%;"></i>
-                                            <input data-target-search-state-room placeholder="Search Rooms by States" type="text" class="form-control pl-4"
-                                                aria-describedby="emailHelp">
+                                        <div class="form-group col-12 mx-auto">
+                                            <i class="fas fa-search fa-xs input-icon" style="left: 4px; top: 30%; color: white;"></i>
+                                            <input data-target-search-state-room placeholder="Search..." type="text" class="form-control "
+                                                aria-describedby="emailHelp" style="border-bottom: 1px solid grey; border-radius: 0;">
                                         </div>
                                     </form>
                                 </div>
                                 <div class="chat-nav-links scroller pr-4 mt-2">
-                                    <span style="cursor: pointer;" class="chat-group-title ml-3" data-target-state-room-toggle>Public Rooms</span><span 
-                                            class="little-dash ml-2"></span>
+                                    <div style="cursor: pointer;" id="public-room-toggle" class="chat-group-title ml-3 mb-2">
+                                        Public Rooms<span class="little-dash ml-2"></span></div>
                                     
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item mb-1 active" data-target-global-room-btn>
-                                            <a class="nav-link d-flex" href="#"><i class="fas fa-lg mr-3 mt-1 fa-globe-americas" style="font-size: 12px;"></i>
-                                                <div style="font-weight: 500;">Global Room</div>
-                                            </a>
-                                        </li>
-                                        <!-- <li class="nav-item mb-1" data-target-general-room>
-                                            <a class="nav-link d-flex" href="#"><i class="fas fa-lg mr-3 mt-1 fa-users"></i><div>General Room</div></a>
-                                        </li> -->
-                                        <li class="nav-item mb-1" data-target-national-room>
-                                            <a class="nav-link d-flex" href="#">
-                                                <i class="fas fa-lg mr-3 mt-1 fa-flag"></i>
-                                                <div style="font-weight: 500;">National Room</div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <span style="cursor: pointer;" class="chat-group-title ml-3" data-target-state-room-toggle>
-                                        State Rooms <span class="little-dash ml-2"></span>
-                                    <ul class="nav flex-column" data-target-state-room-dom>
-                                        <!-- Show States  -->
-                                    </ul>
+                                        <ul class="nav flex-column ml-2" data-target-public-room-dom>
+                                            <li class="nav-item mb-1 active" data-target-global-room-btn>
+                                                <a class="nav-link d-flex" href="#">
+                                                    <i class="fas fa-lg mr-3 mt-1 fa-globe-americas" style="font-size: 12px;"></i>
+                                                    <div style="font-weight: 500;">Global Room</div>
+                                                </a>
+                                            </li>
+                                            <!-- <li class="nav-item mb-1" data-target-general-room>
+                                                <a class="nav-link d-flex" href="#"><i class="fas fa-lg mr-3 mt-1 fa-users"></i><div>General Room</div></a>
+                                            </li> -->
+                                            <li class="nav-item mb-1" data-target-national-room>
+                                                <a class="nav-link d-flex" href="#">
+                                                    <i class="fas fa-lg mr-3 mt-1 fa-flag"></i>
+                                                    <div style="font-weight: 500;">National Room</div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    <div style="cursor: pointer;" id="favourite-room-toggle" class="chat-group-title ml-3 my-2">
+                                        Favourites<span class="little-dash ml-2"></span></div>
+                                        <ul class="nav flex-column ml-2" data-target-favourite-room-dom>
+                                            <!-- Show States  -->
+                                            <li class="nav-item mb-1 favourite-room-class" id="state-room-${state}" data-target-state="${state}">
+                                                <span style="text-align: left; font-weight: 500;" class="nav-link state-li" href="#">
+                                                    Daniel Benard&nbsp;<span style="font-size: 7px;">@friends</span>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                  
+                                    <div style="cursor: pointer;" id="state-room-toggle" class="chat-group-title ml-3 my-2">
+                                        State Rooms<span class="little-dash ml-2"></span></div>
+                                        <ul class="nav flex-column dropdown-div ml-2" data-target-state-room-dom>
+                                            <!-- Show States  -->
+                                        </ul>
+                                    <div style="cursor: pointer;" id="friend-room-toggle" class="chat-group-title ml-3 my-2">
+                                        Friends<span class="little-dash ml-2"></span></div>
+                                        <ul class="nav flex-column dropdown-div ml-2" data-target-friend-room-dom>
+                                            <!-- Show States  -->
+                                            <li class="nav-item mb-1 state-room-class" id="state-room-${state}" data-target-state="${state[0]}">
+                                                <span style="text-align: left; font-weight: 500;" class="nav-link state-li" href="#">
+                                                    Daniel Benard&nbsp;<span style="font-size: 7px;">@friends</span>
+                                                </span>
+                                            </li>
+                                        </ul>
                                 </div>
                             </div>
                             <div class="col-12 col-md-10 chat-view px-0">
-                                <div class="col-12 room-title-information d-flex">
-                                    <div class="back-to-select-room border text-center mt-2">
-                                        <i class="fas fa-arrow-left fa-lg mt-2"></i>
+                                <div class="col-12 row m-0 p-0 room-title-information">
+                                    <span data-chat-identity class="d-none"></span>
+
+                                    <div class="back-to-select-room col-6 col-md-8 mt-3 p-0">
+                                        <p class="color-white ml-2">
+                                            <i class="fas fa-arrow-left back-to-select-room-icon fa-lg mt-2"></i>
+                                            <span>Global Chat Room - <span>350 members</span></span>
+                                        </p>
                                     </div>
-                                    <p class="color-white ml-2 mt-3 float-right">Global Chat Room - <span>350 members</span></p>
+
+                                    <div class="add-to-favourite-btn mt-3 col-6 col-md-4 p-0 pr-2">
+                                        <p class="color-white ml-2 float-right">
+                                            <i class="fas fa-arrow-left icon fa-lg"></i>
+                                            <span>Add To Favourite</span>
+                                        </p>  
+                                    </div>
+
                                 </div>
                                 <div class="col-12 chat-view-actual scroller pt-5 px-0">
                                    <div class="chat-dom" data-target-chat-dom>
@@ -173,11 +207,12 @@
                                                 </div>
                                                 <div class="col-12 px-0 row mx-0">
                                                     <input placeholder="Type your message here" type="text"
-                                                        class="form-control pl-5 col-8 col-md-9" aria-describedby="">
+                                                        class="form-control pl-3 col-8 col-md-9" aria-describedby="">
                                                     <div class="col-2 col-md-1 px-0 attachments-div text-center">
                                                         <button type="button"
                                                             class="btn btn-light attachments-button"><i
-                                                                class="fas fa-paperclip fa-lg"></i></button>
+                                                            class="fas fa-paperclip fa-lg"></i>
+                                                        </button>
                                                     </div>
                                                     <button type="submit"
                                                         class="btn btn-brand send-chat-button col-2"
@@ -242,7 +277,10 @@
 <script src="js/general/third_party_cdn.js"></script>
 <script src="js/general/logOut.js"></script>
 <script src="js/api/fetchRoomChat.js"></script>
-<script src="js/general/state.js"></script>
+<script src="js/general/stateRoom.js"></script>
+<script src="js/general/publicRoom.js"></script>
+<script src="js/general/friendRoom.js"></script>
+<script src="js/general/favouritesRoom.js"></script>
 
 <script>
     let userSectionDesktop = document.getElementById('user-section-desktop')
