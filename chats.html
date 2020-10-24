@@ -39,7 +39,7 @@
         <script src="js/general/larger-screen-resize.js"></script>
         <div class="row">
             <div class="col-12 row mx-0 page-full scroller px-0">
-                <div id="user-section-desktop" class="user-section-desktop px-0" style="width: 5%;">
+                <div id="user-section-desktop" class="user-section-desktop px-0" >
                     <div class="user-image-desktop-sm mt-5 mx-auto">
                         <img src="images/sample-girl.png" alt="">
                     </div>
@@ -59,7 +59,7 @@
                         </ul>
                     </div>
                 </div>
-                <div id="main-section" class="main-section px-0" style="width: 95%;">
+                <div id="main-section" class="main-section px-0">
                     <div class="col-12 row mx-0 main-section-header mt-2">
                         <h2 class="col-5 color-white impact-font">Chat Rooms</h2>
                         <div id="user-section-mobile" class="col-7 d-none justify-content-end user-section-mobile">
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                     <div class="col-12 row mx-0 main-section-header-text">
-                        <p class="col-12 col-md-5 color-white" style="font-size: 12px; font-weight: 200;">Connect with
+                        <p class="col-12 col-md-8 col-lg-6 color-white" style="font-size: 12px; font-weight: 200;">Connect with
                             people in your city and beyond. Chat and monitor the level of growth in you economy. Let’s be one and ensure peace.. </p>
                         <!-- <div id="desktop-upload" class="col-7 text-right">
                             <button type="button" class="btn btn-outline-danger" data-toggle="modal"
@@ -80,13 +80,13 @@
                         </div> -->
                     </div>
                     <div class="col-12 row content-showcase scroller mx-0">
-                        <div class="col-12 row mx-0  chats-full">
-                            <div class="col-12 col-md-2 px-0 select-room-section">
+                        <div class="col-12 row mx-0 chats-full p-0">
+                            <div class="col-12 col-md-3 px-0 select-room-section">
                                 <div class="col-12 px-0 search-rooms mb-3">
                                     <form>
                                         <div class="form-group col-12 mx-auto">
-                                            <i class="fas fa-search fa-xs input-icon" style="left: 4px; top: 30%; color: white;"></i>
-                                            <input data-target-search-state-room placeholder="Search..." type="text" class="form-control "
+                                            <i class="fas fa-search fa-xs input-icon" style="left: 15px; top: 30%; color: white;"></i>
+                                            <input data-target-search-state-room placeholder="Search..." type="text" class="form-control pl-4"
                                                 aria-describedby="emailHelp" style="border-bottom: 1px solid grey; border-radius: 0;">
                                         </div>
                                     </form>
@@ -97,7 +97,7 @@
                                     
                                         <ul class="nav flex-column ml-2" data-target-public-room-dom>
                                             <li class="nav-item mb-1 active" data-target-global-room-btn>
-                                                <a class="nav-link d-flex" href="#">
+                                                <a class="nav-link d-flex" >
                                                     <i class="fas fa-lg mr-3 mt-1 fa-globe-americas" style="font-size: 12px;"></i>
                                                     <div style="font-weight: 500;">Global Room</div>
                                                 </a>
@@ -140,26 +140,25 @@
                                         </ul>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-10 chat-view px-0">
+                            <div class="col-12 col-md-9 chat-view px-0">
                                 <div class="col-12 row m-0 p-0 room-title-information">
                                     <span data-chat-identity class="d-none"></span>
 
                                     <div class="back-to-select-room col-6 col-md-8 mt-3 p-0">
                                         <p class="color-white ml-2">
-                                            <i class="fas fa-arrow-left back-to-select-room-icon fa-lg mt-2"></i>
-                                            <span>Global Chat Room - <span>350 members</span></span>
+                                            <i class="fas fa-arrow-left back-to-select-room-icon fa-lg border mr-2"></i>
+                                            <span>Global Room - <span>350 members</span></span>
                                         </p>
                                     </div>
 
                                     <div class="add-to-favourite-btn mt-3 col-6 col-md-4 p-0 pr-2">
                                         <p class="color-white ml-2 float-right">
-                                            <i class="fas fa-arrow-left icon fa-lg"></i>
-                                            <span>Add To Favourite</span>
+                                            <span><i class="fas fa-heart icon fa-lg"></i> Add To Favourite</span>
                                         </p>  
                                     </div>
 
                                 </div>
-                                <div class="col-12 chat-view-actual scroller pt-5 px-0">
+                                <div class="col-12 chat-view-actual scroller px-0">
                                    <div class="chat-dom" data-target-chat-dom>
                                          <!-- <div class="floating-chat-day">
                                         <span class="">Yesterday</span>
@@ -275,6 +274,7 @@
 </body>
 <!--Import third party cdn-->
 <script src="js/general/third_party_cdn.js"></script>
+<script src="js/general/loadEmoji.js"></script>
 <script src="js/general/logOut.js"></script>
 <script src="js/api/fetchRoomChat.js"></script>
 <script src="js/general/stateRoom.js"></script>

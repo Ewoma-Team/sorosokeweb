@@ -1,5 +1,5 @@
 .chats-full {
-    height: 80vh;
+    height: 575px;
 }
 .select-room-section {
     height: 100%;
@@ -35,7 +35,7 @@
     max-height: 67.5vh;
 }
 .room-title-information {
-    min-height: 10%;
+    height: 10%;
     font-size: 12px;
     font-weight: 400;
     background: #676767;
@@ -87,7 +87,7 @@
     border-radius: 50%;
 }
 .input-message-area {
-    height: 8vh;
+    height: 10vh;
     position: sticky;
     bottom: 0px;
     background: #676767;
@@ -96,7 +96,7 @@
 .input-message-area .form-group {
 }
 .input-message-area input {
-    height: 6vh;
+    height: 7vh;
     border-radius: 20px;
     background: #404040;
     color: black;
@@ -128,9 +128,13 @@
 }
 .back-to-select-room-icon {
     color: white;
-    height: 25px;
-    width: 25px;
+    padding: 8px;
     border-radius: 50%;
+    cursor: pointer;
+}
+.back-to-select-room-icon:hover {
+    background: #ec0b43;
+    border-color: #ec0b43 !important;
 }
 .back-to-select-room span{
     font-size: 10px;
@@ -163,7 +167,7 @@
     width: 25px;
 }
 .chat-dom {
-    height: 80vh;
+    height: 90%;
 }
 .state-li {
     transition: 1s all ease;
@@ -177,9 +181,11 @@
 .dropdown-div {
     display: none;
 }
+
+
 @media screen and (max-width: 768px) {
     .chat-view-actual {
-      margin-bottom: 30vh;
+      margin-bottom: 10px;
     }
     .input-message-area form {
         padding: 2px !important;
