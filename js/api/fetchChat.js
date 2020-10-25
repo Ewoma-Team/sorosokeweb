@@ -43,11 +43,6 @@ const fetchChatApi = () => {
         </div>
     `;
 
-    alert('chat is ready to flow')
-
-
-
-
 }
 
 
