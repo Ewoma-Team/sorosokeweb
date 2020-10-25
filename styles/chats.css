@@ -32,7 +32,8 @@
     font-weight: 400;
 }
 .chat-nav-links {
-    max-height: 75vh;
+    max-height: 70vh;
+    padding-bottom: 15px;
 }
 .room-title-information {
     height: 10%;
@@ -181,6 +182,11 @@
 
 
 @media screen and (max-width: 768px) {
+
+    /*Hide the chat view at mobile screen and view with javascript */
+    .chat-view {
+        display: none;
+    }
     .chat-view-actual {
       margin-bottom: 10px;
     }

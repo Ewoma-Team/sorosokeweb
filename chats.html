@@ -64,21 +64,22 @@
                 </div>
                 <div id="main-section" class="main-section px-0">
                     <div class="col-12 row mx-0 main-section-header mt-2" style="height: 6%;">
-                        <h2 class="col-6 color-white impact-font">Chat Rooms</h2>
-                
+                        <h2 class="col-8 color-white impact-font font-mobile-sty">Chat Rooms</h2>
+                        <div id="user-section-mobile" class="col-4 d-none justify-content-end user-section-mobile" >
+                            <span class="text-center color-white mt-3 mx-2"
+                                style="font-size: 12px; font-weight: 300;"></span>
+                            <div class="user-image-mobile mt-1">
+                                <img src="images/sample-girl.png" alt="">
+                            </div>
+                        </div>
                     </div>
                     <div id="main-section-header-text" class="col-12 row mx-0 main-section-header-text" style="height: 6%;">
                         <p class="col-12 col-md-8 col-lg-6 color-white" style="font-size: 12px; font-weight: 200;">
                             Connect with
                             people in your city and beyond. Chat and monitor the level of growth in you economy. Let’s
                             be one and ensure peace.. </p>
-                        <!-- <div id="desktop-upload" class="col-7 text-right">
-                            <button type="button" class="btn btn-outline-danger" data-toggle="modal"
-                                data-target="#uploadModal"><i class="fas fa-lg fa-cloud-upload-alt mr-3"></i><span
-                                    class="font-12px">Upload</span></button>
-                        </div> -->
                     </div>
-                    <div class="col-12 row content-showcase scroller mx-0" style="height: 86%;">
+                    <div class="col-12 row content-showcase scroller mx-0 mt-3 mt-md-0" style="height: 84%;">
                         <div class="col-12 row mx-0 chats-full p-0">
                             <div class="col-12 col-md-3 px-0 select-room-section">
                                 <div class="col-12 px-0 search-rooms mb-3">
@@ -96,7 +97,8 @@
                                     
                                         <ul class="nav flex-column ml-2" data-target-public-room-dom>
 
-                                            <li class="nav-item mb-1 active" data-target-global-room-btn>
+                                            <li class="nav-item mb-1 active" data-target-global-room-btn id="public-room-global"
+                                            data-target-room="global">
                                                 <a class="nav-link d-flex" >
                                                     <i class="fas fa-lg mr-3 mt-1 fa-globe-americas" style="font-size: 12px;"></i>
                                                     <div style="font-weight: 500;">Global Room</div>
@@ -105,20 +107,22 @@
                                             <!-- <li class="nav-item mb-1" data-target-general-room>
                                                 <a class="nav-link d-flex" href="#"><i class="fas fa-lg mr-3 mt-1 fa-users"></i><div>General Room</div></a>
                                             </li> -->
-                                            <li class="nav-item mb-1" data-target-national-room-btn>
+                                            <li class="nav-item mb-1" data-target-national-room-btn id="public-room-national"
+                                            data-target-room="national">
                                                 <a class="nav-link d-flex">
                                                     <i class="fas fa-lg mr-3 mt-1 fa-flag" style="font-size: 12px;"></i>
                                                     <div style="font-weight: 500;">National Room</div>
                                                 </a>
                                             </li>
                                     </ul>
+                                    
                                     <div style="cursor: pointer;" id="favourite-room-toggle"
                                         class="chat-group-title ml-3 my-2">
                                         Favourites<span class="little-dash ml-2"></span></div>
                                     <ul class="nav flex-column ml-2" data-target-favourite-room-dom>
-                                        <!-- Show States  -->
-                                        <li class="nav-item mb-1 favourite-room-class" id="state-room-${state}"
-                                            data-target-state="${state}">
+                                        <!-- Show Favourites  -->
+                                        <li class="nav-item mb-1 favourite-room-class" id="favourite-room-${favourite}"
+                                            data-target-room="${favourite}">
                                             <span style="text-align: left; font-weight: 500;" class="nav-link state-li"
                                                 href="#">
                                                 Daniel Benard&nbsp;
@@ -133,13 +137,14 @@
                                     <ul class="nav flex-column dropdown-div ml-2" data-target-state-room-dom>
                                         <!-- Show States  -->
                                     </ul>
+
                                     <div style="cursor: pointer;" id="friend-room-toggle"
                                         class="chat-group-title ml-3 my-2">
                                         Friends<span class="little-dash ml-2"></span></div>
                                     <ul class="nav flex-column dropdown-div ml-2" data-target-friend-room-dom>
-                                        <!-- Show States  -->
-                                        <li class="nav-item mb-1 state-room-class" id="state-room-${state}"
-                                            data-target-state="${state[0]}">
+                                        <!-- Show Friends  -->
+                                        <li class="nav-item mb-1 friends-room-class" id="friend-room-${friend}"
+                                            data-target-room="${friend}">
                                             <span style="text-align: left; font-weight: 500;" class="nav-link state-li"
                                                 href="#">
                                                 Daniel Benard&nbsp;
@@ -147,6 +152,7 @@
                                             </span>
                                         </li>
                                     </ul>
+
                                 </div>
                             </div>
                             <div class="col-12 col-md-9 chat-view px-0">
@@ -156,7 +162,7 @@
                                     <div class="back-to-select-room col-6 col-md-8 mt-3 p-0">
                                         <p class="color-white ml-2">
                                             <i class="fas fa-arrow-left back-to-select-room-icon fa-lg border mr-2"></i>
-                                            <span>Global Room - <span>350 members</span></span>
+                                            <span data-chat-identity-view>Global Room</span>&nbsp;-&nbsp;<span>350 members</span>
                                         </p>
                                     </div>
 
@@ -242,17 +248,13 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                               </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- <div id="mobile-upload" class="mobile-upload d-none">
-        <button type="button" class="btn" data-toggle="modal" data-target="#uploadModal"><i
-                class="fas fa-lg fa-cloud-upload-alt color-white"></i></button>
-    </div> -->
     <div id="mobile-nav" class="col-12 px-0 row mx-0 mobile-nav d-none">
         <div class="col px-0 mobile-page-nav text-center">
             <a class="nav-link" href="feeds.html"><i class="fas fa-lg fa-newspaper"></i></a>
@@ -264,44 +266,20 @@
             <a class="nav-link" href="#"><i class="fas fa-lg fa-sign-out-alt"></i></a>
         </div>
     </div>
-
-    <!-- Upload Modal -->
-    <div class="modal fade poppins-font" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel"
-        aria-hidden="true">
-        <div id="upload-modal-dialog" class="modal-dialog" role="document">
-            <div class="modal-content mx-0">
-                <!-- <div class="modal-header text-center">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div> -->
-                <div class="modal-body">
-                    <div class="col-12 text-center">
-                        <p class="font-12px my-5" style="font-weight: 300;">Upload images or videos towards<br>#endsars</p>
-                        <div class="col-7 mx-auto drag-click-box" style="padding-top: 65px;">
-                            <span class="text-center d-none" style="font-size: 10px; font-weight: 300;">Drag and drop a
-                                file or <br> click to upload media</span>
-                            <span class="text-center" style="font-size: 10px; font-weight: 300;">Click here to browse
-                                device for <br> media you wish to upload</span>
-                        </div>
-                        <button type="button" class="btn btn-danger mt-5" style="height: 7vh; width: 20vh;"><span
-                                class="font-12px">Upload</span></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 <!--Import third party cdn-->
 <script src="js/general/third_party_cdn.js"></script>
 <script src="js/general/loadEmoji.js"></script>
 <script src="js/general/logOut.js"></script>
-<script src="js/brigdeJs/fetchRoomChat.js"></script>
+<script src="js/general/roomAndChatViewToggle.js"></script>
 <script src="js/general/stateRoom.js"></script>
 <script src="js/general/publicRoom.js"></script>
 <script src="js/general/friendRoom.js"></script>
 <script src="js/general/favouritesRoom.js"></script>
-<script src="js/api/fetchChat.js"></script>
+<script src="js/brigdeJs/loadChatToDom.js"></script>
+<script src="js/brigdeJs/loadChatFromIndexDb.js"></script>
+<script src="js/brigdeJs/fetchRoomChatBridge.js"></script>
+<script src="js/api/fetchChatApi.js"></script>
 
 <script>
     let userSectionDesktop = document.getElementById('user-section-desktop')
