@@ -1,26 +1,26 @@
 .chats-full {
-    height: 575px;
+    height: 100%;
 }
 .select-room-section {
     height: 100%;
-    border: 1px solid #ec0b43;
+    /* border: 1px solid #ec0b43; */
     background: #404040;
 }
 .chat-view {
     height: 100%;
-    border: 1px solid #ec0b43;
+    /* border: 1px solid #ec0b43; */
 }
 .search-rooms input {
     background-color: inherit !important;
     border: none;
-    font-size: 10px;
+    font-size: 15px;
     font-weight: 300;
     color: white !important;
 }
 .search-rooms input::placeholder {
-    color: white;
+    color: lightgrey;
     font-weight: 300;
-    font-size: 9px;
+    font-size: 15px;
 }
 .search-rooms input:active,  .search-rooms input:focus{
     outline: none;
@@ -32,7 +32,7 @@
     font-weight: 400;
 }
 .chat-nav-links {
-    max-height: 67.5vh;
+    max-height: 75vh;
 }
 .room-title-information {
     height: 10%;
@@ -44,6 +44,7 @@
 .chat-view-actual {
     height: 90%;
     background: #676767;
+    overflow: hidden;
 }
 .floating-chat-day {
     border-radius: 6px;
@@ -87,10 +88,10 @@
     border-radius: 50%;
 }
 .input-message-area {
-    height: 10vh;
+    height: 13%;
     position: sticky;
     bottom: 0px;
-    background: #676767;
+    background: #404040;
 }
 
 .input-message-area .form-group {
@@ -98,8 +99,8 @@
 .input-message-area input {
     height: 7vh;
     border-radius: 20px;
-    background: #404040;
-    color: black;
+    background: #676767 !important;
+    color: white;
     font-size: 12px;
     border: none;
 }
@@ -107,10 +108,10 @@
     outline: none;
     box-shadow: none;
     background: #404040;
-    color: black;
+    color:white;
 }
 .input-message-area input::placeholder {
-    color: black;
+    color:white;
     font-size: 10px;
     font-weight: 300;
 }
@@ -152,22 +153,18 @@
     cursor: pointer;
     border-radius: 25px;
     font-weight: 500;
-    transition: 1s all ease;
 }
 .add-to-favourite-btn span:hover {
     color: #e6e6e6;
     background: #ec0b43;
-    border: 1px solid #e6e6e6;
-    transform: scale(1.003);
+    border: 1px solid #ec0b43;
 }
 
 .add-to-favourite-btn .icon{
     color: white;
-    height: 25px;
-    width: 25px;
 }
 .chat-dom {
-    height: 90%;
+    height: 87%;
 }
 .state-li {
     transition: 1s all ease;
@@ -196,6 +193,9 @@
     .add-to-favourite-btn  span{
         font-size: 8px;
     }
+    /* .chat-view-actual {
+        margin-bottom: 2px;
+    } */
     
     /* .attachments-div {
         margin-top: 3px;

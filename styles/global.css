@@ -170,7 +170,7 @@ body {
     border: 1px dashed #d61545;
 }
 .user-section-desktop {
-    border-right: 2px solid #ec0b43;
+    /* border-right: 2px solid #ec0b43; */
     border-top: 1px solid transparent;
     height: 100%;
     background: #404040;
@@ -323,7 +323,13 @@ body {
     .loader-logo img {
         width: 30vh;
     }
+    /* .main-section-header {
+        height: auto !important;
+    }
+    .main-section-header-text {
+        height: auto !important;
+    } */
 }
 @media(max-width: 335px) {
-=
+
 }
