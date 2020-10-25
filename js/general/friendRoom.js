@@ -5,6 +5,16 @@ const friendDom = document.querySelector('[data-target-friend-room-dom]')
 
 let friendRoomToogleSwitch = false; 
 
+const loadFriends = () => {
+    
+
+    Array.from(document.querySelectorAll('.friends-room-class')).map(x => {
+        x.addEventListener('click', (e) => fetchRoomChatBrigde(e));
+    }) 
+}
+
+loadFriends()
+
 const friendRoomToggle = (e) => {
     e.preventDefault();
 
@@ -21,5 +31,9 @@ const friendRoomToggle = (e) => {
 
 }
 
+
+
 friendRoomBtn.addEventListener('click', (e) => friendRoomToggle(e))
+
+
 

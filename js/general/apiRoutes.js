@@ -9,7 +9,7 @@ Import Note: The base_url.js hold every every third party base url origin and ap
 class Routes {
 
     get apiOrigin() {
-      return  'https://api-sorosoke.herokuapp.com/';
+      return 'https://api-sorosoke.herokuapp.com/';
     }
 
     get apiVersion() {
