@@ -312,6 +312,14 @@ body {
 .click-here-twitter {
     display: none;
 }
+@media(max-width: 1100px) {
+    .user-section-desktop {
+        width: 8%;
+    }
+    .main-section {
+        width: 92%;
+    }
+}
 @media(max-width: 992px) {
     
 }

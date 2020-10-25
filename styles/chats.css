@@ -13,14 +13,15 @@
 .search-rooms input {
     background-color: inherit !important;
     border: none;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 300;
     color: white !important;
+    height: 51px;
 }
 .search-rooms input::placeholder {
     color: lightgrey;
     font-weight: 300;
-    font-size: 15px;
+    font-size: 13px;
 }
 .search-rooms input:active,  .search-rooms input:focus{
     outline: none;
@@ -50,7 +51,6 @@
     border-radius: 6px;
     position: absolute;
     left: 50%;
-    top: 10px;
     background: #404040;
     color: white;
     font-size: 8px;
@@ -178,6 +178,9 @@
 .dropdown-div {
     display: none;
 }
+.back-to-select-room-icon {
+    display: none;
+}
 
 
 @media screen and (max-width: 768px) {
@@ -198,6 +201,10 @@
     .add-to-favourite-btn  span{
         font-size: 8px;
     }
+    .back-to-select-room-icon {
+        display: inline-block;
+    }
+    
     /* .chat-view-actual {
         margin-bottom: 2px;
     } */

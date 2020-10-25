@@ -87,10 +87,10 @@
                                     <form>
                                         <div class="form-group col-12 mx-auto">
                                             <i class="fas fa-search fa-xs input-icon"
-                                                style="left: 15px; top: 30%; color: white; font-size: 20px;"></i>
+                                                style="left: 15px; top: 30%; color: white; font-size: 18px;"></i>
                                             <input data-target-search-state-room placeholder="Search..." type="text"
                                                 class="form-control" aria-describedby="emailHelp"
-                                                style="border-bottom: 1px solid grey; border-radius: 0; height: 60px; padding-left: 30px;">
+                                                style="border-bottom: 1px solid grey; border-radius: 0; padding-left: 30px;">
                                         </div>
                                     </form>
                                 </div>
@@ -102,7 +102,7 @@
                                     <ul class="nav flex-column ml-2" data-target-public-room-dom>
 
                                         <li class="nav-item mb-1 active" data-target-global-room-btn id="public-room-global"
-                                        data-target-room="global">
+                                        data-target-room="Global Room">
                                             <a class="nav-link d-flex" >
                                                 <i class="fas fa-lg mr-3 mt-1 fa-globe-americas" style="font-size: 12px;"></i>
                                                 <div style="font-weight: 500;">Global Room</div>
@@ -112,7 +112,7 @@
                                             <a class="nav-link d-flex" href="#"><i class="fas fa-lg mr-3 mt-1 fa-users"></i><div>General Room</div></a>
                                         </li> -->
                                         <li class="nav-item mb-1" data-target-national-room-btn id="public-room-national"
-                                        data-target-room="national">
+                                        data-target-room="National Room">
                                             <a class="nav-link d-flex">
                                                 <i class="fas fa-lg mr-3 mt-1 fa-flag" style="font-size: 12px;"></i>
                                                 <div style="font-weight: 500;">National Room</div>
@@ -169,7 +169,7 @@
                                         <div class="back-to-select-room col-6 col-md-8 mt-3 p-0">
                                             <p class="color-white ml-2">
                                                 <i class="fas fa-arrow-left back-to-select-room-icon fa-lg border mr-2"></i>
-                                                <span data-chat-identity-view>Global Room</span>&nbsp;-&nbsp;<span>350 members</span>
+                                                <span data-chat-identity-view></span>&nbsp;-&nbsp;<span>350 members</span>
                                             </p>
                                         </div>
     
@@ -254,7 +254,7 @@
                                         </div>
                                     </div>
                                 </div>
-                               </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -277,6 +277,7 @@
 <script src="js/general/third_party_cdn.js"></script>
 <script src="js/general/loadEmoji.js"></script>
 <script src="js/general/logOut.js"></script>
+<script src="js/api/fetchChatApi.js"></script>
 <script src="js/general/roomAndChatViewToggle.js"></script>
 <script src="js/general/stateRoom.js"></script>
 <script src="js/general/publicRoom.js"></script>
@@ -285,7 +286,6 @@
 <script src="js/brigdeJs/loadChatToDom.js"></script>
 <script src="js/brigdeJs/loadChatFromIndexDb.js"></script>
 <script src="js/brigdeJs/fetchRoomChatBridge.js"></script>
-<script src="js/api/fetchChatApi.js"></script>
 
 <script>
     $(document).on('click', '.input-message-area .dropdown-menu', function (e) {
@@ -327,6 +327,23 @@
 
     adjustForScreenSize(appWindow)
     appWindow.addEventListener("change", () => adjustForScreenSize(appWindow));
+</script>
+
+<script>
+       var widthMatch = window.matchMedia("(min-width: 768px)");
+
+    showRoomAndChatViewOnDesktop = (widthMatch) => {
+        if (widthMatch.matches) {
+            Array.from(document.querySelectorAll('.select-room-section'))[0].style.display = 'block';
+            Array.from(document.querySelectorAll('.chat-view'))[0].style.display = 'block'
+        }
+        if(!widthMatch.matches) {
+            Array.from(document.querySelectorAll('.chat-view'))[0].style.display = 'none'
+        }
+    }
+
+    showRoomAndChatViewOnDesktop(widthMatch)
+    widthMatch.addEventListener("change", () => showRoomAndChatViewOnDesktop(widthMatch));
 </script>
 
 
