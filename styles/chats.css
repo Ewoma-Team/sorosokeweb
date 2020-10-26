@@ -51,11 +51,13 @@
     border-radius: 6px;
     position: absolute;
     left: 50%;
+    margin-left: -50px;
     background: #404040;
     color: white;
     font-size: 8px;
     padding: 8px 15px;
     z-index: 5;
+    
 }
 .chat-message .chat-author {
     
@@ -148,16 +150,18 @@
 }
 
 .add-to-favourite-btn span {
-    border: 1px solid white;
-    padding: 5px 10px 5px 10px;
+    background: green;
     cursor: pointer;
-    border-radius: 25px;
     font-weight: 500;
 }
-.add-to-favourite-btn span:hover {
-    color: #e6e6e6;
-    background: #ec0b43;
-    border: 1px solid #ec0b43;
+.add-to-favourite-btn i {
+    padding-top: 8px;
+
+    cursor: pointer;
+}
+
+.add-to-favourite-btn i:hover {
+    color: #ec0b43;
 }
 
 .add-to-favourite-btn .icon{
@@ -186,9 +190,7 @@
 @media screen and (max-width: 768px) {
 
     /*Hide the chat view at mobile screen and view with javascript */
-    .chat-view {
-        display: none;
-    }
+  
     .chat-view-actual {
       margin-bottom: 10px;
     }

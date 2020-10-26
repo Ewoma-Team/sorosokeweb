@@ -10,7 +10,7 @@ const fetchRoomChatBrigde = (e) => {
     document.querySelector('[data-chat-identity-view]').textContent = roomName;
 
     //View the chat spot on mobile screen
-    roomAndChatViewToggle('room-view') 
+    roomAndChatViewResizeWithClick('room-view') 
 
     //Store selected room to locatorage to persitense purpose
     localStorage.setItem('@-SOROSOKE-APP-CURRENT-CHAT-ROOM', JSON.stringify(roomName));
@@ -37,7 +37,7 @@ const fetchChatWithPersitRoom = () => {
                 document.querySelector('[data-chat-identity-view]').textContent = getPersitRoom;
 
                 //View the chat spot on mobile screen
-                roomAndChatViewToggle('room-view') 
+                rooomAndChatViewResizeWithRefresh(getPersitRoom)
         
                 //get The Chat From Server
                 fetchChatApi()
