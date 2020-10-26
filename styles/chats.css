@@ -191,9 +191,6 @@
 
     /*Hide the chat view at mobile screen and view with javascript */
   
-    .chat-view-actual {
-      margin-bottom: 10px;
-    }
     .input-message-area form {
         padding: 2px !important;
     }
