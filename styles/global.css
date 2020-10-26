@@ -119,7 +119,7 @@ body {
     background: #151314;
     background-position: center;
     background-size: cover;
-    z-index: 9;
+    z-index: 99;
 }
 .loader-logo {
     width: 40vh;
@@ -267,8 +267,7 @@ body {
     width: 149.27px;
 }
 .content-showcase {
-    max-height: 100vh;
-    /* padding-bottom: 15vh; */
+    height: 100vh;
 }
 .mobile-nav {
     background: white;

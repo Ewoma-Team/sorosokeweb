@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="favicon.png">
@@ -82,7 +84,7 @@
                     </div>
                     <div class="col-12 row content-showcase scroller mx-0 mt-3 mt-md-0" style="height: 84%;">
                         <div class="col-12 row mx-0 chats-full p-0">
-                            <div class="col-12 col-md-3 px-0 select-room-section">
+                            <div class="col-12 col-md-3 px-0 select-room-section animate__animated animate__fadeIn">
                                 <div class="col-12 px-0 search-rooms mb-3">
                                     <form>
                                         <div class="form-group col-12 mx-auto">
@@ -161,21 +163,23 @@
 
                                 </div>
                             </div>
-                            <div class="col-12 col-md-9 chat-view px-0">
+                            <div class="col-12 col-md-9 chat-view px-0 animate__animated animate__fadeIn">
                                 <div class="col-12 chat-view-actual scroller px-0">
                                     <div class="col-12 row m-0 p-0 room-title-information">
                                         <span data-chat-identity class="d-none"></span>
     
                                         <div class="back-to-select-room col-6 col-md-8 mt-3 p-0">
-                                            <p class="color-white ml-2">
-                                                <i class="fas fa-arrow-left back-to-select-room-icon fa-lg border mr-2"></i>
-                                                <span data-chat-identity-view></span>&nbsp;-&nbsp;<span>350 members</span>
+                                            <p class="color-white ml-0 ml-md-2" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+                                                <i data-back-to-room class="fas fa-arrow-left back-to-select-room-icon fa-lg mr-1"></i>
+                                                <span data-chat-identity-view></span>&nbsp;-&nbsp;<span>350 <i class="fas fa-users icon fa-lg" style="font-size: 10px;"></i></span>
                                             </p>
                                         </div>
     
                                         <div class="add-to-favourite-btn mt-3 col-6 col-md-4 p-0 pr-2">
                                             <p class="color-white ml-2 float-right">
-                                                <span><i class="fas fa-heart icon fa-lg"></i> Add To Favourite</span>
+                                                <i class="fas fa-heart icon fa-lg mr-1" style="font-size: 16px;"></i>
+                                                <img class="mr-1" width="25" height="25" src="/images/menu-icon.png" alt="" style="cursor: pointer;">
+                                                <span></span>
                                             </p>
                                         </div>
     
@@ -275,10 +279,11 @@
 </body>
 <!--Import third party cdn-->
 <script src="js/general/third_party_cdn.js"></script>
+<script src="js/general/chat.js"></script>
 <script src="js/general/loadEmoji.js"></script>
 <script src="js/general/logOut.js"></script>
 <script src="js/api/fetchChatApi.js"></script>
-<script src="js/general/roomAndChatViewToggle.js"></script>
+<script src="js/general/roomAndChatViewResize.js"></script>
 <script src="js/general/stateRoom.js"></script>
 <script src="js/general/publicRoom.js"></script>
 <script src="js/general/friendRoom.js"></script>
@@ -328,23 +333,5 @@
     adjustForScreenSize(appWindow)
     appWindow.addEventListener("change", () => adjustForScreenSize(appWindow));
 </script>
-
-<script>
-       var widthMatch = window.matchMedia("(min-width: 768px)");
-
-    showRoomAndChatViewOnDesktop = (widthMatch) => {
-        if (widthMatch.matches) {
-            Array.from(document.querySelectorAll('.select-room-section'))[0].style.display = 'block';
-            Array.from(document.querySelectorAll('.chat-view'))[0].style.display = 'block'
-        }
-        if(!widthMatch.matches) {
-            Array.from(document.querySelectorAll('.chat-view'))[0].style.display = 'none'
-        }
-    }
-
-    showRoomAndChatViewOnDesktop(widthMatch)
-    widthMatch.addEventListener("change", () => showRoomAndChatViewOnDesktop(widthMatch));
-</script>
-
 
 </html>

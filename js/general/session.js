@@ -30,3 +30,4 @@ token ? checkUser(token) : location.replace(`${window.location.origin}`);
 //Get the user info through object destructuring
 
 
+
