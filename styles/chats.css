@@ -168,7 +168,28 @@
     color: white;
 }
 .chat-dom {
-    height: 90%;
+    height: 78%;
+}
+.horizon-menu {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+}
+.horizon-menu:hover {
+    filter: invert(15%) sepia(62%) saturate(6262%) hue-rotate(337deg) brightness(92%) contrast(101%);
+}
+
+.menu-drop-view {
+    width: 20px;
+    background: #676767;
+    margin: 0;
+    padding: 0;
+}
+.menu-drop-view a{
+    color: #ffffff;
+    font-size: 10px;
+}
+.menu-drop-view a:hover{
+    color: #ffffff;
+    background: #ec0b43;
 }
 .state-li {
     transition: 1s all ease;
