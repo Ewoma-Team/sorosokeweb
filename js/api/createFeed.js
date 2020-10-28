@@ -11,7 +11,7 @@ const uploadFileErrorHandling = (status, result) => {
     console.log(status, result)
     if (status !== 201) {
         alertify.set('notifier','position', 'top-right');
-        alertify.error(`Upload Failed : ${result.info}`);
+        alertify.error(`Upload Failed : ${result.info ? result.info : result.message}`);
         result.hint ? alertify.error(`Upload Failed : ${result.hint}`) : null
         return false;   
     }
@@ -81,14 +81,18 @@ const triggerCreateFeedApi = async (e) => {
         if (result.success) {
             uploadFileBtn.disabled = false;
             uploadFileBtn.innerHTML = `Upload`;
-            resetUpload()
+            resetUpload(false)
             fileInfo.innerHTML = `<span>Your file is uploaded successfully!<span>`
             alertify.set('notifier','position', 'top-right');
             alertify.success(`Upload Successfully : Upload done successfully.`);
             return true;
         }
+
+        uploadFileBtn.disabled = false;
+        uploadFileBtn.innerHTML = `Upload`;
         
-        uploadFileErrorHandling(status, result)
+        uploadFileErrorHandling(status, result);
+
     } catch (error) {
         console.log(error)
         uploadFileBtn.disabled = false;

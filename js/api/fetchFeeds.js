@@ -1,5 +1,5 @@
 
-
+const feedsViewPreload = document.querySelector('[data-target-feed-preload]')
 
 
 const fetchFeedErrorHandling = (status, result) => {
@@ -56,7 +56,7 @@ const fetchFeedsApi = async () => {
 
 
 const loadFeedsToDom = (feeds, imageOrigin, videoOrigin) => {
-    const feedsViewPreload = document.querySelector('[data-target-feed-preload]')
+
     feedsViewPreload.innerHTML = '';
 
     if(feeds.lenght === 0) {
@@ -66,50 +66,63 @@ const loadFeedsToDom = (feeds, imageOrigin, videoOrigin) => {
     }
 
     feeds.map(feed => {
-        const {feed_id, file_type, description, location, file_url, user, humanreadabletime} = feed;
-        const {id, screen_name, name, photo, user_id, verified} = user;
-
-        let wallView = '';
-
-        if(file_type === 'image') {
-            wallView = `<img style="width: 100%; height: 100%; border: 1px solid grey; border-radius: 2px;" src="${imageOrigin}${file_url}" alt=""></img>`
-        }
-
-        if(file_type === 'video') {
-            wallView =  `<video id="video-tag" src="${videoOrigin}${file_url}" style="width: 100%; height: 100%; border: 1px solid grey; border-radius: 2px;" 
-                                controls poster="/images/logo.png">
-                                    Your browser does not support the video tag.
-                        </video>`
-        }
-
-        feedsViewPreload.innerHTML += `
-        <div class="col-10 col-sm-5 col-md-4 col-lg-3 mx-auto mx-md-0 feeds-showcase-single mb-4 p-0 p-sm-2" data-target-feed-id="${feed_id}">
-            <div class="col-12 feed-image px-0">
-                ${
-                    wallView
-                }
-            </div>
-            <div class="col-12 d-flex row justify-content-start post-author mt-2 p-0 m-0">
-                <p class="color-white col-12 mb-0 pb-0" style="font-size: 12px; font-weight: 300;">
-                    <img class="post-author-image" src="${photo}" alt="U">
-                    <span>&nbsp;&nbsp;${name}</span><span style="font-size: 8px"> ~ ${humanreadabletime}</span>
-                </p>
-                <p class="color-white col-12 mt-0 pt-0" style="font-size: 12px; font-weight: 300; text-align: right;">
-                   <span style="font-size: 8px"> @${screen_name}</span>&nbsp;<span style="font-size: 8px;" title="Twitter Verifed">${verified ? `<i class="fa fa-check-circle" style="font-size:10px"></i>` : ''}</span>
-                </p>
-            </div>
-            <div class="col-12 d-flex p-0 m-0">
-                <p class="color-white" style="font-size: 10px; font-weight: 300; text-align: justify;">
-                    ${description}
-                </p>
-            </div>
-            <div class="col-12 d-flex p-0 m-0">
-                <p class="color-white" style="font-size: 10px; font-weight: 300; text-align: justify;">
-                    ${location ? location : ''}
-                </p>
-            </div>
-        </div>`;
+       loadFeedToView(feed, imageOrigin, videoOrigin, "non-socket")
     })
+}
+
+
+const loadFeedToView = (feed, imageOrigin, videoOrigin, action) => {
+    const {feed_id, file_type, description, location, file_url, user, humanreadabletime} = feed;
+    const {id, screen_name, name, photo, user_id, verified} = user;
+
+    let wallView = '';
+
+    if(file_type === 'image') {
+        wallView = `<img style="width: 100%; height: 100%; border: 1px solid grey; border-radius: 2px;" src="${imageOrigin}${file_url}" alt=""></img>`
+    }
+
+    if(file_type === 'video') {
+        wallView =  `<video id="video-tag" src="${videoOrigin}${file_url}" style="width: 100%; height: 100%; border: 1px solid grey; border-radius: 2px;" 
+                            controls poster="/images/logo.png">
+                                Your browser does not support the video tag.
+                    </video>`
+    }
+
+    const feedDiv = `
+            <div class="col-10 col-sm-5 col-md-4 col-lg-3 mx-auto mx-md-0 feeds-showcase-single mb-4 p-0 p-sm-2" data-target-feed-id="${feed_id}">
+                <div class="col-12 feed-image px-0">
+                    ${
+                        wallView
+                    }
+                </div>
+                <div class="col-12 d-flex row justify-content-start post-author mt-2 p-0 m-0">
+                    <p class="color-white col-12 mb-0 pb-0" style="font-size: 12px; font-weight: 300;">
+                        <img class="post-author-image" src="${photo}" alt="U">
+                        <span>&nbsp;&nbsp;${name}</span><span style="font-size: 8px"> ~ ${humanreadabletime}</span>
+                    </p>
+                    <p class="color-white col-12 mt-0 pt-0" style="font-size: 12px; font-weight: 300; text-align: right;">
+                    <span style="font-size: 8px"> @${screen_name}</span>&nbsp;<span style="font-size: 8px;" title="Twitter Verifed">${verified ? `<i class="fa fa-check-circle" style="font-size:10px"></i>` : ''}</span>
+                    </p>
+                </div>
+                <div class="col-12 d-flex p-0 m-0">
+                    <p class="color-white" style="font-size: 10px; font-weight: 300; text-align: justify;">
+                        ${description}
+                    </p>
+                </div>
+                <div class="col-12 d-flex p-0 m-0">
+                    <p class="color-white" style="font-size: 10px; font-weight: 300; text-align: justify;">
+                        ${location ? location : ''}
+                    </p>
+                </div>
+            </div>`
+
+    if(action === 'non-socket') {
+        feedsViewPreload.innerHTML += `${feedDiv}`;
+    }
+
+    if(action === 'socket') {
+        $('[data-target-feed-preload]').prepend(feedDiv);
+    }
 }
 
 fetchFeedsApi();

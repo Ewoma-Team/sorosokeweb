@@ -11,4 +11,3 @@ const token = localStorage.getItem('@-sorosoke-webapp-token') ? JSON.parse(local
 let status = null; //This handles the status code from the api result
 
 let page = 1; //This handles the pagination page for API.
-

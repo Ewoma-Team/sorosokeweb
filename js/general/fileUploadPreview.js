@@ -40,24 +40,29 @@ fileUpload.addEventListener('change', (e) => previewFile(e))
 
 
 clearFile.addEventListener('click', (e) => {
-   resetUpload()
+   resetUpload(true)
 })
 
 
-const resetUpload = () => {
+const resetUpload = (clearBtn) => {
+    console.log()
     file = null;
     clearFile.style.display = 'none';
+
     imagetag.src = '';
     imagetag.style.display = 'none';
     fileUpload.value = null;
+
     document.querySelector('#click-for-upload').style.display = 'block';
     document.querySelector('#click-for-write-up').innerHTML = `<span style="color: #d61545;">Click here</span> to browse
     device for <br> media you wish to upload`;
-    document.querySelector('#upload-feed-form').reset()
+
     stopMedia()
     fileUpload.addEventListener('ended', stopMedia);
     videoTag.src = '';
     videoTag.style.display = 'none';
+
+    !clearBtn ? document.querySelector('#upload-feed-form').reset() : null;
 }
 
 const stopMedia = () => {

@@ -3,7 +3,7 @@ const chatView = document.querySelector('[data-target-chat-dom]');
 
 
 const loadChatToDom = () => {
-
+    chatView.innerHTML = '';
     chatView.innerHTML += `
         <div class="floating-chat-day">
             <span class="">Yesterday</span>
