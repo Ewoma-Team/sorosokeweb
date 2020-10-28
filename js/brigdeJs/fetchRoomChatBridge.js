@@ -3,10 +3,9 @@
 const fetchRoomChatBrigde = (e) => {
     e.preventDefault()
 
-    particlesJS.load('chat-dom', 'js/packages/particles.js-master/demo/particles.js', function() {
-        console.log('callback - particles.js config loaded');
+    particlesJS.load('chat-dom', 'js/packages/particles.js-master/demo/chatViewParticles.json', function() {
+        //Load the Particle js Animation Effect
     });
-
     const roomName = e.currentTarget.dataset.targetRoom;
 
     //Display room name to the chat view
@@ -32,7 +31,7 @@ const fetchChatWithPersitRoom = () => {
     const getPersitRoom = localStorage.getItem('@-SOROSOKE-APP-CURRENT-CHAT-ROOM') ? JSON.parse(localStorage.getItem('@-SOROSOKE-APP-CURRENT-CHAT-ROOM')) : null;
 
         if(getPersitRoom) {
-                document.querySelectorAll('.chat-header').display = 'block'
+                Array.from(document.querySelectorAll('.chat-header')).map(x => x.style.display = 'block')
                 document.querySelector('[data-chat-identity]').textContent = getPersitRoom;
                 document.querySelector('[data-chat-identity-view]').textContent = getPersitRoom;
 
@@ -44,10 +43,6 @@ const fetchChatWithPersitRoom = () => {
         }
 
         if(!getPersitRoom) {
-            /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-            // particlesJS.load('chat-dom', 'js/packages/particles.js-master/particles.json', function() {
-            //     console.log('callback - particles.js config loaded');
-            // });
             //Display chat menu if a room is selected
             document.querySelector('[data-target-chat-dom]').innerHTML = `
             <div class="loader-logo col-12 mx-auto animate__animated animate__fadeIn" style="margin-top: 20px;">

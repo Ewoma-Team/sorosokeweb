@@ -9,11 +9,11 @@ Import Note: The base_url.js hold every every third party base url origin and ap
 class Routes {
 
     get socketConnection() {
-        return io('http://127.0.0.1:8200');
+        return io('https://api-sorosoke.herokuapp.com/');
     }
 
     get apiOrigin() {
-      return 'http://127.0.0.1:8200/';
+      return 'https://api-sorosoke.herokuapp.com/';
     }
 
     get apiVersion() {
