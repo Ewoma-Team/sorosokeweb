@@ -10,13 +10,16 @@
     height: 100%;
     /* border: 1px solid #ec0b43; */
 }
+.chat-header {
+    display: none;
+}
 .search-rooms input {
     background-color: inherit !important;
     border: none;
     font-size: 13px;
     font-weight: 300;
     color: white !important;
-    height: 51px;
+    height: 50px;
 }
 .search-rooms input::placeholder {
     color: lightgrey;
@@ -41,6 +44,7 @@
     font-weight: 400;
     background: #676767;
     border-bottom: .1px solid grey;
+    height: 50px;
 }
 .chat-view-actual {
     height: 100%;

@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="js/packages/alertifyjs-master/build/css/themes/default.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png">
     <script src="js/packages/alertifyjs-master/build/alertify.min.js"></script>
     <script src="js/packages/socket/socket.io.js"></script>
     <title data-title>Chat</title>
@@ -153,6 +154,22 @@
                                     </ul>
 
                                     <div style="cursor: pointer;" id="friend-room-toggle" class="chat-group-title ml-3 my-2">
+                                        <i class="fas fa-lg mr-1 mt-1 fa-key " style="font-size: 12px;"></i>
+                                        Personal Ro55oms
+                                        <span class="little-dash ml-2"></span>
+                                    </div>
+                                    <ul class="nav flex-column dropdown-div ml-2" data-target-friend-room-dom>
+                                        <!-- Show Friends  -->
+                                        <li class="nav-item mb-1 friends-room-class" id="friend-room-${friend}"
+                                            data-room-type="friend" data-target-room="${friend}">
+                                            <span style="text-align: left; font-weight: 500;" class="nav-link state-li"
+                                                href="#">
+                                                Cloth Line Africa&nbsp;
+                                            </span>
+                                        </li>
+                                    </ul>
+
+                                    <div style="cursor: pointer;" id="friend-room-toggle" class="chat-group-title ml-3 my-2">
                                         <img class="horizon-menu dropdown-toggle" id="dropdownMenuButton"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" width="15"
                                             height="15" src="/images/friends.png" alt=""
@@ -180,8 +197,7 @@
                                 <div class="col-12 chat-view-actual scroller px-0">
                                     <div class="col-12 row m-0 p-0 room-title-information">
                                         <span data-chat-identity class="d-none"></span>
-
-                                        <div class="back-to-select-room col-6 col-md-8 mt-3 p-0">
+                                        <div class="back-to-select-room col-6 col-md-8 mt-3 p-0 chat-header">
                                             <p class="color-white ml-0 ml-md-2"
                                                 style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
                                                 <i data-back-to-room
@@ -191,8 +207,7 @@
                                                         style="font-size: 10px;"></i></span>
                                             </p>
                                         </div>
-
-                                        <div class="add-to-favourite-btn mt-3 col-6 col-md-4 p-0 pr-2">
+                                        <div class="add-to-favourite-btn mt-3 col-6 col-md-4 p-0 pr-2 chat-header">
                                             <div class="dropdown ml-1" style="float: right;">
                                                 <img class="horizon-menu dropdown-toggle" id="dropdownMenuButton"
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -212,10 +227,9 @@
                                                     style="font-size: 16px; float: right;"></i>
                                             </p>
                                         </div>
-
                                     </div>
                                     <div class="h-100">
-                                        <div class="chat-dom scroller" data-target-chat-dom>
+                                        <div id="chat-dom" class="chat-dom scroller" data-target-chat-dom>
                                             <!-- Here the Chat Message Shows here-->
                                         </div>
                                         <div class="input-message-area col-12 pt-1 px-0">
@@ -288,6 +302,10 @@
 <script src="js/brigdeJs/loadChatToDom.js"></script>
 <script src="js/brigdeJs/loadChatFromIndexDb.js"></script>
 <script src="js/brigdeJs/fetchRoomChatBridge.js"></script>
+<!-- scripts -->
+<script src="js/packages/particles.js-master/particles.js"></script>
+<script src="js/packages/particles.js-master/demo/js/chatView.js"></script>
+
 
 <script>
     $(document).on('click', '.input-message-area .dropdown-menu', function (e) {

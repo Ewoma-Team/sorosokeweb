@@ -27,6 +27,14 @@
     font-display: swap;
 }
 
+/*Particle js Animation Styling */
+.particles-js-canvas-el {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+}
+
 .color-white {
     color: white;
 }
@@ -155,12 +163,9 @@ body {
     margin: 0;
     margin-left: auto;
 }
-#uploadModal .mobile-dialog {
-    top: 60%;
-}
-#uploadModal .mobile-dialog .modal-content{
+/* #uploadModal .mobile-dialog .modal-content{
     border-radius: 4vh;
-}
+} */
 #uploadModal .modal-content{
     height: 100vh;
 }
