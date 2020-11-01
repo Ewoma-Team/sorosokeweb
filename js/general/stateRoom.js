@@ -20,7 +20,8 @@ const viewStateToDom = () => {
         const state = x.split("(")
 
         stateDom.innerHTML += `
-            <li class="nav-item mb-1 state-room-class" id="state-room-${state[0]}" data-roon-type="state" data-target-room="${state[0]} State">
+            <li class="nav-item mb-1 state-room-class" id="state-room-${state[0]}" 
+                data-room-type="state" data-room-name="${state[0]} State">
                 <span style="text-align: left; font-weight: 500;" class="nav-link state-li" href="#">${x}</span>
             </li>`;
     })

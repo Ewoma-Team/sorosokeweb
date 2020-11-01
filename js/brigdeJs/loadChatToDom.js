@@ -1,90 +1,72 @@
 
-const chatView = document.querySelector('[data-target-chat-dom]');
+const loadChatToDom = (result, roomName) => {
+    
+    const chatView = document.querySelector('[data-target-chat-dom]');
 
+    if(result.chats.total === 0) {
+        //track This instance wth localStorage to clear when a chat begins
+        localStorage.setItem(`@_SOROSOKE_NO_CHAT_${roomName}`, true)
+        return chatView.innerHTML = `
+            <div class="mt-5">
+                <p style="text-align: center; color: white;">No Message yet in this room<br>
+                  <small style="color: white; text-align: center;">You can start by saying<span style="color: skyblue;"> "Hi I am ${currentUser.name}, I am new here." </span> to start a conversation.</small>
+                <p>
+            </div>`
+        }
 
-const loadChatToDom = () => {
     chatView.innerHTML = '';
-    chatView.innerHTML += `
-        <div class="floating-chat-day">
-            <span class="">Yesterday</span>
-        </div>
-        <div class="col-12 chat-message chat-message-right mb-3">
-            <div
-                class="ml-auto d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
-                <div class="chat-author-image">
-                    <img src="images/sample-girl.png" alt="">
+
+    result.chats.data.map(chatInfo => {
+        //Filter current User chat
+        let chatDiv = null;
+        //Current User Chat Check
+        chatInfo.user.id == currentUser.id ?
+            chatDiv = `<div class="col-12 chat-message chat-message-right mb-3 animated__animated animated__fadeIn">
+                            <div
+                                class="ml-auto d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
+                                <div class="chat-author-image">
+                                    <img src="${currentUser.photo}" onerror="this.onerror=null;this.src='images/logo.png';" alt="">
+                                </div>
+                                <small class="color-white ml-1">${currentUser.name} 
+                                    <span style="font-size: 6px;">@${currentUser.screen_name}</span>
+                                </small>
+                                <small class="ml-auto" style="font-size: 8px;">${dayjs().format('hh:mm a')}</small>
+                            </div>
+                            <div class="ml-auto mt-1 chat-message-con col-12 col-md-5">
+                                <span class="">${chatInfo.chat}</span>
+                                <span style="position: absolute; bottom: 2px; right: 10px; font-size: 10px; color: grey;">
+                                     <i class="fa fa-check" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>` : null;
+
+        //Other User Chat Check
+        chatInfo.user.id != currentUser.id ?
+            chatDiv = `<div class="col-12 chat-message chat-message-left mb-3">
+                <div class="d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
+                    <div class="chat-author-image">
+                        <img src="${chatInfo.user.photo}" onerror="this.onerror=null;this.src='images/logo.png';" alt="">
+                    </div>
+                    <small class="color-white ml-1">${chatInfo.user.name} 
+                    <span style="font-size: 6px;">@${chatInfo.user.screen_name}</span>
+                </small>
+                    <small class="ml-auto" style="font-size: 8px;">${dayjs(chatInfo.created_at).format('hh:mm a')}</small>
                 </div>
-                <small class="color-white ml-1">Eniduro Shade
-                    Thrower</small>
-                <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
-            </div>
-            <div class="ml-auto mt-1 chat-message-con col-12 col-md-5">
-                <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
-                    dignissimos temporibus assumenda quae atque!</span>
-            </div>
-        </div>
-        <div class="col-12 chat-message chat-message-right mb-3">
-            <div
-                class="ml-auto d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
-                <div class="chat-author-image">
-                    <img src="images/sample-girl.png" alt="">
+                <div class="mt-1 chat-message-con col-12 col-md-5">
+                    <span class="">${chatInfo.chat}</span>
                 </div>
-                <small class="color-white ml-1">Eniduro Shade
-                    Thrower</small>
-                <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
-            </div>
-            <div class="ml-auto mt-1 chat-message-con col-12 col-md-5">
-                <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
-                    dignissimos temporibus assumenda quae atque!</span>
-            </div>
-        </div>
-        <div class="col-12 chat-message chat-message-left mb-3">
-            <div class="d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
-                <div class="chat-author-image">
-                    <img src="images/sample-girl.png" alt="">
-                </div>
-                <small class="color-white ml-1">Eniduro Shade
-                    Thrower</small>
-                <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
-            </div>
-            <div class="mt-1 chat-message-con col-12 col-md-5">
-                <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
-                    dignissimos temporibus assumenda quae atque!</span>
-            </div>
-        </div>
-        <div class="col-12 chat-message chat-message-right mb-3">
-            <div
-                class="ml-auto d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
-                <div class="chat-author-image">
-                    <img src="images/sample-girl.png" alt="">
-                </div>
-                <small class="color-white ml-1">Eniduro Shade
-                    Thrower</small>
-                <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
-            </div>
-            <div class="ml-auto mt-1 chat-message-con col-12 col-md-5">
-                <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
-                    dignissimos temporibus assumenda quae atque!</span>
-            </div>
-        </div>
-        <div class="col-12 chat-message chat-message-left mb-3">
-            <div class="d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
-                <div class="chat-author-image">
-                    <img src="images/sample-girl.png" alt="">
-                </div>
-                <small class="color-white ml-1">Eniduro Shade
-                    Thrower</small>
-                <small class="ml-auto" style="font-size: 8px;">2:30PM</small>
-            </div>
-            <div class="mt-1 chat-message-con col-12 col-md-5">
-                <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Reprehenderit placeat obcaecati eligendi quibusdam fugit consectetur
-                    dignissimos temporibus assumenda quae atque!</span>
-            </div>
-        </div>
-    `;
+            </div>` : null;
+
+        $('[data-target-chat-dom]').append(`${chatDiv}`);
+    });
+
+
+    chatView.scrollTo({
+        top: chatView.scrollHeight,
+        behavior: 'smooth'  
+    });
 }
+
+// <div class="floating-chat-day">
+//     <span class="">Yesterday</span>
+// </div>

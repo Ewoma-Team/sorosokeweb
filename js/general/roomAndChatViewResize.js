@@ -35,7 +35,7 @@ const rooomAndChatViewResizeWithRefresh = (getPersitRoom) => {
 
             getPersitRoom ? Array.from(document.querySelectorAll('.select-room-section'))[0].style.display = 'none' : null
 
-            !getPersitRoom ? Array.from(document.querySelectorAll('.chat'))[0].style.display = 'none' : null
+            !getPersitRoom ? Array.from(document.querySelectorAll('.chat-view'))[0].style.display = 'none' : null
         }
     }
 

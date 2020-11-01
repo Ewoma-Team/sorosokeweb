@@ -74,11 +74,11 @@
     padding: 10px 20px;
 }
 .chat-message-right .chat-message-con{
-    border-radius: 0px 25px 25px 25px;
+    border-radius: 25px 0px 25px 25px;
     background: white;
 }
 .chat-message-left .chat-message-con{
-    border-radius: 25px 0px 25px 25px;
+    border-radius: 0px 25px 25px 25px;
     background: #ec0b43;
     color: white;
 }
@@ -98,6 +98,7 @@
     position: absolute;
     bottom: 0px;
     background: #404040;
+    display: none;
 }
 
 .input-message-area .form-group {
@@ -210,7 +211,9 @@
 .back-to-select-room-icon {
     display: none;
 }
-
+.newMessageNotify {
+    visibility: hidden;
+}
 
 @media screen and (max-width: 768px) {
 

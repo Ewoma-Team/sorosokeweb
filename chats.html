@@ -11,6 +11,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="styles/contentPreload.css">
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/chats.css">
     <link rel="stylesheet" href="js/packages/alertifyjs-master/build/css/alertify.min.css" />
@@ -21,6 +22,7 @@
     <script src="js/packages/alertifyjs-master/build/alertify.min.js"></script>
     <script src="js/packages/socket/socket.io.js"></script>
     <title data-title>Chat</title>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="js/general/apiRoutes.js"></script>
     <script src="js/api/openRoute.js"></script>
     <script src="js/general/session.js"></script>
@@ -104,22 +106,32 @@
 
                                     <ul class="nav flex-column ml-2" data-target-public-room-dom>
 
-                                        <li class="nav-item mb-1 active" data-target-global-room-btn
-                                            id="public-room-global" data-target-room="Global Room">
+                                        <li class="nav-item mb-1 roomNameClass" data-target-global-room-btn
+                                            id="public-room-global" data-room-type="public"
+                                            data-room-name="Global">
                                             <a class="nav-link d-flex">
                                                 <i class="fas fa-lg mr-1 mt-1 fa-globe-americas"
                                                     style="font-size: 12px;"></i>
-                                                <div style="font-weight: 500;">Global Room</div>
+                                                <div style="font-weight: 500;">Global&nbsp;
+                                                    <span id="newMessageNotifyGlobal"
+                                                        style="color: black !important; font-weight: 600;"
+                                                        class="badge badge-light newMessageNotify"></span>
+                                                </div>
                                             </a>
                                         </li>
-                                        <!-- <li class="nav-item mb-1" data-target-general-room>
+                                        <!-- <li class="nav-item mb-1 roomNameClass" data-target-general-room>
                                             <a class="nav-link d-flex" href="#"><i class="fas fa-lg mr-3 mt-1 fa-users"></i><div>General Room</div></a>
                                         </li> -->
-                                        <li class="nav-item mb-1" data-target-national-room-btn
-                                            id="public-room-national" data-target-room="National Room">
+                                        <li class="nav-item mb-1 roomNameClass" data-target-national-room-btn
+                                            id="public-room-national" data-room-type="public"
+                                            data-room-name="National">
                                             <a class="nav-link d-flex">
                                                 <i class="fas fa-lg mr-1 mt-1 fa-flag" style="font-size: 12px;"></i>
-                                                <div style="font-weight: 500;">National Room</div>
+                                                <div style="font-weight: 500;">National&nbsp;
+                                                    <span id="newMessageNotifyNational"
+                                                    style="color: black !important; font-weight: 600;"
+                                                    class="badge badge-light newMessageNotify"></span>
+                                                </div>
                                             </a>
                                         </li>
                                     </ul>
@@ -130,8 +142,9 @@
                                         Favourites<span class="little-dash ml-2"></span></div>
                                     <ul class="nav flex-column ml-2" data-target-favourite-room-dom>
                                         <!-- Show Favourites  -->
-                                        <li class="nav-item mb-1 favourite-room-class" id="favourite-room-${favourite}"
-                                            data-room-type="favourite" data-target-room="${favourite}">
+                                        <li class="nav-item mb-1 roomNameClass favourite-room-class" id="favourite-room-${favourite}"
+                                            data-room-type="favourite" data-room-type="favourite"
+                                            data-room-name="${favourite}">
                                             <span style="text-align: left; font-weight: 500;" class="nav-link state-li"
                                                 href="#">
                                                 Daniel Benard&nbsp;
@@ -141,27 +154,28 @@
                                         </li>
                                     </ul>
 
-                                    <div style="cursor: pointer;" id="state-room-toggle" class="chat-group-title ml-3 my-2">
-                                        <img class="horizon-menu dropdown-toggle" id="dropdownMenuButton"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" width="15"
-                                            height="15" src="/images/nigeria-icon.png" alt=""
+                                    <div style="cursor: pointer;" id="state-room-toggle"
+                                        class="chat-group-title ml-3 my-2">
+                                        <img class="horizon-menu" width="15" height="15" src="/images/nigeria-icon.png"
+                                            alt=""
                                             style="cursor: pointer; filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);">
-                                            State Rooms
-                                            <span class="little-dash ml-2"></span>
+                                        State Rooms
+                                        <span class="little-dash ml-2"></span>
                                     </div>
                                     <ul class="nav flex-column dropdown-div ml-2" data-target-state-room-dom>
                                         <!-- Show States  -->
                                     </ul>
 
-                                    <div style="cursor: pointer;" id="friend-room-toggle" class="chat-group-title ml-3 my-2">
+                                    <div style="cursor: pointer;" id="personal-room-toggle"
+                                        class="chat-group-title ml-3 my-2">
                                         <i class="fas fa-lg mr-1 mt-1 fa-key " style="font-size: 12px;"></i>
-                                        Personal Ro55oms
+                                        Personal Rooms
                                         <span class="little-dash ml-2"></span>
                                     </div>
-                                    <ul class="nav flex-column dropdown-div ml-2" data-target-friend-room-dom>
+                                    <ul class="nav flex-column dropdown-div ml-2" data-target-personal-room-dom>
                                         <!-- Show Friends  -->
-                                        <li class="nav-item mb-1 friends-room-class" id="friend-room-${friend}"
-                                            data-room-type="friend" data-target-room="${friend}">
+                                        <li class="nav-item mb-1 roomNameClass personal-room-class" id="personal-room-${friend}"
+                                            data-room-type="personal" data-room-name="Cloth-Line-Africa">
                                             <span style="text-align: left; font-weight: 500;" class="nav-link state-li"
                                                 href="#">
                                                 Cloth Line Africa&nbsp;
@@ -169,19 +183,19 @@
                                         </li>
                                     </ul>
 
-                                    <div style="cursor: pointer;" id="friend-room-toggle" class="chat-group-title ml-3 my-2">
-                                        <img class="horizon-menu dropdown-toggle" id="dropdownMenuButton"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" width="15"
-                                            height="15" src="/images/friends.png" alt=""
+                                    <div style="cursor: pointer;" id="friend-room-toggle"
+                                        class="chat-group-title ml-3 my-2">
+                                        <img class="horizon-menu" width="15" height="15" src="/images/friends.png"
+                                            alt=""
                                             style="cursor: pointer;
-                                         filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);">
+                                            filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);">
                                         Friends
                                         <span class="little-dash ml-2"></span>
                                     </div>
                                     <ul class="nav flex-column dropdown-div ml-2" data-target-friend-room-dom>
                                         <!-- Show Friends  -->
-                                        <li class="nav-item mb-1 friends-room-class" id="friend-room-${friend}"
-                                            data-room-type="friend" data-target-room="${friend}">
+                                        <li class="nav-item mb-1 roomNameClass friends-room-class" id="friend-room-${friend}"
+                                            data-room-type="friend" data-room-type="friend" data-room-name="${friend}">
                                             <span style="text-align: left; font-weight: 500;" class="nav-link state-li"
                                                 href="#">
                                                 Daniel Benard&nbsp;
@@ -196,15 +210,16 @@
                             <div class="col-12 col-md-9 chat-view px-0 animate__animated animate__fadeIn">
                                 <div class="col-12 chat-view-actual scroller px-0">
                                     <div class="col-12 row m-0 p-0 room-title-information">
-                                        <span data-chat-identity class="d-none"></span>
+                                        <span data-room-type-holder class="d-none"></span>
                                         <div class="back-to-select-room col-6 col-md-8 mt-3 p-0 chat-header">
                                             <p class="color-white ml-0 ml-md-2"
                                                 style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
                                                 <i data-back-to-room
                                                     class="fas fa-arrow-left back-to-select-room-icon fa-lg mr-1"></i>
-                                                <span data-chat-identity-view></span>&nbsp;-&nbsp;<span>350 <i
+                                                <span data-room-name-holder></span>&nbsp;-&nbsp;<span>350 <i
                                                         class="fas fa-users icon fa-lg"
-                                                        style="font-size: 10px;"></i></span>
+                                                        style="font-size: 10px;"></i>
+                                                </span>
                                             </p>
                                         </div>
                                         <div class="add-to-favourite-btn mt-3 col-6 col-md-4 p-0 pr-2 chat-header">
@@ -218,7 +233,8 @@
                                                     aria-labelledby="dropdownMenuButton">
                                                     <a class="dropdown-item" href="#">Search Chat</a>
                                                     <a class="dropdown-item" href="#">Block Notification</a>
-                                                    <a class="dropdown-item" href="#" title="Pin this room and make it important.">Pin Room</a>
+                                                    <a class="dropdown-item" href="#"
+                                                        title="Pin this room and make it important.">Pin Room</a>
                                                     <a class="dropdown-item" href="#">Clear Chat</a>
                                                 </div>
                                             </div>
@@ -232,8 +248,8 @@
                                         <div id="chat-dom" class="chat-dom scroller" data-target-chat-dom>
                                             <!-- Here the Chat Message Shows here-->
                                         </div>
-                                        <div class="input-message-area col-12 pt-1 px-0">
-                                            <form class="px-3 pt-1">
+                                        <div data-chat-form class="input-message-area col-12 pt-1 px-0">
+                                            <form id="chatMessageForm" class="px-3 pt-1">
                                                 <div class="d-flex form-group dropup">
                                                     <div class="col pt-3 px-0 text-center" style="cursor: pointer;">
                                                         <img class="chat-icons" src="images/smile.svg" alt=""
@@ -253,17 +269,18 @@
                                                     </div>
 
                                                     <input placeholder="Type your message here" type="text"
+                                                        id="chatMessageValue"
                                                         class="form-control pl-3 col-6 col-sm-9 mx-2"
                                                         aria-describedby="">
                                                     <!-- <div class="col-2 col-md-1 px-0 attachments-div text-center">
                                                             <button type="button"
                                                                 class="btn btn-light attachments-button">
                                                             </button>
-                                                            
                                                         </div> -->
-                                                    <button type="submit"
-                                                        class="btn btn-brand send-chat-button col-2 col-sm-1"><i
-                                                            class="fas fa-paper-plane fa-lg"></i></button>
+                                                    <button id="chatMessageBtn" type="submit"
+                                                        class="btn btn-brand send-chat-button col-2 col-sm-1">
+                                                        <i class="fas fa-paper-plane fa-lg"></i>
+                                                    </button>
                                                 </div>
                                             </form>
                                         </div>
@@ -290,6 +307,7 @@
 </body>
 <!--Import third party cdn-->
 
+<script src="js/general/chatPreload.js"></script>
 <script src="js/general/chat.js"></script>
 <script src="js/general/loadEmoji.js"></script>
 <script src="js/general/logOut.js"></script>
@@ -299,12 +317,23 @@
 <script src="js/general/publicRoom.js"></script>
 <script src="js/general/friendRoom.js"></script>
 <script src="js/general/favouritesRoom.js"></script>
+<script src="js/general/personalRoom.js"></script>
 <script src="js/brigdeJs/loadChatToDom.js"></script>
 <script src="js/brigdeJs/loadChatFromIndexDb.js"></script>
-<script src="js/brigdeJs/fetchRoomChatBridge.js"></script>
-<!-- scripts -->
+<script src="js/brigdeJs/loadRoomToDomBridge.js"></script>
+<script src="js/api/createChat.js"></script>
+
+<!-- Particle Animation scripts -->
 <script src="js/packages/particles.js-master/particles.js"></script>
 <script src="js/packages/particles.js-master/demo/js/chatView.js"></script>
+
+<!--Real Time Event Script-->
+<script src="js/realTime/eventTrigger/chatTrigger.js"></script>
+<script src="js/realTime/eventEmitter/chatEmmiter.js"></script>
+<script src="js/realTime/eventRoomCheck/checkChatRoomOnDisplay.js"></script>
+<script src="js/realTime/eventToDom/chatResponseToDom.js"></script>
+<script src="js/general/newMessageNotify.js"></script>
+
 <script src="js/general/third_party_cdn.js"></script>
 
 <script>
