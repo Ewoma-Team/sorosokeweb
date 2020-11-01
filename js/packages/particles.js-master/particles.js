@@ -1520,7 +1520,6 @@ window.particlesJS = function(tag_id, params){
 };
 
 window.particlesJS.load = function(tag_id, path_config_json, callback){
-  console.log(path_config_json)
   /* load json config */
   var xhr = new XMLHttpRequest();
   xhr.open('GET', path_config_json);

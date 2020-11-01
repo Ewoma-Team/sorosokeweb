@@ -58,13 +58,17 @@ const fetchFeedsApi = async () => {
 const loadFeedsToDom = (feeds, imageOrigin, videoOrigin) => {
 
     feedsViewPreload.innerHTML = '';
-
-    if(feeds.lenght === 0) {
+    console.log(feeds.length)
+    if(feeds.length == 0) {
         feedsViewPreload.innerHTML = `
-            <div><p style="text-align: center;">No Current Feed At The Moment</p></div>
+            <div class="col-12" style="margin-top: 100px">
+                <h3 style="text-align: center; color: white;">No Current Feed At The Moment</h3>
+                <p style="color: white; text-align: center;">Click the upload button to share one...</p>
+            </div>
         `;
+        return false;
     }
-
+ 
     feeds.map(feed => {
        loadFeedToView(feed, imageOrigin, videoOrigin, "non-socket")
     })

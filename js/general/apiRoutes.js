@@ -39,6 +39,32 @@ class Routes {
     fetchFeeds(page) {
         return `feeds/${page}`
     }
+
+    roomMessages(roomType, roomName, page, toId = null) {
+        switch (roomType) {
+            case 'public':
+                return `public/room/messages/${roomName}/${page}`
+            case 'state':
+                return `state/room/messages/${roomName}/${page}`
+            case 'friend':
+                return `friend/room/messages/${roomName}/${toId}/${page}`
+            case 'personal':
+                return `personal/room/messages/${roomName}/${page}`
+        }
+    }
+
+    createChat(roomType, toId =null) {
+        switch (roomType) {
+            case 'public':
+                return "public/room/chat"
+            case 'state':
+                return "state/room/chat"
+            case 'friend':
+                return `friend/room/chat/${toId}`
+            case 'personal':
+                return "personal/room/chat"
+        }
+    }
 }
   
   

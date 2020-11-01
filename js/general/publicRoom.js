@@ -25,13 +25,13 @@ publicRoomBtn.addEventListener('click', (e) => publicRoomToggle(e))
 
 const globalRoomBtn = document.querySelector('[data-target-global-room-btn]');
 
-globalRoomBtn.addEventListener('click', (e) => fetchRoomChatBrigde(e))
+globalRoomBtn.addEventListener('click', (e) => loadRoomToDomBrigde(e))
 
 //Click the national Room .....and Fetch the national Room Chat 
 
 const nationalRoomBtn = document.querySelector('[data-target-national-room-btn]');
 
-nationalRoomBtn.addEventListener('click', (e) => fetchRoomChatBrigde(e))
+nationalRoomBtn.addEventListener('click', (e) => loadRoomToDomBrigde(e))
 
 
 

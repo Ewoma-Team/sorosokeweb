@@ -26,6 +26,44 @@
     -webkit-animation: loader 2s infinite ease-in-out;
 }
 
+.chat-content-preloader .item-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    float: left;
+    animation: loader 2s infinite ease-in-out;
+    -webkit-animation: loader 2s infinite ease-in-out;
+}
+
+.chat-content-preloader .item-name {
+    width: 100px;
+    height: 10px;
+    margin-top: 10px;
+    float: left;
+    margin-left: 10px;
+    animation: loader 2s infinite ease-in-out;
+    -webkit-animation: loader 2s infinite ease-in-out;
+}
+
+.chat-content-preloader .item-time {
+    width: 50px;
+    height: 10px;
+    margin-top: 10px;
+    float: right;
+    animation: loader 2s infinite ease-in-out;
+    -webkit-animation: loader 2s infinite ease-in-out;
+}
+.chat-content-preloader .content{
+    margin-top: 35px !important;
+}
+.chat-content-preloader .content .title {
+    height: 50px;
+    margin: 10px;
+    border-radius: 25px;
+    animation: loader 2s infinite ease-in-out;
+    -webkit-animation: loader 2s infinite ease-in-out;
+}
+
 @keyframes loader {
     0% {
         background-color: rgba(165, 165, 165, 0.1);
@@ -50,6 +88,7 @@
     }
 }
 
+
 @media(max-width: 900px) {
     .content-preloader .item-image {
         width: 90%;
@@ -57,3 +96,16 @@
         height: 150px;
     }
 }
+
+@media(max-width: 350px){
+        
+    .chat-content-preloader .item-name {
+        width: 70px;
+    }
+
+    .chat-content-preloader .item-time {
+        width: 30px;
+    }
+}
+
+
