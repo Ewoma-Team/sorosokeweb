@@ -39,7 +39,7 @@ const createChatFunc = async (e) => {
     const roomName = document.querySelector('[data-room-name-holder]').textContent;
 
     let data = new FormData();
-    data.append('chat', titleCase(chatMessageValue.value));
+    data.append('chat', chatMessageValue.value);
     data.append('room_name', titleCase(roomName));
     const file = new File(['faker'], "@sorosoke-faker-file-763929-ignore.png", { type: 'image/png' });
     data.append('file_url', chatFileInfo ? chatFileInfo : file);
