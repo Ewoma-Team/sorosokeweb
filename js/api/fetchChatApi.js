@@ -24,13 +24,13 @@ const fetchChatApi = async (roomType, roomName) => {
         if (result.success) {
             //Load the Chat Response To DOM
             console.log(result)
-            localStorage.setItem(`@-SOROSOKE_ROOM_NEXT_CHAT_PAGINATE-${roomName}`, Number(result.chats.page + 1));
+            localStorage.setItem(`@_SOROSOKE_ROOM_NEXT_CHAT_PAGINATE_${roomName}`, Number(result.chats.page + 1));
             loadChatToDom(result, roomName)
         }
 
     } catch (error) {
         alertify.set('notifier','position', 'top-center');
-        alertify.error(`Authentication Failed : An error occured while authenticating account.`);
+        alertify.error(`An expected error occured, please refresh and try again or contact us if problem persit.`);
         return false;  
     }
 }
