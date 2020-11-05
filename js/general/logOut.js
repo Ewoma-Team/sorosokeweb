@@ -7,10 +7,7 @@ console.log(logOutBtns)
 const logOutFunc = (e) => {
     e.preventDefault()
 
-    localStorage.removeItem('@-sorosoke-webapp-token')
-    localStorage.removeItem('@-sorosoke-webapp-userData')
-    localStorage.removeItem('@-SOROSOKE-APP-CURRENT-CHAT-ROOM')
-    localStorage.removeItem('@-sorosoke-fetch-feed-next-page')
+    localStorage.clear()
 
     location.replace(`${window.location.origin}`);
     

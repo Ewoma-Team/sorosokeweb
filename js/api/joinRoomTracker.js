@@ -1,10 +1,9 @@
-const fetchChatApi = async (roomType, roomName) => {
 
-    console.log(roomType, roomName)
-    console.log(`${apiOrigin}${apiVersion}${roomMessages(roomType, roomName, page)}`)
 
+const joinRoomTrackerFunc = async (roomName) => {
+    localStorage.setItem(`@_SOROSOKE_APP_USER_ROOM_COUNT`, 0)
     try {
-        const response = await fetch(`${apiOrigin}${apiVersion}${roomMessages(roomType, roomName, page)}`, {
+        const response = await fetch(`${apiOrigin}${apiVersion}${joinRoomTracker(roomName)}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -15,7 +14,6 @@ const fetchChatApi = async (roomType, roomName) => {
         });
 
         if (!response.ok) {
-            console.log(response.status)
             status = response.status
         }
 
@@ -24,8 +22,6 @@ const fetchChatApi = async (roomType, roomName) => {
         if (result.success) {
             //Load the Chat Response To DOM
             console.log(result)
-            localStorage.setItem(`@_SOROSOKE_ROOM_NEXT_CHAT_PAGINATE`, Number(result.chats.page + 1));
-            loadChatToDom(result, roomName)
         }
 
     } catch (error) {

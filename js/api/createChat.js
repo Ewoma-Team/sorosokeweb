@@ -36,16 +36,20 @@ const createChatFunc = async (e) => {
     const chatDiv = document.querySelector('[data-target-chat-dom]')
 
     const roomType = document.querySelector('[data-room-type-holder]').textContent;
-    const roomName = document.querySelector('[data-room-name-holder]').textContent;
+    const roomName = document.querySelector('[data-room-name-holder]').textContent.split(" ").join("-");
 
     let data = new FormData();
     data.append('chat', chatMessageValue.value);
     data.append('room_name', titleCase(roomName));
+
     const file = new File(['faker'], "@sorosoke-faker-file-763929-ignore.png", { type: 'image/png' });
     data.append('file_url', chatFileInfo ? chatFileInfo : file);
 
     //Check and clear the No-chat tracker from localStorage to enable live chat embedding
-    if (localStorage.getItem(`@_SOROSOKE_NO_CHAT_${roomName}`)) { chatDiv.innerHTML = ''; }
+    if (localStorage.getItem(`@_SOROSOKE_NO_CHAT_${roomName}`)) {
+         chatDiv.innerHTML = ''; 
+         localStorage.removeItem(`@_SOROSOKE_NO_CHAT_${roomName}`)
+    }
 
     //Append chat to dom 
     const timeId = addMessage(chatMessageValue.value, chatDiv)

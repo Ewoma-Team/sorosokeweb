@@ -65,6 +65,14 @@ class Routes {
                 return "personal/room/chat"
         }
     }
+
+    joinRoomTracker(roomName) {
+        return `room/count/${roomName}`
+    }
+
+    get createPersonalRoom() {
+        return 'personal/create-room'
+    }
 }
   
   

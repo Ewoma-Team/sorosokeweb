@@ -91,7 +91,7 @@ const triggerCreateFeedApi = async (e) => {
         uploadFileBtn.disabled = false;
         uploadFileBtn.innerHTML = `Upload`;
         alertify.set('notifier','position', 'top-right');
-        alertify.error(`Upload Failed: An error occured while authenticating account.`);
+        alertify.error(`Upload Failed: An error occured while creating a feed, please refresh and try again or contact support.`);
     }
 }
 

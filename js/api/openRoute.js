@@ -3,7 +3,9 @@ const apiRoute = new Routes;
 
 const {
         apiOrigin, apiVersion, 
-        createFeed, fetchFeeds, checkSession, createChat, roomMessages
+        createFeed, fetchFeeds, checkSession, 
+        createChat, roomMessages, joinRoomTracker,
+        createPersonalRoom
     } = apiRoute;
 
 const token = localStorage.getItem('@-sorosoke-webapp-token') ? JSON.parse(localStorage.getItem('@-sorosoke-webapp-token')): null;
