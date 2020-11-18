@@ -20,7 +20,6 @@ const fetchFeedErrorHandling = (status, result) => {
 
 const fetchFeedsApi = async () => {
 
-    console.log(`${apiOrigin}${apiVersion}${fetchFeeds(page)}`)
     try {
         const response = await fetch(`${apiOrigin}${apiVersion}${fetchFeeds(page)}`, {
             method: 'GET',

@@ -1,10 +1,30 @@
+//Load the Joined Room To DOM
+const fetchYourFriendApi = async () => {
+
+    const url = `${apiOrigin}${apiVersion}${fetchYourFriends(page)}`
+
+    const pageStore = '@-sorosoke-more-joined-room-next-page'
+
+    const response = await apiYourFriendCall(url)
+
+    if(response.success) {
+        //load to Dom
+        const data = response.yourFriend.data;
+
+        insertFriendToDOM(data)
+        localStorage.setItem(pageStore,JSON.stringify(data.page + 1))
+
+        return true
+    }
+
+}
 
 
-const fetchChatApi = async (roomType, roomName = null, toId = null) => {
 
-
+const apiYourFriendCall = async (url) => {
+    
     try {
-        const response = await fetch(`${apiOrigin}${apiVersion}${roomChatMessages(roomType, roomName, page, toId)}`, {
+        const response = await fetch(url, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -15,8 +35,8 @@ const fetchChatApi = async (roomType, roomName = null, toId = null) => {
         });
 
         if (!response.ok) {
-            console.log(response.status)
             status = response.status
+           
         }
 
         const result = await response.json();
@@ -35,21 +55,14 @@ const fetchChatApi = async (roomType, roomName = null, toId = null) => {
         }
 
         if (result.success) {
-            //Load the Chat Response To DOM
-            console.log(result)
-            localStorage.setItem(`@_SOROSOKE_ROOM_NEXT_CHAT_PAGINATE`, Number(result.chats.page + 1));
-            if(roomType === 'friend') {
-                return loadFriendChatToDom(result, roomType, toId)
-            }
-            loadChatToDom(result, roomType, roomName)
+            return result
         }
 
     } catch (error) {
         alertify.set('notifier','position', 'top-center');
-        alertify.error(`An expected error occured, please refresh and try again or contact us if problem persit.`);
+        alertify.error(`An error occured while fetching rooms from our server, please refresh and try again or contact support`);
         return false;  
     }
+
 }
-
-
 

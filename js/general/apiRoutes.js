@@ -40,16 +40,16 @@ class Routes {
         return `feeds/${page}`
     }
 
-    roomMessages(roomType, roomName, page, toId = null) {
+    roomChatMessages(roomType, roomName, page, toId = null) {
         switch (roomType) {
             case 'public':
-                return `public/room/messages/${roomName}/${page}`
+                return `public/room/chat/messages/${roomName}/${page}`
             case 'state':
-                return `state/room/messages/${roomName}/${page}`
+                return `state/room/chat/messages/${roomName}/${page}`
             case 'friend':
-                return `friend/room/messages/${roomName}/${toId}/${page}`
+                return `friend/room/chat/messages/${toId}/${page}`
             case 'personal':
-                return `personal/room/messages/${roomName}/${page}`
+                return `personal/room/chat/messages/${roomName}/${page}`
         }
     }
 
@@ -60,7 +60,7 @@ class Routes {
             case 'state':
                 return "state/room/chat"
             case 'friend':
-                return `friend/room/chat/${toId}`
+                return `friend/room/chat`
             case 'personal':
                 return "personal/room/chat"
         }
@@ -71,8 +71,34 @@ class Routes {
     }
 
     get createPersonalRoom() {
-        return 'personal/create-room'
+        return 'create-room'
     }
+
+    fetchCreatedPersonalRooms(page) {
+        return `fetch/created-rooms/${page}`
+    }
+
+    fetchJoinedPersonalRoom(page) {
+        return `fetch/joined-rooms/${page}`
+    }
+
+    joinPersonalRoom(page, roomCreatorId) {
+        return `join-room/${roomCreatorId}`
+    }
+
+    fetchYourFriends(page) {
+        return `fetch/your-friends/${page}`
+    }
+
+    searchYourFriend(query, page) {
+        return `search/your-friends/${query}/${page}`
+    }
+
+    addFriend(friendId) {
+        return `add/friend/${friendId}`
+    }
+
+
 }
   
   

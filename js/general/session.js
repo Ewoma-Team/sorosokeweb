@@ -14,7 +14,6 @@ const checkUser = (token) => {
         }
     })
     .then(res => {
-        console.log(res)
         if(res) {
             if(res.status !== 200){ 
                 // localStorage.removeItem('@-sorosoke-webapp-token')
