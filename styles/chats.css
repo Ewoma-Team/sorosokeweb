@@ -34,7 +34,7 @@
     box-shadow: none;
 }
 .chat-group-title {
-    font-size: 12px;
+    font-size: 15px;
     color: white;
     font-weight: 400;
 }
@@ -224,12 +224,12 @@
     position: absolute;
     bottom: 0;
 }
-.create-personal-room-btn {
+/* .create-personal-room-btn {
     margin-left: 12px !important;
-}
+} */
 .create-room-show-user-friends {
     border: 1px solid #e6e6e6;
-    height: 40vh;
+    height: 35vh;
     overflow: hidden;
     overflow-y: scroll;
 }
@@ -274,9 +274,9 @@
     .back-to-select-room-icon {
         display: inline-block;
     }
-    .create-personal-room-btn {
+    /* .create-personal-room-btn {
         margin-left: 20px !important;
-    }
+    } */
     
     /* .chat-view-actual {
         margin-bottom: 2px;

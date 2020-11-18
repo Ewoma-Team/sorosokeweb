@@ -1,7 +1,6 @@
 
 const stateDom = document.querySelector('[data-target-state-room-dom]') 
 
-console.log(stateDom)
 const states = [
     "Abia (Umuahia)", "Adamawa (Yola)", "Akwa-Ibom (Uyo)", "Anambra (Awka)",	
     "Bauchi (Bauchi)", "Bayelsa (Yenagoa)", "Benue (Makurdi)", "Borno (Maiduguri)",	
@@ -22,7 +21,7 @@ const viewStateToDom = () => {
         stateDom.innerHTML += `
             <li class="nav-item mb-1 state-room-class roomNameClass" id="state-room-${state[0]}" 
                 data-room-type="state" data-room-name="${state[0]}" data-target-${state[0]}-room-btn>
-                <span style="text-align: left; font-weight: 500;" class="nav-link state-li" href="#">
+                <span style="text-align: left; font-weight: 500;" class="nav-link state-li">
                 ${x}&nbsp;<span id="newMessageNotify${state[0]}" style="color: black !important; font-weight: 600;"
                        class="badge badge-light newMessageNotify"></span>
                 </span>

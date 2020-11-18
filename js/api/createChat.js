@@ -4,7 +4,6 @@ const chatFileInfo = document.querySelector('[data-chat-file-info]')
 const chatMessageValue = document.querySelector('#chatMessageValue');
 
 const uploadFileErrorHandling = (status, result) => {
-    console.log(status, result)
     if (status !== 201) {
         alertify.set('notifier', 'position', 'top-right');
         alertify.error(`Upload Failed : ${result.info ? result.info : result.message}`);
@@ -32,23 +31,36 @@ const validateCreateChatError = () => {
 
 const createChatFunc = async (e) => {
     e.preventDefault();
-
-    const chatDiv = document.querySelector('[data-target-chat-dom]')
-
-    const roomType = document.querySelector('[data-room-type-holder]').textContent;
-    const roomName = document.querySelector('[data-room-name-holder]').textContent.split(" ").join("-");
-
-    let data = new FormData();
-    data.append('chat', chatMessageValue.value);
-    data.append('room_name', titleCase(roomName));
-
+    //Create a new Room Name because 
+    let formData = new FormData();
     const file = new File(['faker'], "@sorosoke-faker-file-763929-ignore.png", { type: 'image/png' });
-    data.append('file_url', chatFileInfo ? chatFileInfo : file);
+    const chatDiv = document.querySelector('[data-target-chat-dom]')
+    const roomType = document.querySelector('[data-room-type-holder]').textContent;
+    let unique = JSON.parse(localStorage.getItem('@_SOROSOKE_UNIQUE_HOLDER'));
+
+       
+    console.log(unique, roomType)
+
+    if(roomType !== 'friend') {
+        let roomNameGet = document.querySelector('[data-room-name-holder]').textContent.split(" ").join("-");
+        unique = unique ? `${roomNameGet}${unique}` : roomNameGet
+        //Append the room Name 
+        formData.append('room_name', titleCase(unique));
+    }
+
+    if(roomType === 'friend') {
+        formData.append('room_name', null);
+        formData.append('to_id', unique);
+    }
+
+    formData.append('chat', chatMessageValue.value);
+    formData.append('file_url', chatFileInfo ? chatFileInfo : file);
+
 
     //Check and clear the No-chat tracker from localStorage to enable live chat embedding
-    if (localStorage.getItem(`@_SOROSOKE_NO_CHAT_${roomName}`)) {
+    if (localStorage.getItem(`@_SOROSOKE_NO_CHAT_${unique.toLowerCase()}`)) {
          chatDiv.innerHTML = ''; 
-         localStorage.removeItem(`@_SOROSOKE_NO_CHAT_${roomName}`)
+         localStorage.removeItem(`@_SOROSOKE_NO_CHAT_${unique.toLowerCase()}`)
     }
 
     //Append chat to dom 
@@ -62,14 +74,18 @@ const createChatFunc = async (e) => {
                 'Accept': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: data
+            body: formData
         });
 
         if (!response.ok) {
             status = response.status
         }
 
+        console.log(response)
+
         const result = await response.json();
+
+        console.log(result)
 
         if (result.success) {
             document.querySelector(`#${timeId}`).innerHTML = `<i class="fa fa-check" aria-hidden="true"></i>`
@@ -78,7 +94,6 @@ const createChatFunc = async (e) => {
 
 
     } catch (error) {
-        console.log(error)
         alertify.set('notifier', 'position', 'top-right');
         alertify.error(`Oops: An error occured, please check your internet connection.`);
     }
@@ -91,14 +106,25 @@ const addMessage = (message, chatDiv) => {
 
     $('[data-target-chat-dom]').append(`
         <div class="col-12 chat-message chat-message-right mb-3 animated__animated animated__fadeIn">
-            <div
-                class="ml-auto d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
-                <div class="chat-author-image">
-                    <img src="${currentUser.photo}" onerror="this.onerror=null;this.src='images/logo.png';" alt="">
+            <div class="ml-auto d-flex justify-content-start chat-author col-12 col-md-5 mt-2">
+                <div class="dropdown" style="cursor: pointer;">
+                <i data-back-to-room id="dropdownMenuButtonChat"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    class="fa fa-angle-down fa-lg "></i>
+                <div class="dropdown-menu menu-drop-view"
+                    aria-labelledby="dropdownMenuButtonChat">
+                    <a class="dropdown-item" href="#" title="Forward message">Forward message</a>
+                    <a class="dropdown-item" href="#" title="Reply">Reply</a>
+                    <a class="dropdown-item" href="#" title="Forward message">Important</a>
+                    <a class="dropdown-item" href="#" title="Delete message">Delete message</a>
                 </div>
-                <small class="color-white ml-1">${currentUser.name} 
-                    <span style="font-size: 6px;">@${currentUser.screen_name}</span>
-                </small>
+            </div>
+            <div class="m-0 p-0">
+                <p class="color-white ml-1 mt-1 p-0 m-0" style="text-overflow: ellipsis; font-style: italic;
+                        overflow: hidden; white-space: nowrap; font-size: 10px; width: 100px">
+                    You
+                </p>
+            </div>
                 <small class="ml-auto" style="font-size: 8px;">${dayjs().format('hh:mm a')}</small>
             </div>
             <div class="ml-auto mt-1 chat-message-con col-12 col-md-5">

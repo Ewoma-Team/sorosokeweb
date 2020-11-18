@@ -4,8 +4,10 @@ const apiRoute = new Routes;
 const {
         apiOrigin, apiVersion, 
         createFeed, fetchFeeds, checkSession, 
-        createChat, roomMessages, joinRoomTracker,
-        createPersonalRoom
+        createChat, roomChatMessages, joinRoomTracker,
+        createPersonalRoom, fetchCreatedPersonalRooms, 
+        fetchJoinedPersonalRoom, fetchYourFriends,
+        searchYourFriend, addFriend
     } = apiRoute;
 
 const token = localStorage.getItem('@-sorosoke-webapp-token') ? JSON.parse(localStorage.getItem('@-sorosoke-webapp-token')): null;
@@ -16,6 +18,12 @@ const currentUser = localStorage.getItem('@-sorosoke-webapp-userData') ? JSON.pa
 let status = null; //This handles the status code from the api result
 
 let page = 1; //This handles the pagination page for API.
+
+let roomIdHolder =  JSON.parse(localStorage.getItem('@_SOROSOKE_UNIQUE_HOLDER'))
+
+let newRoomfriends = [] //Array to hold new friends that will join a room
+
+
 
 
 const titleCase = (string) => {

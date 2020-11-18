@@ -11,6 +11,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="styles/packages/memberModal.css" />
     <link rel="stylesheet" href="styles/contentPreload.css">
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/chats.css">
@@ -27,6 +28,21 @@
     <script src="js/api/openRoute.js"></script>
     <script src="js/general/session.js"></script>
     <script src="js/general/windowObjects.js"></script>
+
+    <style>
+        #your-room-title,
+        #joined-room-title {
+            display: none;
+        }
+
+        .dot-room {
+            height: 5px;
+            width: 5px;
+            background-color: #dc3545;
+            border-radius: 50%;
+            display: inline-block;
+        }
+    </style>
 </head>
 
 <body>
@@ -93,17 +109,17 @@
                                         <div class="form-group col-12 mx-auto">
                                             <i class="fas fa-search fa-xs input-icon"
                                                 style="left: 15px; top: 30%; color: white; font-size: 18px;"></i>
-                                            <input data-target-search-state-room placeholder="Search Rooms, Friends..." type="search"
-                                                class="form-control" aria-describedby="emailHelp"
-                                                style="border-bottom: 1px solid grey; border-radius: 0; padding-left: 30px;">
+                                            <input data-target-search-state-room placeholder="Search Rooms, Friends..."
+                                                type="search" class="form-control" aria-describedby="emailHelp"
+                                                style="border-bottom: 1px solid grey; color: white; border-radius: 0; padding-left: 30px;">
                                         </div>
                                     </form>
                                 </div>
                                 <div class="chat-nav-links scroller pr-4 mt-2">
                                     <div style="cursor: pointer;" id="public-room-toggle"
                                         class="chat-group-title ml-3 mb-2">
-                                        <i class="fas fa-lg mr-1 mt-1 fa-arrow-right" style="font-size: 12px;"></i>
-                                        Public Rooms <span class="little-dash ml-2"></span>&nbsp;
+                                        <i class="fas fa-lg mr-1 fa-arrow-right" style="font-size: 15px;"></i>Public
+                                        Rooms <span class="little-dash ml-2"></span>&nbsp;
                                     </div>
 
                                     <ul class="nav flex-column ml-2" data-target-public-room-dom>
@@ -138,7 +154,7 @@
 
                                     <div style="cursor: pointer;" id="favourite-room-toggle"
                                         class="chat-group-title ml-3 my-2">
-                                        <i class="fas fa-lg mr-1 mt-1 fa-heart " style="font-size: 12px;"></i>
+                                        <i class="fas fa-lg mr-1 fa-heart " style="font-size: 15px;"></i>
                                         Favourites<span class="little-dash ml-2"></span></div>
                                     <ul class="nav flex-column ml-2" data-target-favourite-room-dom>
                                         <!-- Show Favourites  -->
@@ -149,14 +165,14 @@
                                                 href="#">
                                                 Daniel Benard&nbsp;
                                                 <span
-                                                    style="font-size: 8px; font-weight: 500; color: skyblue !important;">@friends</span>
+                                                    style="font-size: 10px; font-weight: 500; color: skyblue !important;">@friends</span>
                                             </span>
                                         </li>
                                     </ul>
 
                                     <div style="cursor: pointer;" id="state-room-toggle"
                                         class="chat-group-title ml-3 my-2">
-                                        <img class="horizon-menu" width="15" height="15" src="/images/nigeria-icon.png"
+                                        <img class="horizon-menu" width="17" height="17" src="/images/nigeria-icon.png"
                                             alt=""
                                             style="cursor: pointer; filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);">
                                         State Rooms
@@ -168,48 +184,43 @@
 
                                     <div style="cursor: pointer;" id="personal-room-toggle"
                                         class="chat-group-title ml-3 my-2">
-                                        <i class="fas fa-lg mr-1 mt-1 fa-key " style="font-size: 12px;"></i>
+                                        <i class="fas fa-lg mr-1 fa-key " style="font-size: 15px;"></i>
                                         Personal Rooms
                                         <span class="little-dash ml-2"></span>
                                     </div>
-                                    <ul class="nav flex-column dropdown-div ml-2" data-target-personal-room-dom>
+                                    <p id="your-room-title" class="chat-group-title ml-4 m-0"
+                                        style="font-size: 10px; font-style: italic;">
+                                        <span class="dot-room"></span> Your rooms &nbsp;<span class="dot-room"></span>
+                                    </p>
+                                    <ul class="nav flex-column dropdown-div ml-4" id="createdRoomDom">
+                                        <!-- Show Created Room -->
+
+                                    </ul>
+                                    <p id="joined-room-title" class="chat-group-title ml-4 m-0"
+                                        style="font-size: 10px; font-style: italic;">
+                                        <span class="dot-room"></span> Joined rooms &nbsp;<span class="dot-room"></span>
+                                    </p>
+                                    <ul class="nav flex-column dropdown-div ml-4" id="joinedRoomDom">
                                         <!-- Show Friends  -->
-                                        <li class="nav-item mb-1 roomNameClass personal-room-class"
-                                            id="personal-room-${friend}" data-room-type="personal"
-                                            data-room-name="Cloth-Line-Africa">
-                                            <span style="text-align: left; font-weight: 500;" class="nav-link state-li"
-                                                href="#">
-                                                Cloth Line Africa&nbsp;
-                                            </span>
-                                        </li>
                                     </ul>
 
                                     <div style="cursor: pointer;" id="friend-room-toggle"
                                         class="chat-group-title ml-3 my-2">
-                                        <img class="horizon-menu" width="15" height="15" src="/images/friends.png"
+                                        <img class="horizon-menu" width="17" height="17" src="/images/friends.png"
                                             alt=""
                                             style="cursor: pointer;
                                             filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);">
                                         Friends
                                         <span class="little-dash ml-2"></span>
                                     </div>
-                                    <ul class="nav flex-column dropdown-div ml-2" data-target-friend-room-dom>
+                                    <ul class="nav flex-column dropdown-div ml-2" id="friend-div">
                                         <!-- Show Friends  -->
-                                        <li class="nav-item mb-1 roomNameClass friends-room-class"
-                                            id="friend-room-${friend}" data-room-type="friend" data-room-type="friend"
-                                            data-room-name="${friend}">
-                                            <span style="text-align: left; font-weight: 500;" class="nav-link state-li"
-                                                href="#">
-                                                Daniel Benard&nbsp;
-                                                <span
-                                                    style="font-size: 8px; font-weight: 500; color: skyblue !important;">@friends</span>
-                                            </span>
-                                        </li>
+
                                     </ul>
 
                                 </div>
-                                <p class="create-personal-room ml-3" 
-                                    data-toggle="modal" data-target=".bd-example-modal-sm">
+                                <p class="create-personal-room ml-3" data-toggle="modal"
+                                    data-target=".bd-example-modal-sm">
                                     <i class="fas fa-lg mr-1 mt-1 fa-plus" style="font-size: 12px;"></i>
                                     Create Room <span class="little-dash ml-2"></span>
                                 </p>
@@ -221,10 +232,8 @@
                                         <div class="back-to-select-room col-6 col-md-8 mt-3 p-0 chat-header">
                                             <p class="color-white ml-0 ml-md-2"
                                                 style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
-                                                <i data-back-to-room
-                                                    class="fas fa-arrow-left back-to-select-room-icon fa-lg mr-1 ml-2"></i>
-                                                <span data-room-name-holder></span>&nbsp;-&nbsp;<span
-                                                    id="userRoomCount"></span>
+                                                <i data-back-to-room class="fas fa-arrow-left back-to-select-room-icon fa-lg mr-1 ml-2"></i>
+                                                <span data-room-name-holder></span>&nbsp;<span id="userRoomCount"></span>
                                             </p>
                                         </div>
                                         <div class="add-to-favourite-btn mt-3 col-6 col-md-4 p-0 pr-2 chat-header">
@@ -313,20 +322,24 @@
     <!-- Create Persaonal Room Modal-->
     <div>
         <!-- Small modal -->
-        <div class="modal fade bd-example-modal-sm modal-center" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-            aria-hidden="true" style="padding-left: 0;">
+        <div class="modal fade bd-example-modal-sm modal-center" tabindex="-1" role="dialog"
+            aria-labelledby="mySmallModalLabel" aria-hidden="true" style="padding-left: 0;">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content" style=" border: none;">
                     <h5 class="pt-3" style="text-align: center; color: #dc3545;">Create Room</h5>
-                    <button style="right: 15px; top: 10px; position: absolute;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button style="right: 15px; top: 10px; position: absolute;" type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <form id="upload-feed-form">
-                        <input id="create-room-name" type="text" style="background: none; border: none;" class="form-control upload-input mt-2 py-4 input-class col-11 mx-auto"
+                        <input id="create-room-name" type="text" style="background: none; border: none;"
+                            class="form-control upload-input mt-2 py-4 input-class col-11 mx-auto"
                             placeholder="Room Name" data-target-location required></input>
 
-                        <textarea id="create-room-desc" style="background: none; border: none;" class="form-control upload-input mt-3 input-class col-11 mx-auto" rows="3"
-                            placeholder="Write something about this room..." data-target-description required></textarea>
+                        <textarea id="create-room-desc" style="background: none; border: none;"
+                            class="form-control upload-input mt-3 input-class col-11 mx-auto" rows="3"
+                            placeholder="Write something about this room..." data-target-description
+                            required></textarea>
 
                         <p style="text-align: center; font-weight: 400;" class="mt-1 m-0 p-0">
                             Add Your Friends
@@ -337,70 +350,24 @@
                                 <div class="form-group col-12 mx-auto">
                                     <i class="fas fa-search fa-xs input-icon"
                                         style="left: 15px; top: 30%; color: black; font-size: 18px;"></i>
-                                    <input placeholder="Search Friends..." type="search" class="form-control create-room-input" aria-describedby="emailHelp"
+                                    <input placeholder="Search Friends..." type="search" id="searchFriendForCreateRoom"
+                                        class="form-control create-room-input" aria-describedby="emailHelp"
                                         style="border-bottom: 1px solid black; border-radius: 0; color: black; padding-left: 30px;">
                                 </div>
                             </form>
                         </div>
-                        <div id="create-room-show-user-friends" style="border: none;"
-                            class="col-11 mx-auto p-0 m-0 create-room-show-user-friends scroller">
-                            <div class="col-12 row mb-2 p-0 m-0 create-friend-box" data-id="1">
-                                <div class="col-3">
-                                    <img class="mt-2" style="max-width: 50px; max-height: 50px;
-                                    border-radius: 50%; background: red;" src="images/sample-girl.png"/>
-                                </div>
-                                <div class="nav-link col-9">
-                                    <p style="text-align: left; font-weight: 500; text-overflow: clip; font-size: 12px;" class="nav-link m-0 p-0">
-                                        Daniel Benard&nbsp;
-                                        <span class="m-0 p-0" style="font-size: 12px; font-weight: 500; color: #dc3545!important;">@friends</span>
-                                    </p>
-                                    <p class="m-0 mt-2 p-0" style="font-size: 10px; font-weight: 500; color: black !important;">
-                                        Hello I am new here, what can contribute.
-                                    </p>
-                                    <span id="selectedFriendIcon1" style="border: 1px solid #dc3545; position: absolute; right: 10px;  bottom: 10px;
-                                        border-radius: 50%; padding: 5px;height: 3px;"></span>
-                                </div>
-                            </div>    
-                            <div class="col-12 row mb-2 p-0 m-0 create-friend-box" data-id="2">
-                                <div class="col-3">
-                                    <img class="mt-2" style="max-width: 50px; max-height: 50px;
-                                    border-radius: 50%; background: red;" src="images/sample-girl.png"/>
-                                </div>
-                                <div class="nav-link col-9">
-                                    <p style="text-align: left; font-weight: 500; text-overflow: clip; font-size: 12px;" class="nav-link m-0 p-0">
-                                        Daniel Benard&nbsp;
-                                        <span class="m-0 p-0" style="font-size: 12px; font-weight: 500; color: #dc3545!important;">@friends</span>
-                                    </p>
-                                    <p class="m-0 mt-2 p-0" style="font-size: 10px; font-weight: 500; color: black !important;">
-                                        Hello I am new here, what can contribute.
-                                    </p>
-                                    <span id="selectedFriendIcon2" style="border: 1px solid #dc3545;position: absolute; right: 10px;  bottom: 10px;
-                                        border-radius: 50%; padding: 5px;height: 3px;"></span>
-                                </div>
-                            </div>    
-                            <div class="col-12 row mb-2 p-0 m-0 create-friend-box" data-id="3">
-                                <div class="col-3">
-                                    <img class="mt-2" style="max-width: 50px; max-height: 50px;
-                                    border-radius: 50%; background: red;" src="images/sample-girl.png"/>
-                                </div>
-                                <div class="nav-link col-9">
-                                    <p style="text-align: left; font-weight: 500; text-overflow: clip; font-size: 12px;" class="nav-link m-0 p-0">
-                                        Daniel Benard&nbsp;
-                                        <span class="m-0 p-0" style="font-size: 12px; font-weight: 500; color: #dc3545!important;">@friends</span>
-                                    </p>
-                                    <p class="m-0 mt-2 p-0" style="font-size: 10px; font-weight: 500; color: black !important;">
-                                        Hello I am new here, what can contribute.
-                                    </p>
-                                    <span id="selectedFriendIcon3" style="border: 1px solid #dc3545;position: absolute; right: 10px;  bottom: 10px;
-                                        border-radius: 50%; padding: 5px;height: 3px;"></span>
-                                </div>
-                            </div>
+                        <div id="create-room-show-user-friends" style="border: none; flex: none;"
+                            class="col-12 mx-auto p-0 m-0 create-room-show-user-friends scroller">
+                            <!-- Search Friend DOM-->
                         </div>
 
-                        <button id="create-personal-room-btn" type="button" class="btn btn-danger create-personal-room-btn col-11 my-3"
-                            style="height: 6vh; font-weight: 600;">
-                            <span style="font-size: 15px;">Create</span>
-                        </button>
+                        <div class="col-12 mx-auto">
+                            <button id="create-personal-room-btn" type="button"
+                                class="btn btn-danger create-personal-room-btn col-12 mx-auto p-0 my-3"
+                                style="height: 6vh; font-weight: 600;"><span
+                                    style="font-size: 15px;">Create</span>
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -410,7 +377,7 @@
 <!--Import third party cdn-->
 <script src="js/general/third_party_cdn.js"></script>
 <script src="js/general/chatPreload.js"></script>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!--Real Time Event Script-->
 <script src="js/realTime/eventToDom/chatResponseToDom.js"></script>
 <script src="js/realTime/eventToDom/loadUserRoomCount.js"></script>
@@ -422,20 +389,30 @@
 <script src="js/general/chat.js"></script>
 <script src="js/general/loadEmoji.js"></script>
 <script src="js/general/logOut.js"></script>
-<script src="js/api/fetchChatApi.js"></script>
+<script src="js/general/newMessageNotify.js"></script>
 <script src="js/general/roomAndChatViewResize.js"></script>
 <script src="js/general/stateRoom.js"></script>
 <script src="js/general/publicRoom.js"></script>
 <script src="js/general/friendRoom.js"></script>
 <script src="js/general/favouritesRoom.js"></script>
 <script src="js/general/personalRoom.js"></script>
+<script src="js/general/previewProfile.js"></script>
+<script src="js/api/fetchChatApi.js"></script>
 <script src="js/api/joinRoomTracker.js"></script>
-<script src="js/brigdeJs/loadChatToDom.js"></script>
-<script src="js/brigdeJs/loadChatFromIndexDb.js"></script>
-<script src="js/brigdeJs/loadRoomToDomBridge.js"></script>
 <script src="js/api/createChat.js"></script>
-<script src="js/general/newMessageNotify.js"></script>
 <script src="js/api/createPersonalRoom.js"></script>
+<script src="js/api/fetchPersonalRooms.js"></script>
+<script src="js/api/fetchYourFriend.js"></script>
+<script src="js/api/addFriend.js"></script>
+<script src="js/api/searchYourFriend.js"></script>
+<script src="js/brigdeJs/loadChatToDom.js"></script>
+<script src="js/brigdeJs/loadFriendChatToDom.js"></script>
+<script src="js/brigdeJs/callRoomChatApiBridge.js"></script>
+<script src="js/brigdeJs/callFriendChatApiBridge.js"></script>
+<script src="js/brigdeJs/loadSearchBridge.js"></script>
+<script src="js/brigdeJs/loadSearchFriendToCreateDOM.js"></script>
+<script src="js/brigdeJs/loadYourFriendToDOM.js"></script>
+
 
 <!-- Particle Animation scripts -->
 <script src="js/packages/particles.js-master/particles.js"></script>
